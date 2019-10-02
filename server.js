@@ -1,43 +1,50 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const path = require('path');
-const config = require('config');
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const passport = require("passport");
+
+const users = require("./routes/api/users");
 
 const app = express();
 
-// Bodyparser Middleware
-app.use(express.json());
+// Bodyparser middleware
+app.use(
+   bodyParser.urlencoded({
+      extended: false
+   })
+);
+app.use(bodyParser.json());
 
 // DB Config
-/* when it is in production */
-// const db = process.env.MONGO_URI;
-/* when it's not in production */
-const db = config.get('mongoURI');
+const db = require("./config/keys").mongoURI;
 
-// Connect to Mongo
+// Connect to MongoDB
 mongoose
-  .connect(db, { 
-    useNewUrlParser: true,
-    useCreateIndex: true
-  }) // Adding new mongo url parser
-  .then(() => console.log('MongoDB Connected...'))
-  .catch(err => console.log(err));
+   .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+   .then(() => console.log("MongoDB successfully connected"))
+   .catch(err => console.log(err));
 
-// Use Routes
-app.use('/api/items', require('./routes/api/items'));
-app.use('/api/users', require('./routes/api/users'));
-app.use('/api/auth', require('./routes/api/auth'));
+// Passport middleware
+app.use(passport.initialize());
 
-// Serve static assets if in production
-if (process.env.NODE_ENV === 'production') {
-  // Set static folder
-  app.use(express.static('client/build'));
+// Passport config
+require("./config/passport")(passport);
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-  });
-}
+// Routes
+app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log(`Server started on port ${port}`));
+// ... other imports
+const path = require("path");
+
+// ... other app.use middleware
+app.use(express.static(path.join(__dirname, "client", "build")));
+
+// ...
+// Right before your app.listen(), add this:
+app.get("*", (req, res) => {
+   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
+
+app.listen(port, () => console.log(`Server up and running on port ${port} !`));
