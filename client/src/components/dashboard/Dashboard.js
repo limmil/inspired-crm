@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 
+import DashboardNavbar from "./DashboardNavbar"
+
 class Dashboard extends Component {
   onLogoutClick = e => {
     e.preventDefault();
@@ -12,31 +14,24 @@ class Dashboard extends Component {
   render() {
     const { user } = this.props.auth;
 
+   
+
     return (
-      <div style={{ height: "75vh" }} className="container valign-wrapper">
-        <div className="row">
-          <div className="landing-copy col s12 center-align">
-            <h4>
-              <b>Hey there,</b> {user.name.split(" ")[0]}
-              <p className="flow-text grey-text text-darken-1">
-                You are logged into a full-stack{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
-              </p>
-            </h4>
-            <button
-              style={{
-                width: "150px",
-                borderRadius: "3px",
-                letterSpacing: "1.5px",
-                marginTop: "1rem"
-              }}
-              onClick={this.onLogoutClick}
-              className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-            >
-              Logout
-            </button>
-          </div>
-        </div>
+      <div>
+
+        <DashboardNavbar />
+        <div class="section no-pad-bot" id="index-banner">
+          <div class="container">
+          <br /><br />
+            <h1 class="header center green-text">Dashboard</h1>
+              <div class="row center">
+                <h5 class="header col s12 light">You are logged into the dashboard. 👏</h5>
+              </div>
+
+              <br /><br />
+
+              </div>
+          </div> 
       </div>
     );
   }
