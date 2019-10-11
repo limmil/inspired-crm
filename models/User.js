@@ -3,6 +3,7 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const UserSchema = new Schema({
+  // user logins
   name: {
     type: String,
     required: true
@@ -15,6 +16,22 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  // contacts data array
+  contacts: [{
+    lname: {
+      type: String
+    },
+    fname: {
+      type: String
+    },
+    phone: {
+      type: String
+    },
+    date: {
+      type: Date,
+      default: Date.now
+    }
+  }],
   date: {
     type: Date,
     default: Date.now
