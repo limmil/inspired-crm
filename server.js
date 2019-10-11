@@ -1,21 +1,20 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 const passport = require("passport");
+const path = require("path");
 
 const users = require("./routes/api/users");
 
 const app = express();
 
 // Bodyparser middleware
-app.use(
-   bodyParser.urlencoded({
-      extended: false
-   })
-);
-app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 // DB Config
+/* when it is in production */
+// const db = process.env.MONGO_URI;
+/* when it's not in production */
 const db = require("./config/keys").mongoURI;
 
 // Connect to MongoDB
@@ -35,16 +34,15 @@ app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;
 
-// ... other imports
-const path = require("path");
 
-// ... other app.use middleware
-app.use(express.static(path.join(__dirname, "client", "build")));
-
-// ...
-// Right before your app.listen(), add this:
-app.get("*", (req, res) => {
-   res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
+// Serve static assets if in production
+if (process.env.NODE_ENV === 'production') {
+   // Set static folder
+   app.use(express.static(path.join(__dirname, "client", "build")));
+ 
+   app.get('*', (req, res) => {
+     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+   });
+ }
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
