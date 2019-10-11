@@ -21,10 +21,16 @@
       "express": "^4.16.4",
       "is-empty": "^1.2.0",
       "jsonwebtoken": "^8.3.0",
+      "materialize-css": "^1.0.0-rc.2",
       "mongoose": "^5.3.11",
       "nodemon": "^1.19.3",
       "passport": "^0.4.0",
       "passport-jwt": "^4.0.0",
+      "react": "^16.10.2",
+      "react-dom": "^16.10.2",
+      "react-landing-page": "^2.0.2",
+      "reactstrap": "^8.0.1",
+      "rebass": "^3.0.0-12",
       "validator": "^10.9.0"
    }
 }
