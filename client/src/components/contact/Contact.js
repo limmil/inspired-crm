@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 
-import DashboardNavbar from "./DashboardNavbar"
+import DashboardNavbar from "../dashboard/DashboardNavbar";
 
-class Dashboard extends Component {
-render() {
+class Contact extends Component {
+render () {
+   
     return (
       <div>
 
@@ -11,9 +12,9 @@ render() {
         <div class="section no-pad-bot" id="index-banner">
           <div class="container">
           <br /><br />
-            <h1 class="header center green-text">Dashboard</h1>
+            <h1 class="header center green-text">Contacts</h1>
               <div class="row center">
-                <h5 class="header col s12 light">You are logged into the dashboard.</h5>
+                <h5 class="header col s12 light">Start entering your contacts.</h5>
               </div>
 
               <br /><br />
@@ -25,4 +26,4 @@ render() {
   }
 }
 
-export default Dashboard;
+export default Contact;

@@ -12,7 +12,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
-
+import Contact from "./components/contact/Contact";
 
 import "./App.css";
 
@@ -51,6 +51,11 @@ class App extends Component {
                         exact
                         path="/dashboard"
                         component={Dashboard}
+                     />
+                     <PrivateRoute
+                        exact
+                        path="/contact"
+                        component={Contact}
                      />
                   </Switch>
                </div>

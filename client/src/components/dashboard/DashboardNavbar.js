@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 
+
+
 class DashboardNavbar extends Component {
   onLogoutClick = e => {
     e.preventDefault();
@@ -17,8 +19,10 @@ class DashboardNavbar extends Component {
         <div className="navbar-fixed">
           <nav className="z-depth-0"></nav>
             <nav class="green lighten-1" role="navigation">
-              <div class="nav-wrapper container"><a href="#foo" id="logo-container" class="brand-logo">TSG CRM</a>
+              <div class="nav-wrapper container"><Link to="/dashboard"><a href="#foo" id="logo-container" class="brand-logo">TSG CRM</a></Link>
                 <ul class="right hide-on-med-and-down">
+                  <li><Link to="/contact">Contacts</Link></li>
+                  <li><a href="#foo">Clients</a></li>
                   <li><a href="#foo"><b>Welcome,</b> {user.name.split(" ")[0]}</a></li>
                   <li><a href="#foo" onClick={this.onLogoutClick} class="waves-effect waves-light btn blue">Logout</a></li>
                 </ul>
