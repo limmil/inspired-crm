@@ -37,6 +37,8 @@ npm install && npm run client-install
 npm run dev
 
 // Server runs on http://localhost:5000 and client on http://localhost:3000
+
+//note that it is available for mobile testing on local network via: http://<YOUR IP>:3000/
 ```
 
 For deploying to Heroku, please refer to [this](https://www.youtube.com/watch?v=71wSzpLyW9k) helpful video by TraversyMedia.
