@@ -4,7 +4,6 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
 const passport = require("passport");
-//const passport2 = require("../../config/passport")
 
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
@@ -85,7 +84,6 @@ router.post("/login", (req, res) => {
           id: user.id,
           name: user.name
         };
-
         // Sign token
         jwt.sign(
           payload,
@@ -96,8 +94,13 @@ router.post("/login", (req, res) => {
             expiresIn: 31556926 // 1 year in seconds
           },
           (err, token) => {
+            // hash the token then save it in db
+            var hash = bcrypt.hashSync(token,bcrypt.genSaltSync(10))
+            user.tokenhash = hash;
+            user.save().catch(err => console.log(err));
             res.json({
               success: true,
+              tokenhash: hash,
               token: "Bearer " + token
             });
           }
@@ -117,12 +120,83 @@ router.post("/login", (req, res) => {
 router.post("/addcontact", 
 passport.authenticate('jwt', { session: false }), 
 (req, res) => {
-  // Form validation?
-  // Check validation?
-  res.send('Authenticated123');
+  // contact info
+  var newContact = {
+    lname: req.body.lname,
+    fname: req.body.fname,
+    phone: req.body.phone
+  };
+  // Check validation
+  const email = req.body.email;
+  const tokenhash = req.body.tokenhash;
+  User.findOne({ email }).then(user => {
+    if (user.tokenhash == tokenhash){
+      // add one contact
+      user.contacts.push(newContact);
+      user.save();
+      // response with contacts array
+      res.send(user.contacts);
+    } else{
+      res.send('Unauthorized');
+    }
+  });
 });
 //=================================================================
-
+// @route POST api/users/deletecontact
+// @desc delete contacts
+// @access Private
+router.post("/deletecontact", 
+passport.authenticate('jwt', { session: false }), 
+(req, res) => {
+  // check validation
+  const email = req.body.email;
+  const tokenhash = req.body.tokenhash;
+  User.findOne({ email }).then(user => {
+    if (user.tokenhash == tokenhash){
+      // delete one contact
+      user.contacts.pull({_id: req.body.id});
+      user.save();
+      res.send(user.contacts);
+    } else{
+      res.send('Unauthorized');
+    }
+  });
+});
+//=================================================================
+// @route PUT api/users/updatecontact
+// @desc update contact
+// @access Private
+router.put("/updatecontact", 
+passport.authenticate('jwt', { session: false }), 
+(req, res) => {
+  const contact_id = req.body.id;
+  const email = req.body.email;
+  const tokenhash = req.body.tokenhash;
+  
+  // update one contact
+  User.findOneAndUpdate({'email': email,
+    'tokenhash': tokenhash,
+    'contacts._id': contact_id},{ 
+      "$set": {
+        "contacts.$.lname": req.body.lname,
+        "contacts.$.fname": req.body.fname,
+        "contacts.$.phone": req.body.phone
+      }
+    }, {useFindAndModify: false}
+  )
+  .catch(function (err, managerparent) {
+    if (err) throw err;
+    console.log(managerparent);
+  });
+  // server respon with updated contacts
+  User.findOne({ email }).then(user => {
+    if (user.tokenhash == tokenhash){
+      res.send(user.contacts);
+    } else{
+      res.send('Unauthorized');
+    }
+  });
+});
 
 
 module.exports = router;
