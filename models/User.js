@@ -1,23 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// ~~~~ Contact Schema ~~~~
-const ContactSchema = new Schema({
-  lname: {
-      type: String
-    },
-    fname: {
-      type: String
-    },
-    phone: {
-      type: String
-    },
-    date: {
-      type: Date,
-      default: Date.now
-    }
-});
-
 // ================== Create Schema ==================
 const UserSchema = new Schema({
   tokenhash: {
@@ -36,8 +19,6 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
-  // contacts data array
-  contacts: [ContactSchema],
   date: {
     type: Date,
     default: Date.now
