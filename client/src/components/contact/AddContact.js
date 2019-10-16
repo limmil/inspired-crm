@@ -1,225 +1,113 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
-import TextFieldGroup from "../common/TextFieldGroup";
-import { addContact } from "../../actions/contactActions";
-import { getOrganizations } from "../../actions/organizationActions";
-import TextAreaFieldGroup from "../common/TextAreaFieldGroup";
+import axios from "axios";
 
 class AddContact extends Component {
-  state = {
-    organization: "",
-    name: "",
-    email: "",
-    phone: "",
-    website: "",
-    title: "",
-    department: "",
-    primaryAddress: "",
-    secondaryAddress: "",
-    // true for active
-    status: true,
-    // 1 for contact
-    role: 1,
-    // 0 for new
-    leadStatus: 0,
-    errors: {},
-    orgs: null
-  };
+   constructor(props) {
+      super(props);
+      this.onChangeLastName = this.onChangeLastName.bind(this);
+      this.onChangeFirstName = this.onChangeFirstName.bind(this);
+      this.onChangePhoneNumber = this.onChangePhoneNumber.bind(this);
+      this.onSubmit = this.onSubmit.bind(this);
 
-  componentDidMount() {
-    this.props.getOrganizations();
-  }
+      this.state = {
+         lname: "",
+         fname: "",
+         phone: ""
+      };
+   }
+   onChangeLastName(e) {
+      this.setState({
+         lname: e.target.value
+      });
+   }
+   onChangeFirstName(e) {
+      this.setState({
+         fname: e.target.value
+      });
+   }
+   onChangePhoneNumber(e) {
+      this.setState({
+         phone: e.target.value
+      });
+   }
 
-  componentWillReceiveProps(nextProps, nextState) {
-    this.setState({ errors: nextProps.errors, orgs: nextProps.orgs.orgs });
-  }
+   onSubmit(e) {
+      e.preventDefault();
+      const obj = {
+         lname: this.state.lname,
+         fname: this.state.fname,
+         phone: this.state.phone
+      };
+      axios.post("/add", obj).then(res => console.log(res.data));
 
-  onChange(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
+      this.setState({
+         lname: "",
+         fname: "",
+         phone: ""
+      });
+   }
 
-  onSubmit(e) {
-    e.preventDefault();
-    const {
-      organization,
-      name,
-      email,
-      phone,
-      website,
-      title,
-      department,
-      primaryAddress,
-      secondaryAddress,
-      status,
-      role,
-      leadStatus
-    } = this.state;
+   render() {
+      return (
+         <header>
+            <div class="modal-content">
+               <h4>Add Contact</h4>
 
-    // Create new contact
-    const newContact = {
-      organization,
-      name,
-      email,
-      phone,
-      website,
-      title,
-      department,
-      primaryAddress,
-      secondaryAddress,
-      status,
-      role,
-      leadStatus
-    };
+               <div class="row">
+                  <form class="col s12" onSubmit={this.onSubmit}>
+                     <div class="row">
+                        <div class="input-field col s6">
+                           <i class="material-icons prefix">account_circle</i>
+                           <input
+                              id="icon_prefix"
+                              type="text"
+                              class="validate"
+                              value={this.state.lname}
+                              onChange={this.onChangeLastName}
+                           />
+                           <label for="icon_prefix">Last Name</label>
+                        </div>
 
-    this.props.addContact(newContact, this.props.history);
-  }
+                        <div class="input-field col s6">
+                           <i class="material-icons prefix">account_circle</i>
+                           <input
+                              id="icon_prefix"
+                              type="text"
+                              class="validate"
+                              value={this.state.fname}
+                              onChange={this.onChangeFirstName}
+                           />
+                           <label for="icon_prefix">First Name</label>
+                        </div>
+                     </div>
 
-  render() {
-    const {
-      organization,
-      name,
-      email,
-      phone,
-      website,
-      title,
-      department,
-      primaryAddress,
-      secondaryAddress,
-      errors
-    } = this.state;
+                     <div class="row">
+                        <div class="input-field col s6">
+                           <i class="material-icons prefix">phone</i>
+                           <input
+                              id="icon_telephone"
+                              type="text"
+                              class="validate"
+                              value={this.state.phone}
+                              onChange={this.onChangePhoneNumber}
+                           />
+                           <label for="icon_telephone">Phone Number</label>
+                        </div>
+                     </div>
 
-    const { orgs } = this.state;
-    return (
-      <div>
-        <div className="container">
-          <div className="col-sm-12 row margin-0">
-            <div className="col-sm-12">
-              <div className="card">
-                <div className="card-body">
-                  <h4 className="card-title text-info">ADD CONTACT</h4>
-                  <form onSubmit={this.onSubmit.bind(this)}>
-                    <div className="row">
-                      <div className="form-group col-sm-6">
-                        <TextFieldGroup
-                          label="Name"
-                          name="name"
-                          value={name}
-                          onChange={this.onChange.bind(this)}
-                          error={errors.name}
+                     <div class="modal-footer">
+                        <input
+                           type="submit"
+                           value="Submit Contacts"
+                           className="btn btn-primary"
                         />
-                      </div>
-
-                      <div className="form-group col-sm-6">
-                        <TextFieldGroup
-                          label="Email"
-                          name="email"
-                          type="email"
-                          value={email}
-                          onChange={this.onChange.bind(this)}
-                          error={errors.email}
-                        />
-                      </div>
-                      <div className="form-group col-sm-6">
-                        <TextFieldGroup
-                          label="Phone"
-                          name="phone"
-                          value={phone}
-                          onChange={this.onChange.bind(this)}
-                          error={errors.phone}
-                        />
-                      </div>
-
-                      <div className="form-group col-sm-6">
-                        <label htmlFor="">Organization</label>
-                        <select
-                          className="form-control"
-                          name="organization"
-                          value={organization}
-                          onChange={this.onChange.bind(this)}
-                        >
-                          <option value="">Please Select...</option>
-
-                          {orgs &&
-                            orgs.map(org => (
-                              <option key={org._id} value={org._id}>
-                                {org.name}
-                              </option>
-                            ))}
-                        </select>
-                      </div>
-
-                      <div className="form-group col-sm-6">
-                        <TextFieldGroup
-                          label="Title"
-                          name="title"
-                          value={title}
-                          onChange={this.onChange.bind(this)}
-                          error={errors.title}
-                        />
-                      </div>
-                      <div className="form-group col-sm-6">
-                        <TextFieldGroup
-                          label="Department"
-                          name="department"
-                          value={department}
-                          onChange={this.onChange.bind(this)}
-                          error={errors.department}
-                        />
-                      </div>
-
-                      <div className="form-group col-sm-12">
-                        <TextFieldGroup
-                          label="Website"
-                          name="website"
-                          value={website}
-                          onChange={this.onChange.bind(this)}
-                          error={errors.website}
-                        />
-                      </div>
-
-                      <div className="form-group col-sm-6">
-                        <TextAreaFieldGroup
-                          label="Primary Address"
-                          name="primaryAddress"
-                          value={primaryAddress}
-                          onChange={this.onChange.bind(this)}
-                          error={errors.primaryAddress}
-                        />
-                      </div>
-                      <div className="form-group col-sm-6">
-                        <TextAreaFieldGroup
-                          label="Secondary Address"
-                          name="secondaryAddress"
-                          value={secondaryAddress}
-                          onChange={this.onChange.bind(this)}
-                          error={errors.secondaryAddress}
-                        />
-                      </div>
-
-                      <div className="col-sm-12">
-                        <button type="submit" className="btn btn-primary">
-                          Submit
-                        </button>
-                      </div>
-                    </div>
+                     </div>
                   </form>
-                </div>
-              </div>
+               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+         </header>
+      );
+   }
 }
 
-const mapStateToProps = state => ({
-  orgs: state.orgs,
-  errors: state.errors
-});
-
-export default connect(
-  mapStateToProps,
-  { getOrganizations, addContact }
-)(withRouter(AddContact));
+export default AddContact;
