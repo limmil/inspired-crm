@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 class Footer extends Component {
    render() {
@@ -8,7 +7,7 @@ class Footer extends Component {
             <div class="container">
                <div class="row">
                   <div class="col l6 s12">
-                     <h5 class="white-text">Company Bio</h5>
+                     <h5 class="white-text">TSG</h5>
                      <p class="grey-text text-lighten-4">
                         We are a team of college students working on this
                         project like it's our full time job. Any amount would
@@ -17,26 +16,16 @@ class Footer extends Component {
                      </p>
                   </div>
                   <div class="col l3 s12">
-                     <h5 class="white-text">Settings</h5>
+                     <h5 class="white-text">Company</h5>
                      <ul>
                         <li>
                            <a href="#foo" class="white-text">
-                              Link 1
+                              About us
                            </a>
                         </li>
                         <li>
                            <a href="#foo" class="white-text">
-                              Link 2
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#foo" class="white-text">
-                              Link 3
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#foo" class="white-text">
-                              Link 4
+                              Contact us
                            </a>
                         </li>
                      </ul>
@@ -46,22 +35,20 @@ class Footer extends Component {
                      <ul>
                         <li>
                            <a href="#foo" class="white-text">
-                              Link 1
+                              <img
+                                 src="./assets/img/instagram.svg"
+                                 alt="Social media."
+                                 width="30"
+                              ></img>
                            </a>
                         </li>
                         <li>
                            <a href="#foo" class="white-text">
-                              Link 2
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#foo" class="white-text">
-                              Link 3
-                           </a>
-                        </li>
-                        <li>
-                           <a href="#foo" class="white-text">
-                              Link 4
+                              <img
+                                 src="./assets/img/twitter.svg"
+                                 alt="Social media."
+                                 width="30"
+                              ></img>
                            </a>
                         </li>
                      </ul>

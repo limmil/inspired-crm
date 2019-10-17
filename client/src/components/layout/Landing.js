@@ -87,7 +87,7 @@ class Landing extends Component {
                            <p class="light">
                               <center>
                                  Developed with a modern design that is simple
-                                 to understand and and user friendly.
+                                 to understand and user friendly.
                               </center>
                            </p>
                         </div>
@@ -119,7 +119,7 @@ class Landing extends Component {
                         <h3>
                            <i class="mdi-content-send brown-text"></i>
                         </h3>
-                        <h4>Capture Leads The Right Way</h4>
+                        <h4>Leads Are Important</h4>
                         <p class="left-align light">
                            Every business, big or small, depends on leads. Leads
                            are potential customers who have shown interest in

@@ -1,6 +1,13 @@
 (function($) {
    $(function() {
+      $(".parallax").parallax();
       $(".sidenav").sidenav();
+
+      $(".dropdown-trigger").dropdown();
+
+      
+      $('.modal').modal();
+      $('#addcontact').openModal();
 
       $(".parallax").parallax();
    }); // end of document ready

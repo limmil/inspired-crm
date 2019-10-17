@@ -7,18 +7,17 @@ class Navbar extends Component {
          <div>
             <div className="navbar-fixed">
                <nav className="z-depth-0"></nav>
-               <nav class="green lighten-1" role="navigation">
+               <nav class="white" role="navigation">
                   <div class="nav-wrapper container">
-                     <a id="logo-container" href="#foo" class="brand-logo">
+                     <a id="logo-container" class="brand-logo">
                         <Link to="/" onClick={this.forceUpdate}>
-                           TSG CRM
+                           <font color="#212121">TSG CRM</font>
                         </Link>
                      </a>
                      <ul class="right hide-on-med-and-down">
                         <li>
                            <Link to="/login">
                               <a
-                                 href="#foo"
                                  class="waves-effect waves-light btn blue"
                               >
                                  Log In
@@ -28,7 +27,6 @@ class Navbar extends Component {
                      </ul>
 
                      <a
-                        href="#foo"
                         data-target="nav-mobile"
                         class="sidenav-trigger"
                      >
@@ -40,11 +38,7 @@ class Navbar extends Component {
 
             <ul id="nav-mobile" class="sidenav">
                <li>
-                  <Link to="/login">
-                     <a href="#foo" class="waves-effect waves-light btn blue">
-                        Log In
-                     </a>
-                  </Link>
+                  <Link to="/login">Login</Link>
                </li>
             </ul>
          </div>
