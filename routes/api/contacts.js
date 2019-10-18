@@ -11,11 +11,13 @@ const User = require("../../models/User");
 // @route POST api/contacts/add
 // @desc add new contacts
 // @access Private
+// @req: email, tokenhash, lname, fname, phone
+// @res: {_id, user, lname, fname, phone, date} OR 401
 router.post("/add", 
 passport.authenticate('jwt', { session: false }), 
 (req, res) => {
   // Check validation
-  const email = req.body.email;
+  const email = req.body.email.toLowerCase();
   const tokenhash = req.body.tokenhash;
   User.findOne({ email }).then(user => {
     if (user.tokenhash == tokenhash){
@@ -29,17 +31,22 @@ passport.authenticate('jwt', { session: false }),
       newContact
         .save()
         .then(contact => res.json(contact))
-        .catch(err => console.log(err));
+        .catch(err => {
+          console.log(err); 
+          res.status(500);
+        });
     } else{
-      res.send('Unauthorized');
+      res.status(401).send('Unauthorized');
     }
   });
 });
 //=================================================================
-// @route GET api/contacts/get
+// @route POST api/contacts/get
 // @desc get all contacts from db
 // @access Private
-router.get("/get", 
+// @req: email, tokenhash
+// @res: [{_id, user, lname, fname, phone, date}] OR 401
+router.post("/get", 
 passport.authenticate('jwt', { session: false }), 
 (req, res) => {
   const email = req.body.email;
@@ -54,41 +61,51 @@ passport.authenticate('jwt', { session: false }),
             return res.json (contacts);
         })
     } else{
-      res.send('Unauthorized');
+      res.status(401).send('Unauthorized');
     }
-  });
+  }).catch(err => {
+      console.log(err);
+      res.status(500);
+    });
 });
 //=================================================================
 // @route DELETE api/users/deletecontact
 // @desc delete contacts
 // @access Private
+// @req: email, tokenhash, id
+// @res: 'DELETED' OR 401
 router.delete("/delete", 
 passport.authenticate('jwt', { session: false }), 
 (req, res) => {
   // check validation
-  const email = req.body.email;
+  const email = req.body.email.toLowerCase();
   const tokenhash = req.body.tokenhash;
   User.findOne({ email }).then(user => {
     if (user.tokenhash == tokenhash){
       // delete one contact
       Contact.deleteOne(
         { _id: req.body.id },
-        (err) => {console.log(err)});
-      res.send('DONE');
+        (err) => {console.log(err)})
+          .then(res.status(200).send('DELETED'));
     } else{
-      res.send('Unauthorized');
+      res.status(401).send('Unauthorized');
     }
-  });
+  }).catch(err => {
+      console.log(err); 
+      res.status(500);
+    });
 });
 //=================================================================
 // @route PUT api/users/update
 // @desc update contact
 // @access Private
+// @req: email, tokenhash, id, lname, fname, phone
+// @res: 'UPDATED' OR 401
 router.put("/update", 
 passport.authenticate('jwt', { session: false }), 
 (req, res) => {
   const id = req.body.id;
-  const email = req.body.email;
+  const email = req.body.email.toLowerCase();
   const tokenhash = req.body.tokenhash;
   // update one contact
   User.findOne({ email }).then(user => {
@@ -100,14 +117,14 @@ passport.authenticate('jwt', { session: false }),
           'phone': req.body.phone
           }
       }, {useFindAndModify: false})
+      .then(res.status(200).send('UPDATED'))
       .catch(function (err, managerparent) {
         if (err) throw err;
         console.log(managerparent);
+        res.status(500);
       });
-      
-      res.send('DONE')
     } else{
-      res.send('Unauthorized');
+      res.status(401).send('Unauthorized');
     }
   });
 });
