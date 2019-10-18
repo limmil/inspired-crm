@@ -17,7 +17,7 @@ router.post("/add",
 passport.authenticate('jwt', { session: false }), 
 (req, res) => {
   // Check validation
-  const email = req.body.email.toLowerCase();
+  const email = req.body.email;
   const tokenhash = req.body.tokenhash;
   User.findOne({ email }).then(user => {
     if (user.tokenhash == tokenhash){
@@ -78,7 +78,7 @@ router.delete("/delete",
 passport.authenticate('jwt', { session: false }), 
 (req, res) => {
   // check validation
-  const email = req.body.email.toLowerCase();
+  const email = req.body.email;
   const tokenhash = req.body.tokenhash;
   User.findOne({ email }).then(user => {
     if (user.tokenhash == tokenhash){
@@ -105,7 +105,7 @@ router.put("/update",
 passport.authenticate('jwt', { session: false }), 
 (req, res) => {
   const id = req.body.id;
-  const email = req.body.email.toLowerCase();
+  const email = req.body.email;
   const tokenhash = req.body.tokenhash;
   // update one contact
   User.findOne({ email }).then(user => {
