@@ -33,13 +33,16 @@ class AddContact extends Component {
 
    onSubmit(e) {
       e.preventDefault();
-      const obj = {
+      const contactData = {
+         email: localStorage.getItem("userEmail"),
+         tokenhash: localStorage.getItem("tokenHash"),
          lname: this.state.lname,
          fname: this.state.fname,
          phone: this.state.phone
       };
-      axios.post("/add", obj).then(res => console.log(res.data));
-
+      axios
+        .post("/api/contacts/add", contactData)
+        .then(res => console.log(res.data));
       this.setState({
          lname: "",
          fname: "",

@@ -3,7 +3,6 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const keys = require("../../config/keys");
-const passport = require("passport");
 
 // Load input validation
 const validateRegisterInput = require("../../validation/register");
@@ -26,14 +25,14 @@ router.post("/register", (req, res) => {
     return res.status(400).json(errors);
   }
 
-
-  User.findOne({ email: req.body.email }).then(user => {
+  const email = req.body.email.toLowerCase();
+  User.findOne({ email: email }).then(user => {
     if (user) {
       return res.status(400).json({ email: "Email already exists" });
     } else {
       const newUser = new User({
         name: req.body.name,
-        email: req.body.email,
+        email: email,
         password: req.body.password,
       });
 
@@ -65,7 +64,7 @@ router.post("/login", (req, res) => {
     return res.status(400).json(errors);
   }
 
-  const email = req.body.email;
+  const email = req.body.email.toLowerCase();
   const password = req.body.password;
 
   // Find user by email
@@ -81,7 +80,7 @@ router.post("/login", (req, res) => {
         // User matched
         // Create JWT Payload
         const payload = {
-          id: user.id,
+          email: user.email,
           name: user.name
         };
         // Sign token
@@ -111,90 +110,6 @@ router.post("/login", (req, res) => {
           .json({ passwordincorrect: "Password incorrect" });
       }
     });
-  });
-});
-//=================================================================
-// @route POST api/users/addcontact
-// @desc add new contacts
-// @access Private
-router.post("/addcontact", 
-passport.authenticate('jwt', { session: false }), 
-(req, res) => {
-  // contact info
-  var newContact = {
-    lname: req.body.lname,
-    fname: req.body.fname,
-    phone: req.body.phone
-  };
-  // Check validation
-  const email = req.body.email;
-  const tokenhash = req.body.tokenhash;
-  User.findOne({ email }).then(user => {
-    if (user.tokenhash == tokenhash){
-      // add one contact
-      user.contacts.push(newContact);
-      user.save();
-      // response with contacts array
-      res.send(user.contacts);
-    } else{
-      res.send('Unauthorized');
-    }
-  });
-});
-//=================================================================
-// @route POST api/users/deletecontact
-// @desc delete contacts
-// @access Private
-router.post("/deletecontact", 
-passport.authenticate('jwt', { session: false }), 
-(req, res) => {
-  // check validation
-  const email = req.body.email;
-  const tokenhash = req.body.tokenhash;
-  User.findOne({ email }).then(user => {
-    if (user.tokenhash == tokenhash){
-      // delete one contact
-      user.contacts.pull({_id: req.body.id});
-      user.save();
-      res.send(user.contacts);
-    } else{
-      res.send('Unauthorized');
-    }
-  });
-});
-//=================================================================
-// @route PUT api/users/updatecontact
-// @desc update contact
-// @access Private
-router.put("/updatecontact", 
-passport.authenticate('jwt', { session: false }), 
-(req, res) => {
-  const contact_id = req.body.id;
-  const email = req.body.email;
-  const tokenhash = req.body.tokenhash;
-  
-  // update one contact
-  User.findOneAndUpdate({'email': email,
-    'tokenhash': tokenhash,
-    'contacts._id': contact_id},{ 
-      "$set": {
-        "contacts.$.lname": req.body.lname,
-        "contacts.$.fname": req.body.fname,
-        "contacts.$.phone": req.body.phone
-      }
-    }, {useFindAndModify: false}
-  )
-  .catch(function (err, managerparent) {
-    if (err) throw err;
-    console.log(managerparent);
-  });
-  // server respon with updated contacts
-  User.findOne({ email }).then(user => {
-    if (user.tokenhash == tokenhash){
-      res.send(user.contacts);
-    } else{
-      res.send('Unauthorized');
-    }
   });
 });
 

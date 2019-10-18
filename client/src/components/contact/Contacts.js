@@ -9,10 +9,17 @@ class Contacts extends Component {
       super(props);
       this.state = { contact: [] };
    }
+   
    componentDidMount() {
+      const user = {
+         email: localStorage.getItem("userEmail"),
+         tokenhash: localStorage.getItem("tokenHash"),
+      };
+      console.log(user)
       axios
-         .get("/contacts")
+         .post("/api/contacts/get", user)
          .then(response => {
+            console.log(response)
             this.setState({ contact: response.data });
          })
          .catch(function(error) {
