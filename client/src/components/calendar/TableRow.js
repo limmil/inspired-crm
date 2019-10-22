@@ -22,10 +22,6 @@ class TableRow extends Component {
             <td>{this.props.obj.lname}</td>
             <td>{this.props.obj.fname}</td>
             <td>{this.props.obj.phone}</td>
-            <td>{this.props.obj.emailaddr}</td>
-            <td>{this.props.obj.temp}</td>
-            <td>{this.props.obj.lastreachout}</td>
-            <td>{this.props.obj.date}</td>
             <td>
                <Link
                   to={"/edit/" + this.props.obj._id}

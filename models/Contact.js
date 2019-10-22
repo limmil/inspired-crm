@@ -16,6 +16,18 @@ const ContactSchema = new Schema({
     phone: {
       type: String
     },
+    emailaddr: {
+      type: String
+    },
+    temp: {
+      type: String
+    },
+    lastreachout: {
+      type: String
+    },
+    notes: {
+      type: String
+    },
     date: {
       type: Date,
       default: Date.now

@@ -17,6 +17,8 @@ import Contacts from "./components/contact/Contacts";
 import AddContact from "./components/contact/AddContact";
 import EditContact from "./components/contact/EditContact";
 
+import Calendar from "./components/calendar/Calendar";
+
 import "./App.css";
 
 // Check for token to keep user logged in
@@ -51,6 +53,7 @@ class App extends Component {
                      <PrivateRoute exact path="/add" component={AddContact} />
                      <PrivateRoute path="/edit" component={EditContact} />
                      <PrivateRoute path="/contacts" component={Contacts} />
+                     <PrivateRoute path="/calendar" component={Calendar} />
                      <PrivateRoute
                         exact
                         path="/dashboard"

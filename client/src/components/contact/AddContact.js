@@ -7,12 +7,18 @@ class AddContact extends Component {
       this.onChangeLastName = this.onChangeLastName.bind(this);
       this.onChangeFirstName = this.onChangeFirstName.bind(this);
       this.onChangePhoneNumber = this.onChangePhoneNumber.bind(this);
+      this.onChangeEmailAddr = this.onChangeEmailAddr.bind(this);
+      this.onChangeTemp = this.onChangeTemp.bind(this);
+      this.onChangeLastReachOut = this.onChangeLastReachOut.bind(this);
       this.onSubmit = this.onSubmit.bind(this);
 
       this.state = {
          lname: "",
          fname: "",
-         phone: ""
+         phone: "",
+         emailaddr: "",
+         temp: "",
+         lastreachout: ""
       };
    }
    onChangeLastName(e) {
@@ -30,20 +36,44 @@ class AddContact extends Component {
          phone: e.target.value
       });
    }
+   onChangeEmailAddr(e) {
+      this.setState({
+         emailaddr: e.target.value
+      });
+   }
+   onChangeTemp(e) {
+      this.setState({
+         temp: e.target.value
+      });
+   }
+   onChangeLastReachOut(e) {
+      this.setState({
+         lastreachout: e.target.value
+      });
+   }
 
    onSubmit(e) {
       e.preventDefault();
-      const obj = {
+      const contactData = {
+         email: localStorage.getItem("userEmail"),
+         tokenhash: localStorage.getItem("tokenHash"),
          lname: this.state.lname,
          fname: this.state.fname,
-         phone: this.state.phone
+         phone: this.state.phone,
+         emailaddr: this.state.emailaddr,
+         temp: this.state.temp,
+         lastreachout: this.state.lastreachout
       };
-      axios.post("/add", obj).then(res => console.log(res.data));
-
+      axios
+        .post("/api/contacts/add", contactData)
+        .then(res => console.log(res.data));
       this.setState({
          lname: "",
          fname: "",
-         phone: ""
+         phone: "",
+         emailaddr: "",
+         temp: "",
+         lastreachout: ""
       });
    }
 
@@ -92,6 +122,44 @@ class AddContact extends Component {
                               onChange={this.onChangePhoneNumber}
                            />
                            <label for="icon_telephone">Phone Number</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                           <i class="material-icons prefix">email</i>
+                           <input
+                              id="icon_email"
+                              type="text"
+                              class="validate"
+                              value={this.state.emailaddr}
+                              onChange={this.onChangeEmailAddr}
+                           />
+                           <label for="icon_email">E-mail</label>
+                        </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="input-field col s6">
+                           <i class="material-icons prefix">tonality</i>
+                           <input
+                              id="icon_telephone"
+                              type="text"
+                              class="validate"
+                              value={this.state.temp}
+                              onChange={this.onChangeTemp}
+                           />
+                           <label for="icon_telephone">Temp</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                           <i class="material-icons prefix">assignment_ind</i>
+                           <input
+                              id="icon_assignment_ind"
+                              type="text"
+                              class="validate"
+                              value={this.state.lastreachout}
+                              onChange={this.onChangeLastReachOut}
+                           />
+                           <label for="icon_assignment_ind">Last Reach Out</label>
                         </div>
                      </div>
 
