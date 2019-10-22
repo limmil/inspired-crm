@@ -65,8 +65,8 @@ class AddContact extends Component {
          lastreachout: this.state.lastreachout
       };
       axios
-        .post("/api/contacts/add", contactData)
-        .then(res => console.log(res.data));
+         .post("/api/contacts/add", contactData)
+         .then(res => console.log(res.data));
       this.setState({
          lname: "",
          fname: "",
@@ -92,10 +92,10 @@ class AddContact extends Component {
                               id="icon_prefix"
                               type="text"
                               class="validate"
-                              value={this.state.lname}
-                              onChange={this.onChangeLastName}
+                              value={this.state.fname}
+                              onChange={this.onChangeFirstName}
                            />
-                           <label for="icon_prefix">Last Name</label>
+                           <label for="icon_prefix">First Name</label>
                         </div>
 
                         <div class="input-field col s6">
@@ -104,10 +104,10 @@ class AddContact extends Component {
                               id="icon_prefix"
                               type="text"
                               class="validate"
-                              value={this.state.fname}
-                              onChange={this.onChangeFirstName}
+                              value={this.state.lname}
+                              onChange={this.onChangeLastName}
                            />
-                           <label for="icon_prefix">First Name</label>
+                           <label for="icon_prefix">Last Name</label>
                         </div>
                      </div>
 
@@ -140,14 +140,19 @@ class AddContact extends Component {
                      <div class="row">
                         <div class="input-field col s6">
                            <i class="material-icons prefix">tonality</i>
-                           <input
-                              id="icon_telephone"
-                              type="text"
-                              class="validate"
+                           <select
                               value={this.state.temp}
                               onChange={this.onChangeTemp}
-                           />
-                           <label for="icon_telephone">Temp</label>
+                              class="validate"
+                           >
+                              <option value="" disabled selected>
+                                 Choose temp option
+                              </option>
+                              <option value="Cold">Cold</option>
+                              <option value="Warm">Warm</option>
+                              <option value="Hot">Hot</option>
+                           </select>
+                           <label>Temp</label>
                         </div>
 
                         <div class="input-field col s6">
@@ -159,7 +164,9 @@ class AddContact extends Component {
                               value={this.state.lastreachout}
                               onChange={this.onChangeLastReachOut}
                            />
-                           <label for="icon_assignment_ind">Last Reach Out</label>
+                           <label for="icon_assignment_ind">
+                              Last Reach Out
+                           </label>
                         </div>
                      </div>
 
