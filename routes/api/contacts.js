@@ -26,7 +26,10 @@ passport.authenticate('jwt', { session: false }),
         user: user._id,
         lname: req.body.lname,
         fname: req.body.fname,
-        phone: req.body.phone
+        phone: req.body.phone,
+        emailaddr: req.body.emailaddr,
+        temp: req.body.temp,
+        lastreachout: req.body.lastreachout,
       });
       newContact
         .save()
@@ -114,7 +117,10 @@ passport.authenticate('jwt', { session: false }),
           '$set': {
           'lname': req.body.lname,
           'fname': req.body.fname,
-          'phone': req.body.phone
+          'phone': req.body.phone,
+          'emailaddr': req.body.emailaddr,
+          'temp': req.body.temp,
+          'lastreachout': req.body.lastreachout
           }
       }, {useFindAndModify: false})
       .then(res.status(200).send('UPDATED'))

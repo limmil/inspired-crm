@@ -9,12 +9,18 @@ class EditContact extends Component {
       this.onChangeLastName = this.onChangeLastName.bind(this);
       this.onChangeFirstName = this.onChangeFirstName.bind(this);
       this.onChangePhoneNumber = this.onChangePhoneNumber.bind(this);
+      this.onChangeEmailAddr = this.onChangeEmailAddr.bind(this);
+      this.onChangeTemp = this.onChangeTemp.bind(this);
+      this.onChangeLastReachOut = this.onChangeLastReachOut.bind(this);
       this.onSubmit = this.onSubmit.bind(this);
 
       this.state = {
          lname: "",
          fname: "",
-         phone: ""
+         phone: "",
+         emailaddr: "",
+         temp: "",
+         lastreachout: ""
       };
    }
 
@@ -25,7 +31,10 @@ class EditContact extends Component {
             this.setState({
                lname: response.data.lname,
                fname: response.data.fname,
-               phone: response.data.phone
+               phone: response.data.phone,
+               emailaddr: response.data.emailaddr,
+               temp: response.data.temp,
+               lastreachout: response.data.lastreachout
             });
          })
          .catch(function(error) {
@@ -48,13 +57,32 @@ class EditContact extends Component {
          phone: e.target.value
       });
    }
+   onChangeEmailAddr(e) {
+      this.setState({
+         emailaddr: e.target.value
+      });
+   }
+   onChangeTemp(e) {
+      this.setState({
+         temp: e.target.value
+      });
+   }
+   onChangeLastReachOut(e) {
+      this.setState({
+         lastreachout: e.target.value
+      });
+   }
+
 
    onSubmit(e) {
       e.preventDefault();
       const obj = {
          lname: this.state.lname,
          fname: this.state.fname,
-         phone: this.state.phone
+         phone: this.state.phone,
+         emailaddr: this.state.emailaddr,
+         temp: this.state.temp,
+         lastreachout: this.state.lastreachout
       };
       axios
          .post("/contacts/update/" + this.props.match.params.id, obj)
@@ -95,6 +123,37 @@ class EditContact extends Component {
                      onChange={this.onChangePhoneNumber}
                   />
                </div>
+
+               <div className="form-group">
+                  <label>E-mail: </label>
+                  <input
+                     type="text"
+                     class="validate"
+                     value={this.state.emailaddr}
+                     onChange={this.onChangeEmailAddr}
+                  />
+               </div>
+      
+               <div className="form-group">
+                  <label>Temp: </label>
+                  <input
+                     type="text"
+                     class="validate"
+                     value={this.state.temp}
+                     onChange={this.onChangeTemp}
+                  />
+               </div>
+
+               <div className="form-group">
+                  <label>Last Reach Out: </label>
+                  <input
+                     type="text"
+                     class="validate"
+                     value={this.state.lastreachout}
+                     onChange={this.onChangeLastReachOut}
+                  />
+               </div>
+
                <div className="form-group">
                   <input
                      type="submit"

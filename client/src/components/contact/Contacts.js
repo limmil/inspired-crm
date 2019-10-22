@@ -50,6 +50,10 @@ class Contacts extends Component {
                   <th>Last Name</th>
                   <th>First Name</th>
                   <th>Phone Number</th>
+                  <th>E-mail</th>
+                  <th>Temp</th>
+                  <th>Last Reach Out</th>
+                  <th>Date Created</th>
                   <th colSpan="2">Action</th>
                 </tr>
               </thead>
