@@ -53,11 +53,6 @@ return (
       </div>
    </section>
 
-
-  <section class="section section-visitors blue lighten-4">
-   
-  </section>
-
   <DashboardFooter />
 
 </div>
