@@ -73,7 +73,6 @@ class EditContact extends Component {
       });
    }
 
-
    onSubmit(e) {
       e.preventDefault();
       const obj = {
@@ -97,21 +96,21 @@ class EditContact extends Component {
             <h3 align="center">Update Contact List</h3>
             <form onSubmit={this.onSubmit}>
                <div className="form-group">
-                  <label>Last Name: </label>
-                  <input
-                     type="text"
-                     class="validate"
-                     value={this.state.lname}
-                     onChange={this.onChangeLastName}
-                  />
-               </div>
-               <div className="form-group">
                   <label>First Name: </label>
                   <input
                      type="text"
                      class="validate"
                      value={this.state.fname}
                      onChange={this.onChangeFirstName}
+                  />
+               </div>
+               <div className="form-group">
+                  <label>Last Name: </label>
+                  <input
+                     type="text"
+                     class="validate"
+                     value={this.state.lname}
+                     onChange={this.onChangeLastName}
                   />
                </div>
                <div className="form-group">
@@ -133,7 +132,7 @@ class EditContact extends Component {
                      onChange={this.onChangeEmailAddr}
                   />
                </div>
-      
+
                <div className="form-group">
                   <label>Temp: </label>
                   <input
