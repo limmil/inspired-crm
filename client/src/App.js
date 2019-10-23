@@ -51,7 +51,7 @@ class App extends Component {
                   <Route exact path="/login" component={Login} />
                   <Switch>
                      <PrivateRoute exact path="/add" component={AddContact} />
-                     <PrivateRoute path="/edit" component={EditContact} />
+                     <PrivateRoute path="/edit/:id" component={EditContact} />
                      <PrivateRoute path="/contacts" component={Contacts} />
                      <PrivateRoute path="/calendar" component={Calendar} />
                      <PrivateRoute

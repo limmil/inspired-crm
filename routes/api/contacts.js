@@ -100,7 +100,7 @@ passport.authenticate('jwt', { session: false }),
 });
 //=================================================================
 // @route PUT api/users/update
-// @desc update contact
+// @desc update contact, EDIT contact
 // @access Private
 // @req: email, tokenhash, id, lname, fname, phone
 // @res: 'UPDATED' OR 401
@@ -135,6 +135,12 @@ passport.authenticate('jwt', { session: false }),
   });
 });
 
-
+// Define edit route
+router.route('/edit').get(function (req, res) {
+  const id = req.body.id;
+  Contact.findById(id, function (err, contact){
+      res.json(contact);
+  });
+});
 
 module.exports = router;
