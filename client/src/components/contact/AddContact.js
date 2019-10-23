@@ -81,7 +81,7 @@ class AddContact extends Component {
       return (
          <header>
             <div class="modal-content">
-               <h4>Add Contact</h4>
+               <center><h4>Add Contact</h4></center>
 
                <div class="row">
                   <form class="col s12" onSubmit={this.onSubmit}>
@@ -173,7 +173,7 @@ class AddContact extends Component {
                      <div class="modal-footer">
                         <input
                            type="submit"
-                           value="Submit Contacts"
+                           value="Submit"
                            className="btn btn-primary"
                         />
                      </div>

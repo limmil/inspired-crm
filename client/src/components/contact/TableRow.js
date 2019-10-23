@@ -27,16 +27,17 @@ class TableRow extends Component {
             <td>{this.props.obj.lastreachout}</td>
             <td>{this.props.obj.date}</td>
             <td>
+               
                <Link
                   to={"/edit/" + this.props.obj._id}
                   className="btn btn-primary"
                >
-                  Edit
+                  <i class="material-icons">create</i>
                </Link>
             </td>
             <td>
                <button onClick={this.delete} className="btn btn-danger">
-                  Delete
+                  <i class="material-icons">delete</i>
                </button>
             </td>
          </tr>

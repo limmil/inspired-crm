@@ -92,76 +92,109 @@ class EditContact extends Component {
 
    render() {
       return (
-         <div style={{ marginTop: 10 }}>
-            <h3 align="center">Update Contact List</h3>
-            <form onSubmit={this.onSubmit}>
-               <div className="form-group">
-                  <label>First Name: </label>
-                  <input
-                     type="text"
-                     class="validate"
-                     value={this.state.fname}
-                     onChange={this.onChangeFirstName}
-                  />
-               </div>
-               <div className="form-group">
-                  <label>Last Name: </label>
-                  <input
-                     type="text"
-                     class="validate"
-                     value={this.state.lname}
-                     onChange={this.onChangeLastName}
-                  />
-               </div>
-               <div className="form-group">
-                  <label>Phone Number: </label>
-                  <input
-                     type="text"
-                     class="validate"
-                     value={this.state.phone}
-                     onChange={this.onChangePhoneNumber}
-                  />
-               </div>
+         <header>
 
-               <div className="form-group">
-                  <label>E-mail: </label>
-                  <input
-                     type="text"
-                     class="validate"
-                     value={this.state.emailaddr}
-                     onChange={this.onChangeEmailAddr}
-                  />
-               </div>
+            <div class="card">
+            <span class="card-title">Edit Contact</span>
 
-               <div className="form-group">
-                  <label>Temp: </label>
-                  <input
-                     type="text"
-                     class="validate"
-                     value={this.state.temp}
-                     onChange={this.onChangeTemp}
-                  />
-               </div>
+               <div class="row">
+                  <form class="col s12" onSubmit={this.onSubmit}>
+                     <div class="row">
+                        <div class="input-field col s6">
+                           <i class="material-icons prefix">account_circle</i>
+                           <input
+                              id="icon_prefix"
+                              type="text"
+                              class="validate"
+                              value={this.state.fname}
+                              onChange={this.onChangeFirstName}
+                           />
+                           <label for="icon_prefix">First Name</label>
+                        </div>
 
-               <div className="form-group">
-                  <label>Last Reach Out: </label>
-                  <input
-                     type="text"
-                     class="validate"
-                     value={this.state.lastreachout}
-                     onChange={this.onChangeLastReachOut}
-                  />
-               </div>
+                        <div class="input-field col s6">
+                           <i class="material-icons prefix">account_circle</i>
+                           <input
+                              id="icon_prefix"
+                              type="text"
+                              class="validate"
+                              value={this.state.lname}
+                              onChange={this.onChangeLastName}
+                           />
+                           <label for="icon_prefix">Last Name</label>
+                        </div>
+                     </div>
 
-               <div className="form-group">
-                  <input
-                     type="submit"
-                     value="Submit Update"
-                     className="btn btn-primary"
-                  />
+                     <div class="row">
+                        <div class="input-field col s6">
+                           <i class="material-icons prefix">phone</i>
+                           <input
+                              id="icon_telephone"
+                              type="text"
+                              class="validate"
+                              value={this.state.phone}
+                              onChange={this.onChangePhoneNumber}
+                           />
+                           <label for="icon_telephone">Phone Number</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                           <i class="material-icons prefix">email</i>
+                           <input
+                              id="icon_email"
+                              type="text"
+                              class="validate"
+                              value={this.state.emailaddr}
+                              onChange={this.onChangeEmailAddr}
+                           />
+                           <label for="icon_email">E-mail</label>
+                        </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="input-field col s6">
+                           <i class="material-icons prefix">tonality</i>
+                           <select
+                              value={this.state.temp}
+                              onChange={this.onChangeTemp}
+                              class="validate"
+                           >
+                              <option value="" disabled selected>
+                                 Choose temp option
+                              </option>
+                              <option value="Cold">Cold</option>
+                              <option value="Warm">Warm</option>
+                              <option value="Hot">Hot</option>
+                           </select>
+                           <label>Temp</label>
+                        </div>
+
+                        <div class="input-field col s6">
+                           <i class="material-icons prefix">assignment_ind</i>
+                           <input
+                              id="icon_assignment_ind"
+                              type="text"
+                              class="validate"
+                              value={this.state.lastreachout}
+                              onChange={this.onChangeLastReachOut}
+                           />
+                           <label for="icon_assignment_ind">
+                              Last Reach Out
+                           </label>
+                        </div>
+                     </div>
+
+                     <div class="modal-footer">
+                        <input
+                           type="submit"
+                           value="Save"
+                           className="btn btn-primary"
+                        />
+                     </div>
+                  </form>
                </div>
-            </form>
-         </div>
+            </div>
+         </header>
       );
    }
 }
