@@ -29,8 +29,7 @@ class Dashboard extends Component {
                               ></div>
                            </div>
                            <p>
-                              New Reach Outs{" "}
-                              <i class="material-icons small">help</i>
+                              New Reach Outs <i class="material-icons">help</i>
                            </p>
                            <p class="light"></p>
                         </div>
