@@ -93,9 +93,8 @@ class EditContact extends Component {
    render() {
       return (
          <header>
-
             <div class="card">
-            <span class="card-title">Edit Contact</span>
+               <h4 align="center">Edit Contact</h4>
 
                <div class="row">
                   <form class="col s12" onSubmit={this.onSubmit}>

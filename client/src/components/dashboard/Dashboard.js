@@ -3,60 +3,124 @@ import DashboardNavbar from "./DashboardNavbar";
 import DashboardFooter from "./DashboardFooter";
 
 class Dashboard extends Component {
+   render() {
+      return (
+         <div>
+            <DashboardNavbar />
+            <div class="container">
+               <div class="divider"></div>
 
-render() {
-return (
-<div>
-   <DashboardNavbar />
-   <section class="section section-stats center">
-      <div class="row">
-         <div class="col s12 m6 l3">
-            <div class="card-panel blue lighten-1 white-text center">
-               <i class="material-icons medium">insert_emoticon</i>
-               <h5>Follow Ups</h5>
-               <h3 class="count">0</h3>
-               <div class="progress grey lighten-1">
-                  <div class="determinate white" mapStyle="width: 40%;"></div>
-               </div>
-            </div>
-         </div>
-         <div class="col s12 m6 l3">
-            <div class="card-panel center">
-               <i class="material-icons medium">mode_edit</i>
-               <h5>Notes</h5>
-               <h3 class="count">0</h3>
-               <div class="progress grey lighten-1">
-                  <div class="determinate blue" mapStyle="width: 20%;"></div>
-               </div>
-            </div>
-         </div>
-         <div class="col s12 m6 l3">
-            <div class="card-panel blue lighten-1 white-text center">
-               <i class="material-icons medium">mode_comment</i>
-               <h5>Not Contacted</h5>
-               <h3 class="count">0</h3>
-               <div class="progress grey lighten-1">
-                  <div class="determinate white" mapStyle="width: 40%;"></div>
-               </div>
-            </div>
-         </div>
-         <div class="col s12 m6 l3">
-            <div class="card-panel center">
-               <i class="material-icons medium">supervisor_account</i>
-               <h5>Contacts</h5>
-               <h3 class="count">0</h3>
-               <div class="progress grey lighten-1">
-                  <div class="determinate blue lighten-1" mapStyle="width: 10%;"></div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </section>
+               <div class="section">
+                  <h5 class="black-text">Overview</h5>
 
-  <DashboardFooter />
+                  <div class="row">
+                     <div class="col s12 m4">
+                        <div class="card-panel center">
+                           <i class="material-icons medium">insert_emoticon</i>
+                           <h5>Reach Outs</h5>
+                           <h6>Target: 15</h6>
+                           <h6>Completed: 0</h6>
+                           <h6>Percentage: 0%</h6>
+                           <h3 class="count">5</h3>
+                           <div class="progress grey lighten-1">
+                              <div
+                                 class="determinate white"
+                                 mapStyle="width: 40%;"
+                              ></div>
+                           </div>
+                           <p>
+                              New Reach Outs{" "}
+                              <i class="material-icons small">help</i>
+                           </p>
+                           <p class="light"></p>
+                        </div>
+                     </div>
 
-</div>
-);
-}
+                     <div class="col s12 m4">
+                        <div class="card-panel center">
+                           <i class="material-icons medium">mode_edit</i>
+                           <h5>Follow Ups</h5>
+                           <h6>Target: 10</h6>
+                           <h6>Completed: 0</h6>
+                           <h6>Percentage: 0%</h6>
+                           <h3 class="count">5</h3>
+                           <div class="progress grey lighten-1">
+                              <div
+                                 class="determinate blue"
+                                 mapStyle="width: 20%;"
+                              ></div>
+                           </div>
+                           <p>
+                              Follow Ups <i class="material-icons">help</i>
+                           </p>
+                           <p class="light"></p>
+                        </div>
+                     </div>
+
+                     <div class="col s12 m4">
+                        <div class="card-panel center">
+                           <i class="material-icons medium">mode_comment</i>
+                           <h5>Team Reach Outs</h5>
+                           <h6>Target: 5</h6>
+                           <h6>Completed: 0</h6>
+                           <h6>Percentage: 0%</h6>
+                           <h3 class="count">2</h3>
+                           <div class="progress grey lighten-1">
+                              <div
+                                 class="determinate white"
+                                 mapStyle="width: 40%;"
+                              ></div>
+                           </div>
+                           <p>
+                              Team Reach Outs <i class="material-icons">help</i>
+                           </p>
+                           <p class="light"></p>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="divider"></div>
+
+               <div class="section">
+                  <div class="row">
+                     <div class="col s12 m12">
+                        <h5 class="black-text">To-do List</h5>
+                        <table class="responsive-table">
+                           <thead>
+                              <tr>
+                                 <th>Title</th>
+                                 <th>Details</th>
+                                 <th>Deadline</th>
+                              </tr>
+                           </thead>
+
+                           <tbody>
+                              <tr>
+                                 <td>Call John Doe</td>
+                                 <td>Talk about products</td>
+                                 <td>10/29/15</td>
+                              </tr>
+                              <tr>
+                                 <td>Gather 3 contacts</td>
+                                 <td>Leads</td>
+                                 <td>2/9/19</td>
+                              </tr>
+                              <tr>
+                                 <td>Follow up on Mark Dopson</td>
+                                 <td>Confirm re-schedule</td>
+                                 <td>7/1/11</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <DashboardFooter />
+         </div>
+      );
+   }
 }
 export default Dashboard;

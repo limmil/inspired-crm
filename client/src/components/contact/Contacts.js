@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import TableRow from "./TableRow";
-import "./Contacts.css";
 
 import DashboardNavbar from "../dashboard/DashboardNavbar";
+import ContactsFooter from "./ContactsFooter";
 
 class Contacts extends Component {
    constructor(props) {
@@ -41,30 +41,28 @@ class Contacts extends Component {
             <div class="container">
                <div class="row">
                   <div class="col s12">
-                     <div class="card">
-                        <div class="card-content">
-                           <span class="card-title">Contact List</span>
-                           <table class="striped">
-                              <thead>
-                                 <tr>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Phone Number</th>
-                                    <th>E-mail</th>
-                                    <th>Temp</th>
-                                    <th>Last Reach Out</th>
-                                    <th>Date Created</th>
-                                    <th colSpan="2">Action</th>
-                                 </tr>
-                              </thead>
+                     <h3>Contact List</h3>
+                     <hr />
+                     <table class="highlight">
+                        <thead>
+                           <tr>
+                              <th>First Name</th>
+                              <th>Last Name</th>
+                              <th>Phone Number</th>
+                              <th>E-mail</th>
+                              <th>Temp</th>
+                              <th>Last Reach Out</th>
+                              <th>Date Created</th>
+                              <th colSpan="2">Action</th>
+                           </tr>
+                        </thead>
 
-                              <tbody>{this.tabRow()}</tbody>
-                           </table>
-                        </div>
-                     </div>
+                        <tbody>{this.tabRow()}</tbody>
+                     </table>
                   </div>
                </div>
             </div>
+            <ContactsFooter />
          </div>
       );
    }

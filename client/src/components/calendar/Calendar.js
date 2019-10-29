@@ -3,6 +3,22 @@ import axios from "axios";
 import TableRow from "./TableRow";
 
 import DashboardNavbar from "../dashboard/DashboardNavbar";
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import moment from './moment'
+
+const localizer = momentLocalizer(moment)
+
+const MyCalendar = props => (
+    <div>
+        <Calendar
+        localizer={localizer}
+        //   events={myEventsList}
+        startAccessor="start"
+        endAccessor="end"
+        />
+    </div>
+    )
+
 
 class Contacts extends Component {
    constructor(props) {
@@ -37,6 +53,7 @@ class Contacts extends Component {
          <div>
             <DashboardNavbar />
 
+    
 
   <div class="container">
     <div class="row">
@@ -47,7 +64,7 @@ class Contacts extends Component {
             <table class="striped">
               <thead>
                 <tr>
-                  <th>Last Name</th>
+                  <th>Last Name1</th>
                   <th>First Name</th>
                   <th>Phone Number</th>
                   <th colSpan="2">Action</th>

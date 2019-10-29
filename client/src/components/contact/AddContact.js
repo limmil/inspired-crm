@@ -81,7 +81,8 @@ class AddContact extends Component {
       return (
          <header>
             <div class="modal-content">
-               <center><h4>Add Contact</h4></center>
+               <h3>Add Contact</h3>
+               <hr />
 
                <div class="row">
                   <form class="col s12" onSubmit={this.onSubmit}>
