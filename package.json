@@ -26,6 +26,7 @@
       "passport": "^0.4.0",
       "passport-jwt": "^4.0.0",
       "react": "^16.10.2",
+      "react-big-calendar": "^0.22.1",
       "react-dom": "^16.10.2",
       "react-landing-page": "^2.0.2",
       "reactstrap": "^8.0.1",
