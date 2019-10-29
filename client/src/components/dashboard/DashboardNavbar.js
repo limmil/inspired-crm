@@ -6,6 +6,7 @@ import { logoutUser } from "../../actions/authActions";
 
 // Modals.
 import AddContact from "../contact/AddContact.js";
+import ModificationLog from "../modificationlog/ModificationLog.js";
 
 /* eslint-disable no-console */
 
@@ -44,6 +45,12 @@ class DashboardNavbar extends Component {
                         </li>
                      </ul>
                      <ul class="right hide-on-med-and-down">
+                        <li>
+                           <a class="modal-trigger" href="#modificationlog">
+                              <i class="large material-icons">assessment</i>
+                           </a>
+                        </li>
+
                         <li>
                            <a class="modal-trigger" href="#addcontact">
                               <i class="large material-icons">add_circle</i>
@@ -110,6 +117,11 @@ class DashboardNavbar extends Component {
                      <i class="material-icons">event</i>Calendar
                   </Link>
                </li>
+               <li>
+                  <a class="modal-trigger" href="#modificationlog">
+                     <i class="material-icons">assessment</i>Modification Log
+                  </a>
+               </li>
             </ul>
 
             <ul id="mobile-dropdown2" class="dropdown-content">
@@ -163,6 +175,9 @@ class DashboardNavbar extends Component {
 
             <div id="addcontact" class="modal">
                <AddContact />
+            </div>
+            <div id="modificationlog" class="modal">
+               <ModificationLog />
             </div>
          </div>
       );

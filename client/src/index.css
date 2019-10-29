@@ -175,3 +175,62 @@ footer.page-footer {
    -o-transform: translate(-50%, -50%);
    transform: translate(-50%, -50%);
 }
+
+/* dashboard */
+.icon-block {
+   padding: 0 15px;
+}
+.icon-block .material-icons {
+   font-size: inherit;
+}
+.btn-group {
+   margin: auto;
+   text-align: center;
+}
+.btn-group > a.btn-flat {
+   color: black;
+}
+.btn-group > a.btn-flat:hover {
+   color: rgb(0, 87, 218);
+}
+
+.area {
+   fill: cyan;
+   fill-opacity: 0.1;
+   stroke: cyan;
+   stroke-width: 2;
+   clip-path: url(#clip);
+}
+
+.zoom {
+   cursor: move;
+   fill: none;
+   pointer-events: all;
+}
+
+text {
+   fill: white;
+}
+
+.axis line,
+.axis path {
+   stroke: white;
+}
+
+#chart {
+   width: 100%;
+   /*   border: 1px solid red; */
+}
+
+/* Progress circle */
+.donut-inner {
+   margin-top: -100px;
+   margin-bottom: 100px;
+}
+.donut-inner h5 {
+   margin-bottom: 5px;
+   margin-top: 0;
+}
+.donut-inner span {
+   font-size: 12px;
+}

@@ -16,6 +16,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import Contacts from "./components/contact/Contacts";
 import AddContact from "./components/contact/AddContact";
 import EditContact from "./components/contact/EditContact";
+import ModificationLog from "./components/modificationlog/ModificationLog";
 
 import Calendar from "./components/calendar/Calendar";
 
@@ -51,9 +52,14 @@ class App extends Component {
                   <Route exact path="/login" component={Login} />
                   <Switch>
                      <PrivateRoute exact path="/add" component={AddContact} />
-                     <PrivateRoute path="/edit/:id" component={EditContact} />
+                     <PrivateRoute path="/edit" component={EditContact} />
                      <PrivateRoute path="/contacts" component={Contacts} />
                      <PrivateRoute path="/calendar" component={Calendar} />
+                     <PrivateRoute
+                        exact
+                        path="/modificationlog"
+                        component={ModificationLog}
+                     />
                      <PrivateRoute
                         exact
                         path="/dashboard"
