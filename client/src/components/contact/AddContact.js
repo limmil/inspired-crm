@@ -75,6 +75,7 @@ class AddContact extends Component {
          temp: "",
          lastreachout: ""
       });
+      window.location.reload(false); 
    }
 
    render() {
