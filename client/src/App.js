@@ -18,6 +18,9 @@ import AddContact from "./components/contact/AddContact";
 import EditContact from "./components/contact/EditContact";
 import ModificationLog from "./components/modificationlog/ModificationLog";
 
+// Help Modals.
+import ReachOutsHelp from "./components/help/ReachOutsHelp";
+
 import Calendar from "./components/calendar/Calendar";
 
 import "./App.css";
@@ -59,6 +62,11 @@ class App extends Component {
                         exact
                         path="/modificationlog"
                         component={ModificationLog}
+                     />
+                     <PrivateRoute
+                        exact
+                        path="/reachoutshelp"
+                        component={ReachOutsHelp}
                      />
                      <PrivateRoute
                         exact

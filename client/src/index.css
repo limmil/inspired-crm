@@ -234,3 +234,13 @@ text {
 .donut-inner span {
    font-size: 12px;
 }
+
+/* bottom sheet modal */
+.bottom-sheet{
+   max-height: 100% !important;
+ }
+ 
+ .bottom-sheet .modal.content{
+   width: 60%; 
+   margin: 0px auto
+ }
