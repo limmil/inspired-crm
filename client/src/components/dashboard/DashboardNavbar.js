@@ -63,7 +63,7 @@ class DashboardNavbar extends Component {
                               alt="Tomato Timer"
                               rel="noopener noreferrer"
                            >
-                              <i class="large material-icons">av_timer</i>
+                              <i class="large material-icons">timer</i>
                            </a>
                         </li>
                         <li>

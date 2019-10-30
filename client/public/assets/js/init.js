@@ -8,6 +8,10 @@
       $(".modal").modal();
       $("#addcontact").openModal();
       $("#modificationlog").openModal();
+      $("#reachoutshelp").openModal();
+
+      //or by click on trigger
+      $('.trigger-modal').modal()
 
       $(".parallax").parallax();
    }); // end of document ready

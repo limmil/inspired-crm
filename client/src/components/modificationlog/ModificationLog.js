@@ -22,6 +22,7 @@ class ModificationLog extends Component {
                   </div>
                </div>
             </div>
+            
          </header>
       );
    }

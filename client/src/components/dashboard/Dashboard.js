@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import DashboardNavbar from "./DashboardNavbar";
 import DashboardFooter from "./DashboardFooter";
 
+import ReachOutsHelp from "../help/ReachOutsHelp.js";
+
 class Dashboard extends Component {
    render() {
       return (
@@ -29,7 +31,7 @@ class Dashboard extends Component {
                               ></div>
                            </div>
                            <p>
-                              New Reach Outs <i class="material-icons">help</i>
+                              New Reach Outs <a class="modal-trigger" href="#reachoutshelp"><i class="material-icons">help</i></a>
                            </p>
                            <p class="light"></p>
                         </div>
@@ -117,6 +119,10 @@ class Dashboard extends Component {
                </div>
             </div>
 
+            <div id="reachoutshelp" class="modal bottom-sheet">
+               <ReachOutsHelp />
+            </div>
+      
             <DashboardFooter />
          </div>
       );
