@@ -89,6 +89,9 @@
 
 
 import React, { Component } from "react";
+import axios from "axios";
+import TableRow from "./TableRow";
+import DashboardNavbar from "../dashboard/DashboardNavbar";
 import {
     Calendar,
     momentLocalizer,
@@ -118,14 +121,17 @@ class UserCalendar extends Component {
 
   render() {
     return (
-      <div className="UserCalendar">
-        <Calendar
-          localizer={localizer}
-          defaultDate={new Date()}
-          defaultView="month"
-          events={this.state.events}
-          style={{ height: "100vh" }}
-        />
+       <div>
+         <DashboardNavbar />
+         <div className="UserCalendar">
+            <Calendar
+               localizer={localizer}
+               defaultDate={new Date()}
+               defaultView="month"
+               events={this.state.events}
+               style={{ height: "100vh" }}
+            />
+         </div>
       </div>
     );
   }
