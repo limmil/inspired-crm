@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import TableRow from "./TableRow";
 
+// Dashboard components.
 import DashboardNavbar from "../dashboard/DashboardNavbar";
-import ContactsFooter from "./ContactsFooter";
+import DashboardFooter from "../dashboard/DashboardFooter";
 
 class Contacts extends Component {
    constructor(props) {
@@ -62,7 +63,7 @@ class Contacts extends Component {
                   </div>
                </div>
             </div>
-            <ContactsFooter />
+            <DashboardFooter />
          </div>
       );
    }
