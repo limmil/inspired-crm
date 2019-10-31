@@ -19,6 +19,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import TableRow from "./TableRow";
 import DashboardNavbar from "../dashboard/DashboardNavbar";
+import DashboardFooter from "../dashboard/DashboardFooter";
+
 import {
     Calendar,
     momentLocalizer,
@@ -59,6 +61,7 @@ class UserCalendar extends Component {
                style={{ height: "100vh" }}
             />
          </div>
+         <DashboardFooter />
       </div>
     );
   }

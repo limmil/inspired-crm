@@ -48,7 +48,7 @@ class DashboardNavbar extends Component {
                      <ul class="right hide-on-med-and-down">
                         <li>
                            <a class="modal-trigger" href="#modificationlog">
-                              <i class="large material-icons">assessment</i>
+                              <i class="large material-icons">description</i>
                            </a>
                         </li>
 
@@ -120,7 +120,7 @@ class DashboardNavbar extends Component {
                </li>
                <li>
                   <a class="modal-trigger" href="#modificationlog">
-                     <i class="material-icons">assessment</i>Modification Log
+                     <i class="material-icons">description</i>Modification Log
                   </a>
                </li>
             </ul>
@@ -136,7 +136,14 @@ class DashboardNavbar extends Component {
                      <i class="material-icons">add_box</i>Add Contact
                   </a>
                </li>
+               <li>
+                  <Link to="/pipeline" onClick={this.forceUpdate}>
+                     <i class="material-icons">assessment</i>Pipeline
+                  </Link>
+               </li>
             </ul>
+
+
 
             <ul id="main-dropdown1" class="dropdown-content">
                <li>
@@ -151,6 +158,8 @@ class DashboardNavbar extends Component {
                </li>
             </ul>
 
+
+
             <ul id="main-dropdown2" class="dropdown-content">
                <li>
                   <Link to="/contacts" onClick={this.forceUpdate}>
@@ -162,7 +171,14 @@ class DashboardNavbar extends Component {
                      <i class="material-icons">add_box</i>Add Contact
                   </a>
                </li>
+               <li>
+                  <Link to="/pipeline" onClick={this.forceUpdate}>
+                     <i class="material-icons">assessment</i>Pipeline
+                  </Link>
+               </li>
             </ul>
+
+
 
             <ul id="main-dropdown3" class="dropdown-content">
                <li>

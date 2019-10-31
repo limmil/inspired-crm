@@ -7,22 +7,25 @@ import { setCurrentUser, logoutUser } from "./actions/authActions";
 import { Provider } from "react-redux";
 import store from "./store";
 
+// Landing home page components.
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 
+// Private Dashboard Component pages.
 import Contacts from "./components/contact/Contacts";
 import AddContact from "./components/contact/AddContact";
 import EditContact from "./components/contact/EditContact";
 import ModificationLog from "./components/modificationlog/ModificationLog";
+import Calendar from "./components/calendar/Calendar";
+import Pipeline from "./components/pipeline/Pipeline";
 
 // Help Modals.
 import ReachOutsHelp from "./components/help/ReachOutsHelp";
 
-import Calendar from "./components/calendar/Calendar";
-
+// Import App.css.
 import "./App.css";
 
 // Check for token to keep user logged in
@@ -58,6 +61,7 @@ class App extends Component {
                      <PrivateRoute path="/edit" component={EditContact} />
                      <PrivateRoute path="/contacts" component={Contacts} />
                      <PrivateRoute path="/calendar" component={Calendar} />
+                     <PrivateRoute path="/pipeline" component={Pipeline} />
                      <PrivateRoute
                         exact
                         path="/modificationlog"

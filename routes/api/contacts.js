@@ -135,7 +135,7 @@ passport.authenticate('jwt', { session: false }),
   });
 });
 
-// Define edit route
+// Define edit route, goes to the different page.
 router.route('/edit').get(function (req, res) {
   const id = req.body.id;
   Contact.findById(id, function (err, contact){
