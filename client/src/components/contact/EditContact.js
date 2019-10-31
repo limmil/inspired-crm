@@ -26,7 +26,7 @@ class EditContact extends Component {
 
    componentDidMount() {
       axios
-         .get("/contacts/edit/" + this.props.match.params.id)
+         .get("/api/contacts/edit/" + this.props.match.params.id)
          .then(response => {
             this.setState({
                lname: response.data.lname,
@@ -75,7 +75,12 @@ class EditContact extends Component {
 
    onSubmit(e) {
       e.preventDefault();
-      const obj = {
+      // console.log(this.state.id);
+      const obj = { 
+         // Needs id search.
+         // _id: this.state.id,
+         email: localStorage.getItem("userEmail"),
+         tokenhash: localStorage.getItem("tokenHash"),
          lname: this.state.lname,
          fname: this.state.fname,
          phone: this.state.phone,
@@ -84,7 +89,7 @@ class EditContact extends Component {
          lastreachout: this.state.lastreachout
       };
       axios
-         .post("/contacts/update/" + this.props.match.params.id, obj)
+         .put("/api/contacts/update/", obj)
          .then(res => console.log(res.data));
 
       this.props.history.push("/contacts");
