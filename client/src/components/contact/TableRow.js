@@ -10,9 +10,14 @@ class TableRow extends Component {
       this.delete = this.delete.bind(this);
    }
    delete() {
+      const obj = {
+         email: localStorage.getItem("userEmail"),
+         tokenhash: localStorage.getItem("tokenHash"),
+         id: this.props.obj._id
+      };
       axios
-         .get("/contacts/delete/" + this.props.obj._id)
-         .then(console.log("Deleted"))
+         .post("/api/contacts/delete/", obj)
+         .then(res => console.log(res))
          .catch(err => console.log(err));
    }
 
@@ -27,13 +32,9 @@ class TableRow extends Component {
             <td>{this.props.obj.lastreachout}</td>
             <td>{this.props.obj.date}</td>
             <td>
-               
-               <Link
-                  to={"/edit/" + this.props.obj._id}
-                  className="btn btn-primary"
-               >
-                  <i class="material-icons">create</i>
-               </Link>
+               <a class="modal-trigger" href="#editcontact" >
+                 <i className="btn btn-primary">edit</i>
+               </a>
             </td>
             <td>
                <button onClick={this.delete} className="btn btn-danger">
