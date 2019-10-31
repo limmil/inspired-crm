@@ -72,12 +72,12 @@ passport.authenticate('jwt', { session: false }),
     });
 });
 //=================================================================
-// @route DELETE api/users/deletecontact
+// @route DELETE api/contacts/delete
 // @desc delete contacts
 // @access Private
 // @req: email, tokenhash, id
 // @res: 'DELETED' OR 401
-router.delete("/delete", 
+router.post("/delete", 
 passport.authenticate('jwt', { session: false }), 
 (req, res) => {
   // check validation
@@ -99,12 +99,12 @@ passport.authenticate('jwt', { session: false }),
     });
 });
 //=================================================================
-// @route PUT api/users/update
+// @route PUT api/contacts/update
 // @desc update contact, EDIT contact
 // @access Private
 // @req: email, tokenhash, id, lname, fname, phone
 // @res: 'UPDATED' OR 401
-router.put("/update", 
+router.post("/update", 
 passport.authenticate('jwt', { session: false }), 
 (req, res) => {
   const id = req.body.id;
