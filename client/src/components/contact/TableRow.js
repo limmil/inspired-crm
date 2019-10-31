@@ -37,9 +37,9 @@ class TableRow extends Component {
                </a>
             </td>
             <td>
-               <button onClick={this.delete} className="btn btn-danger">
+               <a onClick={this.delete} href="">
                   <i class="material-icons">delete</i>
-               </button>
+               </a>
             </td>
          </tr>
       );

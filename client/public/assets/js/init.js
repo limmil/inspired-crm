@@ -9,6 +9,7 @@
       $("#addcontact").openModal();
       $("#modificationlog").openModal();
       $("#reachoutshelp").openModal();
+      $("#editcontact").openModal();
 
       //or by click on trigger
       $('.trigger-modal').modal()
