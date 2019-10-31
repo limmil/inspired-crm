@@ -10,6 +10,18 @@ class Dashboard extends Component {
          <div>
             <DashboardNavbar />
             <div class="container">
+               <div class="row"></div>
+
+               <div class="row">
+                  <div class="col s12">
+                     <div class="card-panel center">
+                        
+                        <h6 align="right">Current goal plan :: <a href="#!">Keep The Lights On</a> <a class="waves-effect waves-light btn-small">Goal Options</a></h6>
+                       
+                     </div>
+                  </div>
+               </div>
+
                <div class="divider"></div>
 
                <div class="section">
@@ -31,7 +43,10 @@ class Dashboard extends Component {
                               ></div>
                            </div>
                            <p>
-                              New Reach Outs <a class="modal-trigger" href="#reachoutshelp"><i class="material-icons">help</i></a>
+                              New Reach Outs{" "}
+                              <a class="modal-trigger" href="#reachoutshelp">
+                                 <i class="material-icons">help</i>
+                              </a>
                            </p>
                            <p class="light"></p>
                         </div>
@@ -122,7 +137,7 @@ class Dashboard extends Component {
             <div id="reachoutshelp" class="modal bottom-sheet">
                <ReachOutsHelp />
             </div>
-      
+
             <DashboardFooter />
          </div>
       );
