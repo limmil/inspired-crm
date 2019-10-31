@@ -78,6 +78,8 @@ class AddContact extends Component {
       window.location.reload(false); 
    }
 
+   
+
    render() {
       return (
          <header>
@@ -161,7 +163,7 @@ class AddContact extends Component {
                            <i class="material-icons prefix">assignment_ind</i>
                            <input
                               id="icon_assignment_ind"
-                              type="text"
+                              type="date"
                               class="validate"
                               value={this.state.lastreachout}
                               onChange={this.onChangeLastReachOut}
@@ -186,5 +188,6 @@ class AddContact extends Component {
       );
    }
 }
+
 
 export default AddContact;
