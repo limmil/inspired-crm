@@ -33,7 +33,7 @@ class TableRow extends Component {
             <td>{this.props.obj.date}</td>
             <td>
                <a class="modal-trigger" href="#editcontact" >
-                 <i className="btn btn-primary">edit</i>
+                  <i class="material-icons">create</i>
                </a>
             </td>
             <td>
