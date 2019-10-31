@@ -1,5 +1,3 @@
-// edit.component.js
-
 import React, { Component } from "react";
 import axios from "axios";
 
@@ -15,7 +13,8 @@ class EditContact extends Component {
       this.onSubmit = this.onSubmit.bind(this);
 
       this.state = {
-         lname: "",
+         id: "this.props.obj._id",
+         lname: "this.props.obj._id",
          fname: "",
          phone: "",
          emailaddr: "",
@@ -23,25 +22,6 @@ class EditContact extends Component {
          lastreachout: ""
       };
    }
-
-   componentDidMount() {
-      axios
-         .get("/contacts/edit/" + this.props.match.params.id)
-         .then(response => {
-            this.setState({
-               lname: response.data.lname,
-               fname: response.data.fname,
-               phone: response.data.phone,
-               emailaddr: response.data.emailaddr,
-               temp: response.data.temp,
-               lastreachout: response.data.lastreachout
-            });
-         })
-         .catch(function(error) {
-            console.log(error);
-         });
-   }
-
    onChangeLastName(e) {
       this.setState({
          lname: e.target.value
@@ -75,7 +55,9 @@ class EditContact extends Component {
 
    onSubmit(e) {
       e.preventDefault();
-      const obj = {
+      const contactData = {
+         email: localStorage.getItem("userEmail"),
+         tokenhash: localStorage.getItem("tokenHash"),
          lname: this.state.lname,
          fname: this.state.fname,
          phone: this.state.phone,
@@ -84,17 +66,16 @@ class EditContact extends Component {
          lastreachout: this.state.lastreachout
       };
       axios
-         .post("/contacts/update/" + this.props.match.params.id, obj)
+         .post("/api/contacts/update", contactData)
          .then(res => console.log(res.data));
-
-      this.props.history.push("/contacts");
    }
 
    render() {
       return (
          <header>
-            <div class="card">
-               <h4 align="center">Edit Contact</h4>
+            <div class="modal-content">
+               <h3>Edit Contact</h3>
+               <hr />
 
                <div class="row">
                   <form class="col s12" onSubmit={this.onSubmit}>
@@ -186,7 +167,7 @@ class EditContact extends Component {
                      <div class="modal-footer">
                         <input
                            type="submit"
-                           value="Save"
+                           value="Submit"
                            className="btn btn-primary"
                         />
                      </div>
@@ -197,4 +178,5 @@ class EditContact extends Component {
       );
    }
 }
+
 export default EditContact;

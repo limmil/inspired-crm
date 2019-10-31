@@ -6,6 +6,7 @@ import { logoutUser } from "../../actions/authActions";
 
 // Modals.
 import AddContact from "../contact/AddContact.js";
+import EditContact from "../contact/EditContact.js";
 import ModificationLog from "../modificationlog/ModificationLog.js";
 
 /* eslint-disable no-console */
@@ -175,6 +176,9 @@ class DashboardNavbar extends Component {
 
             <div id="addcontact" class="modal">
                <AddContact />
+            </div>
+            <div id="editcontact" class="modal">
+               <EditContact />
             </div>
             <div id="modificationlog" class="modal">
                <ModificationLog />
