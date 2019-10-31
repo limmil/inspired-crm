@@ -153,7 +153,7 @@ class EditContact extends Component {
                            <i class="material-icons prefix">assignment_ind</i>
                            <input
                               id="icon_assignment_ind"
-                              type="text"
+                              type="date"
                               class="validate"
                               value={this.state.lastreachout}
                               onChange={this.onChangeLastReachOut}
