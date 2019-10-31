@@ -18,7 +18,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import Contacts from "./components/contact/Contacts";
 import AddContact from "./components/contact/AddContact";
 import EditContact from "./components/contact/EditContact";
-import ModificationLog from "./components/modificationlog/ModificationLog";
+import ModificationLog from "./components/log/ModificationLog";
 import Calendar from "./components/calendar/Calendar";
 import Pipeline from "./components/pipeline/Pipeline";
 

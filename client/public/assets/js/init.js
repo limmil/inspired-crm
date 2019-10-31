@@ -24,11 +24,12 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // Or with jQuery
-
 $(document).ready(function() {
    $("select").formSelect();
 
    $(".section").fadeIn();
+
+   $('.datepicker').datepicker();
 
    // Counter
    $(".count").each(function() {
@@ -58,3 +59,4 @@ $(document).ready(function() {
       e.preventDefault();
    });
 });
+

@@ -7,7 +7,7 @@ import { logoutUser } from "../../actions/authActions";
 // Modals.
 import AddContact from "../contact/AddContact.js";
 import EditContact from "../contact/EditContact.js";
-import ModificationLog from "../modificationlog/ModificationLog.js";
+import ModificationLog from "../log/ModificationLog.js";
 
 /* eslint-disable no-console */
 
