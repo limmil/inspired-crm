@@ -7,65 +7,37 @@ class Pipeline extends Component {
       return (
          <div>
             <DashboardNavbar />
-            
-            
-               
-            <div class="section">
-                  <h5 class="black-text"></h5>
 
-                  <div class="row">
-                     <div class="col s2 m6 l3">
-                        <div class="card-panel center">
-                           <i class="material-icons small">insert_emoticon</i>
-                           <h6>Not Contacted (0)</h6>
-                        </div>
-                     </div>
+            <div class="container">
+               <h3>Pipeline</h3>
+               <hr />
+            </div>
 
-                     <div class="col s2 m6 l3">
-                        <div class="card-panel center">
-                           <i class="material-icons small">mode_edit</i>
-                           <h6>Contacted (0)</h6>
-                        </div>
-                     </div>
-
-                     <div class="col s2 m6 l3">
-                        <div class="card-panel center">
-                           <i class="material-icons small">mode_comment</i>
-                           <h6>Needs Follow Up (0)</h6>
-                        </div>
-                     </div>
-
-                     <div class="col s2 m6 l3">
-                        <div class="card-panel center">
-                           <i class="material-icons small">mode_comment</i>
-                           <h6>All Info Sent (0)</h6>
-                        </div>
-                     </div>
-    
-                     <div class="col s2 m6 l3">
-                        <div class="card-panel center">
-                           <i class="material-icons small">mode_comment</i>
-                           <h6>Followed Up (0)</h6>
-                        </div>
-                     </div>
-
-                     <div class="col s2 m6 l3">
-                        <div class="card-panel center">
-                           <i class="material-icons small">mode_comment</i>
-                           <h6>Closed/Signed (0)</h6>
-                        </div>
-                     </div>
-
-                     <div class="col s2 m6 l3">
-                        <div class="card-panel center">
-                           <i class="material-icons small">mode_comment</i>
-                           <h6>Not Right Now (0)</h6>
-                        </div>
-                     </div>
-                  </div>
-
-
+            <div class="row">
+               <div class="col s12 m6 l2">
+                  <span class="flow-text">Not Contacted</span>
                </div>
+               <div class="col s12 m6 l2">
+                  <span class="flow-text">Contacted</span>
+               </div>
+               <div class="col s12 m6 l2">
+                  <span class="flow-text">Needs Follow Up</span>
+               </div>
+               <div class="col s12 m6 l2">
+                  <span class="flow-text">All Info Sent</span>
+               </div>
+               <div class="col s12 m6 l2">
+                  <span class="flow-text">Followed Up</span>
+               </div>
+               <div class="col s12 m6 l2">
+                  <span class="flow-text">Closed/Signed</span>
+               </div>
+               <div class="col s12 m6 l2">
+                  <span class="flow-text">Not Right Now</span>
+               </div>
+
+            </div>
+           
             <DashboardFooter />
          </div>
       );
