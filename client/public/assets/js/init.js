@@ -2,8 +2,8 @@
    $(function() {
       $(".parallax").parallax();
       $(".sidenav").sidenav();
-
-      $(".dropdown-trigger").dropdown( {hover: true});
+      
+      $(".dropdown-trigger").dropdown({ hover: true, coverTrigger: false });
 
       $(".modal").modal();
       $("#addcontact").openModal();
