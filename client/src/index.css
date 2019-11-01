@@ -1,6 +1,13 @@
 body {
+   position: relative;
+
+  padding-bottom: 6rem;
+
    margin: 0;
    padding: 0;
+   display: flex;
+   min-height: 100vh;
+   flex-direction: column;
    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
       "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
       "Helvetica Neue", sans-serif;
@@ -130,6 +137,7 @@ p {
    height: auto;
    color: rgba(255, 255, 255, 0.9);
 }
+
 .parallax-container .section {
    width: 100%;
 }
@@ -139,6 +147,7 @@ p {
       position: absolute;
       top: 40%;
    }
+
    #index-banner .section {
       top: 10%;
    }
@@ -153,6 +162,7 @@ p {
 .icon-block {
    padding: 0 15px;
 }
+
 .icon-block .material-icons {
    font-size: inherit;
 }
@@ -180,17 +190,21 @@ footer.page-footer {
 .icon-block {
    padding: 0 15px;
 }
+
 .icon-block .material-icons {
    font-size: inherit;
 }
+
 .btn-group {
    margin: auto;
    text-align: center;
 }
-.btn-group > a.btn-flat {
+
+.btn-group>a.btn-flat {
    color: black;
 }
-.btn-group > a.btn-flat:hover {
+
+.btn-group>a.btn-flat:hover {
    color: rgb(0, 87, 218);
 }
 
@@ -227,10 +241,12 @@ text {
    margin-top: -100px;
    margin-bottom: 100px;
 }
+
 .donut-inner h5 {
    margin-bottom: 5px;
    margin-top: 0;
 }
+
 .donut-inner span {
    font-size: 12px;
 }
@@ -252,21 +268,21 @@ text {
 }
 
 /* For footer. */
-.page-footer {
-   position: fixed;
-   bottom: 0;
-   width: 100%;
-}
 
-@media (min-width: 768px) and (min-height: 500px) {
-   .page-footer {
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-   }
+.page-footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  
+   text-align: left;
 }
 
 /* For hover dropdown */
+
+/*
 .dropdown-content {
    top: 100% !important;
 }
+*/
+

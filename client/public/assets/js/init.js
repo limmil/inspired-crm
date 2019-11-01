@@ -3,9 +3,7 @@
       $(".parallax").parallax();
       $(".sidenav").sidenav();
 
-      $(".dropdown-trigger").dropdown({
-         hover: true
-      });
+      $(".dropdown-trigger").dropdown( {hover: true});
 
       $(".modal").modal();
       $("#addcontact").openModal();
