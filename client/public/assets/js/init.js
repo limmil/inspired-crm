@@ -3,16 +3,21 @@
       $(".parallax").parallax();
       $(".sidenav").sidenav();
 
-      $(".dropdown-trigger").dropdown();
+      $(".dropdown-trigger").dropdown({
+         hover: true
+      });
 
       $(".modal").modal();
       $("#addcontact").openModal();
       $("#modificationlog").openModal();
       $("#reachoutshelp").openModal();
+      $("#followupshelp").openModal();
+      $("#teamreachoutshelp").openModal();
+
       $("#editcontact").openModal();
 
       //or by click on trigger
-      $('.trigger-modal').modal()
+      $(".trigger-modal").modal();
 
       $(".parallax").parallax();
    }); // end of document ready
@@ -29,7 +34,7 @@ $(document).ready(function() {
 
    $(".section").fadeIn();
 
-   $('.datepicker').datepicker();
+   $(".datepicker").datepicker();
 
    // Counter
    $(".count").each(function() {
@@ -60,3 +65,16 @@ $(document).ready(function() {
    });
 });
 
+// For footer.
+$(window).on("load resize", function() {
+   $("body").css({ paddingBottom: $("footer").outerHeight() + "px" });
+});
+
+$(window).on("load resize", function() {
+   $("body").css({
+      paddingBottom:
+         $(window).width() >= 768 && $(window).height() >= 500
+            ? $("footer").outerHeight() + "px"
+            : "0"
+   });
+});

@@ -236,14 +236,37 @@ text {
 }
 
 /* bottom sheet modal */
-.bottom-sheet{
+.bottom-sheet {
    max-height: 100% !important;
- }
- 
- .bottom-sheet .modal.content{
-   width: 60%; 
-   margin: 0px auto
- }
- 
- /* For pipeline page */
- 
+}
+
+.bottom-sheet .modal.content {
+   width: 60%;
+   margin: 0px auto;
+}
+
+/* For pipeline page */
+.containerpipeline {
+   margin: 0 auto;
+   width: 1280px;
+}
+
+/* For footer. */
+.page-footer {
+   position: fixed;
+   bottom: 0;
+   width: 100%;
+}
+
+@media (min-width: 768px) and (min-height: 500px) {
+   .page-footer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+   }
+}
+
+/* For hover dropdown */
+.dropdown-content {
+   top: 100% !important;
+}

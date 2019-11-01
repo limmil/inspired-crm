@@ -24,6 +24,8 @@ import Pipeline from "./components/pipeline/Pipeline";
 
 // Help Modals.
 import ReachOutsHelp from "./components/help/ReachOutsHelp";
+import TeamReachOutsHelp from "./components/help/TeamReachOutsHelp";
+import FollowUpsHelp from "./components/help/FollowUpsHelp";
 
 // Import App.css.
 import "./App.css";
@@ -66,6 +68,17 @@ class App extends Component {
                         exact
                         path="/modificationlog"
                         component={ModificationLog}
+                     />
+
+                     <PrivateRoute
+                        exact
+                        path="/teamreachoutshelp"
+                        component={TeamReachOutsHelp}
+                     />
+                     <PrivateRoute
+                        exact
+                        path="/followupsshelp"
+                        component={FollowUpsHelp}
                      />
                      <PrivateRoute
                         exact
