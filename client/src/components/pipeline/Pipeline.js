@@ -8,36 +8,45 @@ class Pipeline extends Component {
          <div>
             <DashboardNavbar />
 
-            <div class="container">
+            <div class="containerpipeline">
                <h3>Pipeline</h3>
                <hr />
-            </div>
 
-            <div class="row">
-               <div class="col s12 m6 l2">
-                  <span class="flow-text">Not Contacted</span>
-               </div>
-               <div class="col s12 m6 l2">
-                  <span class="flow-text">Contacted</span>
-               </div>
-               <div class="col s12 m6 l2">
-                  <span class="flow-text">Needs Follow Up</span>
-               </div>
-               <div class="col s12 m6 l2">
-                  <span class="flow-text">All Info Sent</span>
-               </div>
-               <div class="col s12 m6 l2">
-                  <span class="flow-text">Followed Up</span>
-               </div>
-               <div class="col s12 m6 l2">
-                  <span class="flow-text">Closed/Signed</span>
-               </div>
-               <div class="col s12 m6 l2">
-                  <span class="flow-text">Not Right Now</span>
-               </div>
+               <table>
+                  <thead>
+                     <tr>
+                        <th>Not Contacted (0)</th>
+                        <th>Contacted (0)</th>
+                        <th>Needs Follow Up (0)</th>
+                        <th>All Info Sent (0)</th>
+                        <th>Followed Up (0)</th>
+                        <th>Closed/Signed (0)</th>
+                        <th>Not Right Now (0)</th>
+                     </tr>
+                  </thead>
 
+                  <tbody>
+                     <tr>
+                        <td>John Doe</td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                     </tr>
+                     <tr>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td> </td>
+                        <td>CJ Johnson</td>
+                     </tr>
+                  </tbody>
+               </table>
             </div>
-           
             <DashboardFooter />
          </div>
       );

@@ -3,6 +3,8 @@ import DashboardNavbar from "./DashboardNavbar";
 import DashboardFooter from "./DashboardFooter";
 
 import ReachOutsHelp from "../help/ReachOutsHelp.js";
+import FollowUpsHelp from "../help/FollowUpsHelp.js";
+import TeamReachOutsHelp from "../help/TeamReachOutsHelp.js";
 
 class Dashboard extends Component {
    render() {
@@ -15,9 +17,13 @@ class Dashboard extends Component {
                <div class="row">
                   <div class="col s12">
                      <div class="card-panel center">
-                        
-                        <h6 align="right">Current goal plan :: <a href="#!">Keep the Lights On</a> <a class="waves-effect waves-light btn-small">Goal Options</a></h6>
-                       
+                        <h6 align="right">
+                           Current goal plan ::{" "}
+                           <a href="#!">Keep the Lights On</a>{" "}
+                           <a class="waves-effect waves-light btn-small">
+                              Goal Options
+                           </a>
+                        </h6>
                      </div>
                   </div>
                </div>
@@ -67,7 +73,10 @@ class Dashboard extends Component {
                               ></div>
                            </div>
                            <p>
-                              Follow Ups <i class="material-icons">help</i>
+                              Follow Ups
+                              <a class="modal-trigger" href="#followupshelp">
+                                 <i class="material-icons">help</i>
+                              </a>
                            </p>
                            <p class="light"></p>
                         </div>
@@ -88,7 +97,13 @@ class Dashboard extends Component {
                               ></div>
                            </div>
                            <p>
-                              Team Reach Outs <i class="material-icons">help</i>
+                              Team Reach Outs{" "}
+                              <a
+                                 class="modal-trigger"
+                                 href="#teamreachoutshelp"
+                              >
+                                 <i class="material-icons">help</i>
+                              </a>
                            </p>
                            <p class="light"></p>
                         </div>
@@ -136,6 +151,14 @@ class Dashboard extends Component {
 
             <div id="reachoutshelp" class="modal bottom-sheet">
                <ReachOutsHelp />
+            </div>
+
+            <div id="followupshelp" class="modal bottom-sheet">
+               <FollowUpsHelp />
+            </div>
+
+            <div id="teamreachoutshelp" class="modal bottom-sheet">
+               <TeamReachOutsHelp />
             </div>
 
             <DashboardFooter />

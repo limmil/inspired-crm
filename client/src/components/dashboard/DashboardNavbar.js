@@ -143,8 +143,6 @@ class DashboardNavbar extends Component {
                </li>
             </ul>
 
-
-
             <ul id="main-dropdown1" class="dropdown-content">
                <li>
                   <Link to="/dashboard" onClick={this.forceUpdate}>
@@ -157,8 +155,6 @@ class DashboardNavbar extends Component {
                   </Link>
                </li>
             </ul>
-
-
 
             <ul id="main-dropdown2" class="dropdown-content">
                <li>
@@ -177,8 +173,6 @@ class DashboardNavbar extends Component {
                   </Link>
                </li>
             </ul>
-
-
 
             <ul id="main-dropdown3" class="dropdown-content">
                <li>

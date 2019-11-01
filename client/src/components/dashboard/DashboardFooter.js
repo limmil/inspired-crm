@@ -12,14 +12,16 @@ class DashboardFooter extends Component {
                      <script type="text/javascript">
                         document.write(new Date().getFullYear());
                      </script>{" "}
-                     <Link to="/dashboard" onClick={this.forceUpdate} class="grey-text text-lighten-2">
-                        TSG 
+                     <Link
+                        to="/dashboard"
+                        onClick={this.forceUpdate}
+                        class="grey-text text-lighten-2"
+                     >
+                        TSG
                      </Link>{" "}
                      All rights reserved.
                   </span>
-                  <span class="right hide-on-small-only">
-                 
-                  </span>
+                  <span class="right hide-on-small-only"></span>
                </div>
             </div>
          </footer>
