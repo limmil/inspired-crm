@@ -15,6 +15,7 @@ class DashboardNavbar extends Component {
    onLogoutClick = e => {
       e.preventDefault();
       this.props.logoutUser();
+      window.location.reload(false); 
    };
 
    render() {
