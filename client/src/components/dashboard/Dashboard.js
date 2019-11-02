@@ -18,8 +18,8 @@ class Dashboard extends Component {
                   <div class="col s12">
                      <div class="card-panel center">
                         <h6 align="right">
-                           Current goal plan ::{" "}
-                           <a href="#!">Keep the Lights On</a>{" "}
+                           Current goal plan :: {" "}
+                           <a href="#!">Keep the Lights On</a> {" "}
                            <a class="waves-effect waves-light btn-small">
                               Goal Options
                            </a>
@@ -107,43 +107,6 @@ class Dashboard extends Component {
                            </p>
                            <p class="light"></p>
                         </div>
-                     </div>
-                  </div>
-               </div>
-
-               <div class="divider"></div>
-
-               <div class="section">
-                  <div class="row">
-                     <div class="col s12 m12">
-                        <h5 class="black-text">To-do List</h5>
-                        <table class="responsive-table">
-                           <thead>
-                              <tr>
-                                 <th>Title</th>
-                                 <th>Details</th>
-                                 <th>Deadline</th>
-                              </tr>
-                           </thead>
-
-                           <tbody>
-                              <tr>
-                                 <td>Call John Doe</td>
-                                 <td>Talk about products</td>
-                                 <td>10/29/15</td>
-                              </tr>
-                              <tr>
-                                 <td>Gather 3 contacts</td>
-                                 <td>Leads</td>
-                                 <td>2/9/19</td>
-                              </tr>
-                              <tr>
-                                 <td>Follow up on Mark Dopson</td>
-                                 <td>Confirm re-schedule</td>
-                                 <td>7/1/11</td>
-                              </tr>
-                           </tbody>
-                        </table>
                      </div>
                   </div>
                </div>

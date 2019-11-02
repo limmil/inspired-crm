@@ -15,7 +15,7 @@ class DashboardNavbar extends Component {
    onLogoutClick = e => {
       e.preventDefault();
       this.props.logoutUser();
-      window.location.reload(false); 
+      window.location.reload(false);
    };
 
    render() {
@@ -93,22 +93,11 @@ class DashboardNavbar extends Component {
                   <b>Welcome</b>, {user.name.split(" ")[0]}
                </li>
                <li>
-                  <a class="dropdown-trigger" data-target="mobile-dropdown1">
-                     My Business
-                  </a>
+                  {" "}
+                  <center>
+                     <b>My Business</b>
+                  </center>
                </li>
-               <li>
-                  <a class="dropdown-trigger" data-target="mobile-dropdown2">
-                     Contact Management
-                  </a>
-               </li>
-               <li class="divider"></li>
-               <li>
-                  <a onClick={this.onLogoutClick}>Logout</a>
-               </li>
-            </ul>
-
-            <ul id="mobile-dropdown1" class="dropdown-content">
                <li>
                   <Link to="/dashboard" onClick={this.forceUpdate}>
                      <i class="material-icons">dashboard</i>Dashboard
@@ -124,9 +113,12 @@ class DashboardNavbar extends Component {
                      <i class="material-icons">description</i>Modification Log
                   </a>
                </li>
-            </ul>
-
-            <ul id="mobile-dropdown2" class="dropdown-content">
+               <li class="divider"></li>
+               <li>
+                  <center>
+                     <b>Contact Management</b>
+                  </center>
+               </li>
                <li>
                   <Link to="/contacts" onClick={this.forceUpdate}>
                      <i class="material-icons">contacts</i>Contact List
@@ -141,6 +133,11 @@ class DashboardNavbar extends Component {
                   <Link to="/pipeline" onClick={this.forceUpdate}>
                      <i class="material-icons">assessment</i>Pipeline
                   </Link>
+               </li>
+
+               <li class="divider"></li>
+               <li>
+                  <a onClick={this.onLogoutClick}>Logout</a>
                </li>
             </ul>
 
