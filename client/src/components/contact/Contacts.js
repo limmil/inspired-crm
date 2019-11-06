@@ -44,7 +44,7 @@ class Contacts extends Component {
                   <div class="col s12">
                      <h3>Contact List</h3>
                      <hr />
-                     <table class="highlight">
+                     <table class="highlight responsive-table">
                         <thead>
                            <tr>
                               <th>First Name</th>

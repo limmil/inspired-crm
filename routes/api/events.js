@@ -2,17 +2,17 @@ const express = require("express");
 const router = express.Router();
 const passport = require("passport");
 
-// Load Contact model
-const Contact = require("../../models/Contact");
+// Load Event model
+const Event = require("../../models/Event");
 // Load User model
 const User = require("../../models/User");
 
 //=================================================================
-// @route POST api/contacts/add
-// @desc add new contacts
+// @route POST api/events/add
+// @desc add new events
 // @access Private
-// @req: email, tokenhash, lname, fname, phone
-// @res: {_id, user, lname, fname, phone, date} OR 401
+// @req: email, tokenhash, start, end, title
+// @res: {_id, start, end, title, date} OR 401
 router.post("/add", 
 passport.authenticate('jwt', { session: false }), 
 (req, res) => {
@@ -21,34 +21,31 @@ passport.authenticate('jwt', { session: false }),
   const tokenhash = req.body.tokenhash;
   User.findOne({ email }).then(user => {
     if (user.tokenhash == tokenhash){
-      // add one contact
-      const newContact = new Contact({
+      // add one event
+      const newEvent = new Event({
         user: user._id,
-        lname: req.body.lname,
-        fname: req.body.fname,
-        phone: req.body.phone,
-        emailaddr: req.body.emailaddr,
-        temp: req.body.temp,
-        lastreachout: req.body.lastreachout,
+        start: req.body.start,
+        end: req.body.end,
+        title: req.body.title,
       });
-      newContact
+      newEvent
         .save()
-        .then(contact => res.json(contact))
+        .then(event => res.json(event))
         .catch(err => {
           console.log(err); 
           res.status(500);
         });
     } else{
-      res.status(401).send('Unauthorized');
+        res.status(401).send('Unauthorized');
     }
   });
 });
 //=================================================================
-// @route POST api/contacts/get
-// @desc get all contacts from db
+// @route POST api/events/get
+// @desc get all events from db
 // @access Private
 // @req: email, tokenhash
-// @res: [{_id, user, lname, fname, phone, date}] OR 401
+// @res: [{_id, user, start, end, title, date}] OR 401
 router.post("/get", 
 passport.authenticate('jwt', { session: false }), 
 (req, res) => {
@@ -57,11 +54,11 @@ passport.authenticate('jwt', { session: false }),
 
   User.findOne({ email }).then(user => {
     if (user.tokenhash == tokenhash){
-      // returns all contacts of user  
-      Contact
+      // returns all events of user  
+      Event
         .find({'user': user._id})
-        .exec((err, contacts) => {
-            return res.json (contacts);
+        .exec((err, events) => {
+            return res.json (events);
         })
     } else{
       res.status(401).send('Unauthorized');
@@ -72,8 +69,8 @@ passport.authenticate('jwt', { session: false }),
     });
 });
 //=================================================================
-// @route POST api/contacts/delete
-// @desc delete one contact
+// @route POST api/events/delete
+// @desc delete one event
 // @access Private
 // @req: email, tokenhash, id
 // @res: 'DELETED' OR 401
@@ -85,8 +82,8 @@ passport.authenticate('jwt', { session: false }),
   const tokenhash = req.body.tokenhash;
   User.findOne({ email }).then(user => {
     if (user.tokenhash == tokenhash){
-      // delete one contact
-      Contact.deleteOne(
+      // delete one event
+      Event.deleteOne(
         { _id: req.body.id },
         (err) => {console.log(err)})
           .then(res.status(200).send('DELETED'));
@@ -99,10 +96,10 @@ passport.authenticate('jwt', { session: false }),
     });
 });
 //=================================================================
-// @route POST api/contacts/update
-// @desc update contact, EDIT contact
+// @route POST api/events/update
+// @desc update one event, EDIT event
 // @access Private
-// @req: email, tokenhash, id, lname, fname, phone
+// @req: email, tokenhash, id, start, end, title
 // @res: 'UPDATED' OR 401
 router.post("/update", 
 passport.authenticate('jwt', { session: false }), 
@@ -110,17 +107,14 @@ passport.authenticate('jwt', { session: false }),
   const id = req.body.id;
   const email = req.body.email;
   const tokenhash = req.body.tokenhash;
-  // update one contact
+  // update one event
   User.findOne({ email }).then(user => {
     if (user.tokenhash == tokenhash){
-      Contact.findOneAndUpdate({'_id': id},{ 
+      Event.findOneAndUpdate({'_id': id},{ 
           '$set': {
-          'lname': req.body.lname,
-          'fname': req.body.fname,
-          'phone': req.body.phone,
-          'emailaddr': req.body.emailaddr,
-          'temp': req.body.temp,
-          'lastreachout': req.body.lastreachout
+          'start': req.body.start,
+          'end': req.body.end,
+          'title': req.body.title
           }
       }, {useFindAndModify: false})
       .then(res.status(200).send('UPDATED'))
@@ -132,14 +126,6 @@ passport.authenticate('jwt', { session: false }),
     } else{
       res.status(401).send('Unauthorized');
     }
-  });
-});
-
-// Define edit route, goes to the different page.
-router.route('/edit').get(function (req, res) {
-  const id = req.body.id;
-  Contact.findById(id, function (err, contact){
-      res.json(contact);
   });
 });
 

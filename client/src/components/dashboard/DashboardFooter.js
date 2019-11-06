@@ -21,7 +21,7 @@ class DashboardFooter extends Component {
                      </Link>{" "}
                      All rights reserved.
                   </span>
-                  <span class="right hide-on-small-only"></span>
+                 
                </div>
             </div>
          </footer>
