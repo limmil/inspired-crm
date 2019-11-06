@@ -95,7 +95,9 @@ class UserCalendar extends Component {
                style={{ height: "100vh" }}
             />
          </div>
-         <DashboardFooter />
+
+         
+        
       </div>
     );
   }
