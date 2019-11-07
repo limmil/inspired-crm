@@ -16,12 +16,8 @@ class Navbar extends Component {
                      </a>
                      <ul class="right hide-on-med-and-down">
                         <li>
-                           <Link to="/login">
-                              <a
-                                 class="waves-effect waves-light btn blue"
-                              >
+                           <Link to="/login" class="waves-effect waves-light btn blue">
                                  Log In
-                              </a>
                            </Link>
                         </li>
                      </ul>
