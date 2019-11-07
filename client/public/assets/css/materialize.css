@@ -2163,6 +2163,8 @@ html {
  */
 body {
   margin: 0;
+  position: relative;
+  height: 100%;
 }
 
 /**
@@ -3432,7 +3434,12 @@ table span.badge {
   margin: 0 auto;
   max-width: 1280px;
   width: 90%;
+  min-height: 100vh; /* will cover the 100% of viewport */
+  overflow: hidden;
+  display: block;
+  position: relative;
   padding-bottom: 100px; /* height of your footer */
+
 }
 
 @media only screen and (min-width: 601px) {
