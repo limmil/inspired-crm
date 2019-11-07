@@ -28,7 +28,7 @@ class Landing extends Component {
                            <a
                               href="#foo"
                               id="download-button"
-                              class="btn-large waves-effect waves-light blue lighten-1"
+                              class="btn-large waves-effect waves-light blue"
                            >
                               Get Started
                            </a>
