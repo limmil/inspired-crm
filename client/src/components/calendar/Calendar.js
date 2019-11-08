@@ -31,22 +31,56 @@ import "./Calendar.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment)
-  
+ 
+
+// METHOD 1
+/********************************************************* */
+// class UserCalendar extends Component {
+//   state = {
+//     events: [ 
+//       {
+//         start: new Date(),
+//         end: new Date(moment().add(1, "days")),
+//         title: "Sample Event"
+//       },
+//       {
+//          start: new Date(moment().subtract(8, "days")),
+//          end: new Date(moment().subtract(6, "days")),
+//          title: "Some other Event"
+//        }
+//     ]
+//   };
+/********************************************************* */
+
+
+
+// METHOD 2
+/********************************************************* */
 class UserCalendar extends Component {
-  state = {
-    events: [ 
-      {
-        start: new Date(),
-        end: new Date(moment().add(1, "days")),
-        title: "Sample Event"
-      },
-      {
-         start: new Date(moment().subtract(8, "days")),
-         end: new Date(moment().subtract(6, "days")),
-         title: "Some other Event"
-       }
-    ]
-  };
+  constructor(props) {
+     super(props);
+     this.state = { eventss: [] };
+  }
+
+  componentDidMount() {
+     const user = {
+        email: localStorage.getItem("userEmail"),
+        tokenhash: localStorage.getItem("tokenHash")
+     };
+     console.log(user);
+     axios
+        .post("/api/events/get", user)
+        .then(response => {
+           console.log(response);
+           this.setState({ eventss: response.data });
+        })
+        .catch(function(error) {
+           console.log(error);
+        });
+  }
+/********************************************************* */
+
+
 
   render() {
     return (
@@ -57,16 +91,24 @@ class UserCalendar extends Component {
                localizer={localizer}
                defaultDate={new Date()}
                defaultView="month"
-               events={this.state.events}
+               events={this.state.eventss}
                style={{ height: "100vh" }}
             />
          </div>
-         <DashboardFooter />
+
+         
+        
       </div>
     );
   }
 }
 export default UserCalendar;
+
+
+
+
+
+
 
 
 

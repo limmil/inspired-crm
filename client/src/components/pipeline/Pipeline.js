@@ -8,11 +8,11 @@ class Pipeline extends Component {
          <div>
             <DashboardNavbar />
 
-            <div class="containerpipeline">
+            <div class="container">
                <h3>Pipeline</h3>
                <hr />
 
-               <table>
+               <table class="responsive-table">
                   <thead>
                      <tr>
                         <th>Not Contacted (0)</th>
@@ -28,21 +28,12 @@ class Pipeline extends Component {
                   <tbody>
                      <tr>
                         <td>John Doe</td>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                     </tr>
-                     <tr>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td> </td>
-                        <td>CJ Johnson</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                      </tr>
                   </tbody>
                </table>
