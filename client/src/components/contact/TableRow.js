@@ -3,12 +3,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import PropTypes from "prop-types"
+import { connect } from "react-redux"
+import { editContact } from "../../actions/contactActions"
 
 class TableRow extends Component {
    constructor(props) {
       super(props);
       this.delete = this.delete.bind(this);
+      this.edit = this.edit.bind(this);
    }
+
    delete() {
       const obj = {
          email: localStorage.getItem("userEmail"),
@@ -19,7 +24,11 @@ class TableRow extends Component {
          .post("/api/contacts/delete/", obj)
          .then(res => console.log(res))
          .catch(err => console.log(err));
-      window.location.reload(false); 
+         window.location.reload(false);
+   }
+
+   edit() {
+      this.props.editContact(this.props.obj);
    }
 
    render() {
@@ -33,7 +42,7 @@ class TableRow extends Component {
             <td>{this.props.obj.lastreachout}</td>
             <td>{this.props.obj.date}</td>
             <td>
-               <a class="modal-trigger" href="#editcontact" >
+               <a class="modal-trigger" href="#editcontact" onClick={this.edit} >
                   <i class="material-icons">create</i>
                </a>
             </td>
@@ -47,4 +56,13 @@ class TableRow extends Component {
    }
 }
 
-export default TableRow;
+TableRow.propTypes = {
+   editContact: PropTypes.func.isRequired,
+   edit: PropTypes.object
+}
+
+const mapStateToProps = state => ({
+   edit: state.contacts.edit
+});
+
+export default connect(mapStateToProps, {editContact})(TableRow);
