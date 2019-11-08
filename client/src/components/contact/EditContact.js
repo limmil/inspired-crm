@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { connect } from 'react-redux';
 
 class EditContact extends Component {
    constructor(props) {
@@ -13,8 +14,8 @@ class EditContact extends Component {
       this.onSubmit = this.onSubmit.bind(this);
 
       this.state = {
-         id: "this.props.obj._id",
-         lname: "this.props.obj._id",
+         id: "",
+         lname: "",
          fname: "",
          phone: "",
          emailaddr: "",
@@ -22,6 +23,21 @@ class EditContact extends Component {
          lastreachout: ""
       };
    }
+
+   componentDidUpdate(prevProps){
+      if(prevProps.edit !== this.props.edit){
+         this.setState({
+            id: this.props.edit._id,
+            lname: this.props.edit.lname,
+            fname: this.props.edit.fname,
+            phone: this.props.edit.phone,
+            emailaddr: this.props.edit.emailaddr,
+            temp: this.props.edit.temp,
+            lastreachout: this.props.edit.lastreachout
+         })
+      }
+   }
+
    onChangeLastName(e) {
       this.setState({
          lname: e.target.value
@@ -65,9 +81,7 @@ class EditContact extends Component {
          temp: this.state.temp,
          lastreachout: this.state.lastreachout
       };
-      axios
-         .post("/api/contacts/update", contactData)
-         .then(res => console.log(res.data));
+      console.log(contactData)
    }
 
    render() {
@@ -89,7 +103,6 @@ class EditContact extends Component {
                               value={this.state.fname}
                               onChange={this.onChangeFirstName}
                            />
-                           <label for="icon_prefix">First Name</label>
                         </div>
 
                         <div class="input-field col s6">
@@ -101,7 +114,6 @@ class EditContact extends Component {
                               value={this.state.lname}
                               onChange={this.onChangeLastName}
                            />
-                           <label for="icon_prefix">Last Name</label>
                         </div>
                      </div>
 
@@ -115,7 +127,6 @@ class EditContact extends Component {
                               value={this.state.phone}
                               onChange={this.onChangePhoneNumber}
                            />
-                           <label for="icon_telephone">Phone Number</label>
                         </div>
 
                         <div class="input-field col s6">
@@ -127,7 +138,6 @@ class EditContact extends Component {
                               value={this.state.emailaddr}
                               onChange={this.onChangeEmailAddr}
                            />
-                           <label for="icon_email">E-mail</label>
                         </div>
                      </div>
 
@@ -146,7 +156,6 @@ class EditContact extends Component {
                               <option value="Warm">Warm</option>
                               <option value="Hot">Hot</option>
                            </select>
-                           <label>Temp</label>
                         </div>
 
                         <div class="input-field col s6">
@@ -158,9 +167,6 @@ class EditContact extends Component {
                               value={this.state.lastreachout}
                               onChange={this.onChangeLastReachOut}
                            />
-                           <label for="icon_assignment_ind">
-                              Last Reach Out
-                           </label>
                         </div>
                      </div>
 
@@ -179,4 +185,8 @@ class EditContact extends Component {
    }
 }
 
-export default EditContact;
+const mapStateToProps = state => ({
+   edit: state.contacts.edit
+ });
+
+export default connect(mapStateToProps)(EditContact);
