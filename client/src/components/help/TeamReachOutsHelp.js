@@ -7,7 +7,7 @@ class TeamReachOutsHelp extends Component {
          <header>
             <div class="modal-content">
                <h4>
-                  <i class="material-icons medium">help</i> Team Reach Outs Help
+                  <i class="material-icons small">help</i> Team Reach Outs Help
                </h4>
                <p>
                   Here you can manage follow ups with your team. First, add your
