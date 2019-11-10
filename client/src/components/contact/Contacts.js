@@ -1,35 +1,32 @@
 import React, { Component } from "react";
-import axios from "axios";
 import TableRow from "./TableRow";
+import PropTypes from "prop-types"
+import { connect } from "react-redux"
+import { getContacts } from "../../actions/contactActions"
 
 // Dashboard components.
 import DashboardNavbar from "../dashboard/DashboardNavbar";
 import DashboardFooter from "../dashboard/DashboardFooter";
 
 class Contacts extends Component {
-   constructor(props) {
-      super(props);
-      this.state = { contact: [] };
-   }
 
-   componentDidMount() {
+   componentDidMount(){
       const user = {
          email: localStorage.getItem("userEmail"),
          tokenhash: localStorage.getItem("tokenHash")
       };
-      console.log(user);
-      axios
-         .post("/api/contacts/get", user)
-         .then(response => {
-            console.log(response);
-            this.setState({ contact: response.data });
-         })
-         .catch(function(error) {
-            console.log(error);
-         });
+
+      this.props.getContacts(user);
    }
+
+   UNSAFE_componentWillReceiveProps(nextProps){
+      if (this.props.contact !== nextProps.contact) {
+         this.props.contacts.push(nextProps.contact);
+      }
+   }
+
    tabRow() {
-      return this.state.contact.map(function(object, i) {
+      return this.props.contacts.map(function(object, i) {
          return <TableRow obj={object} key={i} />;
       });
    }
@@ -69,4 +66,15 @@ class Contacts extends Component {
    }
 }
 
-export default Contacts;
+Contacts.propTypes = {
+   getContacts: PropTypes.func.isRequired,
+   contacts: PropTypes.array.isRequired,
+   contact: PropTypes.object
+}
+
+const mapStateToProps = state => ({
+   contacts: state.contacts.contacts,
+   contact: state.contacts.contact
+});
+
+export default connect(mapStateToProps, {getContacts})(Contacts);

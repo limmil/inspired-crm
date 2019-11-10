@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
+import PropTypes from "prop-types"
+import { connect } from "react-redux"
+import { addContact } from "../../actions/contactActions"
 
 class AddContact extends Component {
    constructor(props) {
@@ -21,6 +24,7 @@ class AddContact extends Component {
          lastreachout: ""
       };
    }
+   
    onChangeLastName(e) {
       this.setState({
          lname: e.target.value
@@ -64,9 +68,7 @@ class AddContact extends Component {
          temp: this.state.temp,
          lastreachout: this.state.lastreachout
       };
-      axios
-         .post("/api/contacts/add", contactData)
-         .then(res => console.log(res.data));
+      this.props.addContact(contactData);
       this.setState({
          lname: "",
          fname: "",
@@ -75,7 +77,7 @@ class AddContact extends Component {
          temp: "",
          lastreachout: ""
       });
-      window.location.reload(false); 
+      //window.location.reload(false); 
    }
 
    
@@ -175,11 +177,10 @@ class AddContact extends Component {
                      </div>
 
                      <div class="modal-footer">
-                        <input
+                        <button
                            type="submit"
-                           value="Submit"
-                           className="btn btn-primary"
-                        />
+                           class="modal-close waves-effect waves-light btn"
+                        >SUBMIT</button>
                      </div>
                   </form>
                </div>
@@ -190,4 +191,13 @@ class AddContact extends Component {
 }
 
 
-export default AddContact;
+AddContact.propTypes = {
+   addContact: PropTypes.func.isRequired,
+   contact: PropTypes.object
+}
+
+const mapStateToProps = state => ({
+   contact: state.contacts.contact
+});
+
+export default connect(mapStateToProps, {addContact})(AddContact);
