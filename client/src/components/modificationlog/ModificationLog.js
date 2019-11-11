@@ -5,7 +5,7 @@ class ModificationLog extends Component {
    render() {
       return (
          <header>
-            <div class="modal-content">
+            <div class="container">
                <div class="row">
                   <div class="col s12">
                      <h3>Modification Log</h3>
@@ -22,7 +22,6 @@ class ModificationLog extends Component {
                   </div>
                </div>
             </div>
-            
          </header>
       );
    }

@@ -18,8 +18,8 @@ class Dashboard extends Component {
                   <div class="col s12">
                      <div class="card-panel center">
                         <h6 align="right">
-                           Current goal plan :: {" "}
-                           <a href="#!">Keep the Lights On</a> {" "}
+                           Current goal plan ::{" "}
+                           <a href="#!">Keep the Lights On</a>{" "}
                            <a class="waves-effect waves-light btn-small">
                               Goal Options
                            </a>
