@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from 'react-redux';
+import PropTypes from "prop-types"
+import { updateContact } from "../../actions/contactActions"
 
 class EditContact extends Component {
    constructor(props) {
@@ -20,7 +22,8 @@ class EditContact extends Component {
          phone: "",
          emailaddr: "",
          temp: "",
-         lastreachout: ""
+         lastreachout: "",
+         date: ""
       };
    }
 
@@ -33,7 +36,8 @@ class EditContact extends Component {
             phone: this.props.edit.phone,
             emailaddr: this.props.edit.emailaddr,
             temp: this.props.edit.temp,
-            lastreachout: this.props.edit.lastreachout
+            lastreachout: this.props.edit.lastreachout,
+            date: this.props.edit.date
          })
       }
    }
@@ -74,14 +78,16 @@ class EditContact extends Component {
       const contactData = {
          email: localStorage.getItem("userEmail"),
          tokenhash: localStorage.getItem("tokenHash"),
+         id: this.state.id,
          lname: this.state.lname,
          fname: this.state.fname,
          phone: this.state.phone,
          emailaddr: this.state.emailaddr,
          temp: this.state.temp,
-         lastreachout: this.state.lastreachout
+         lastreachout: this.state.lastreachout,
+         date: this.state.date
       };
-      console.log(contactData)
+      this.props.updateContact(contactData);
    }
 
    render() {
@@ -156,6 +162,7 @@ class EditContact extends Component {
                               <option value="Warm">Warm</option>
                               <option value="Hot">Hot</option>
                            </select>
+                           <label style={{fontSize: '15px'}}>Selected: {this.state.temp}</label>
                         </div>
 
                         <div class="input-field col s6">
@@ -171,11 +178,12 @@ class EditContact extends Component {
                      </div>
 
                      <div class="modal-footer">
-                        <input
+                        <button
                            type="submit"
-                           value="Submit"
-                           className="btn btn-primary"
-                        />
+                           className="modal-close waves-effect waves-light btn btn-primary"
+                        >
+                           SUBMIT
+                        </button>
                      </div>
                   </form>
                </div>
@@ -185,8 +193,13 @@ class EditContact extends Component {
    }
 }
 
+EditContact.propTypes = {
+   edit: PropTypes.object,
+   updateContact: PropTypes.func.isRequired
+}
+
 const mapStateToProps = state => ({
    edit: state.contacts.edit
  });
 
-export default connect(mapStateToProps)(EditContact);
+export default connect(mapStateToProps, {updateContact})(EditContact);
