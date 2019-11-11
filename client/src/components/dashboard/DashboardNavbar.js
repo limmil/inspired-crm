@@ -175,7 +175,9 @@ class DashboardNavbar extends Component {
 
             <ul id="main-dropdown3" class="dropdown-content">
                <li>
-                  <a href="#!">My Profile</a>
+                  <Link to="/profile" onClick={this.forceUpdate}>
+                     My Profile
+                  </Link>
                </li>
                <li class="divider"></li>
                <li>
