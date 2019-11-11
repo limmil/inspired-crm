@@ -2,36 +2,35 @@
    $(function() {
       $(".parallax").parallax();
       $(".sidenav").sidenav();
-      
+
+      // Nav triggers.
       $(".dropdown-trigger").dropdown({ hover: true, coverTrigger: false });
 
+      // Modal triggers.
       $(".modal").modal();
       $("#addcontact").openModal();
-      $("#modificationlog").openModal();
       $("#reachoutshelp").openModal();
       $("#followupshelp").openModal();
       $("#teamreachoutshelp").openModal();
-
       $("#editcontact").openModal();
-
-      //or by click on trigger
+      // or by click on trigger.
       $(".trigger-modal").modal();
 
       $(".parallax").parallax();
-   }); // end of document ready
-})(jQuery); // end of jQuery name space
+   }); // End of document ready.
+})(jQuery); // End of jQuery name space.
 
 document.addEventListener("DOMContentLoaded", function() {
    var elems = document.querySelectorAll("select");
    var instances = M.FormSelect.init(elems, options);
 });
 
-// Or with jQuery
+// Or with jQuery.
 $(document).ready(function() {
    $("select").formSelect();
 
    $(".section").fadeIn();
-
+   $(".tabs").tabs();
    $(".datepicker").datepicker();
 
    // Counter
@@ -52,7 +51,7 @@ $(document).ready(function() {
          );
    });
 
-   // Comments - Approve & Deny
+   // Comments - Approve & Deny.
    $(".approve").click(function(e) {
       Materialize.toast("Comment Approved", 3000);
       e.preventDefault();
