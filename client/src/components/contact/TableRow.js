@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import PropTypes from "prop-types"
 import { connect } from "react-redux"
-import { editContact } from "../../actions/contactActions"
+import { editContact, deleteContact } from "../../actions/contactActions"
 
 class TableRow extends Component {
    constructor(props) {
       super(props);
       this.delete = this.delete.bind(this);
       this.edit = this.edit.bind(this);
+      this.remove = this.remove.bind(this);
    }
 
    delete() {
@@ -31,6 +32,10 @@ class TableRow extends Component {
       this.props.editContact(this.props.obj);
    }
 
+   remove() {
+      this.props.editContact(this.props.obj);
+   }
+
    render() {
       return (
          <tr>
@@ -42,12 +47,12 @@ class TableRow extends Component {
             <td>{this.props.obj.lastreachout}</td>
             <td>{this.props.obj.date}</td>
             <td>
-               <a class="modal-trigger" href="#editcontact" onClick={this.edit} >
+               <a class="waves-effect waves-light btn modal-trigger" href="#editcontact" onClick={this.edit} >
                   <i class="material-icons">create</i>
                </a>
             </td>
             <td>
-               <a onClick={this.delete} href="">
+               <a class="waves-effect waves-light btn modal-trigger" href="#deletecontact" onClick={this.remove} >
                   <i class="material-icons">delete</i>
                </a>
             </td>

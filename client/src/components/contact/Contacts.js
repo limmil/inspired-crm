@@ -23,6 +23,24 @@ class Contacts extends Component {
       if (this.props.contact !== nextProps.contact) {
          this.props.contacts.push(nextProps.contact);
       }
+      if (this.props.update !== nextProps.update) {
+         var index = nextProps.contacts.findIndex(
+            obj => obj._id === nextProps.update.id
+         );
+         // -1 means not found
+         if (index !== -1) {
+            this.props.contacts[index] = nextProps.update;
+         }
+      }
+      if (this.props.delete !== nextProps.delete) {
+         var index = nextProps.contacts.findIndex(
+            obj => obj._id === nextProps.delete.id
+         );
+         // -1 means not found
+         if (index !== -1) {
+            this.props.contacts.splice(index, 1);
+         }
+      }
    }
 
    tabRow() {
@@ -69,12 +87,16 @@ class Contacts extends Component {
 Contacts.propTypes = {
    getContacts: PropTypes.func.isRequired,
    contacts: PropTypes.array.isRequired,
-   contact: PropTypes.object
+   contact: PropTypes.object,
+   update: PropTypes.object,
+   delete: PropTypes.object
 }
 
 const mapStateToProps = state => ({
    contacts: state.contacts.contacts,
-   contact: state.contacts.contact
+   contact: state.contacts.contact,
+   update: state.contacts.update,
+   delete: state.contacts.delete
 });
 
 export default connect(mapStateToProps, {getContacts})(Contacts);

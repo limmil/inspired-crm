@@ -8,7 +8,9 @@ import {
 const initialState = {
     contacts: [],
     contact: {},
-    edit: {}
+    edit: {},
+    update: {},
+    delete: {}
 };
 
 export default function(state = initialState, action){
@@ -27,6 +29,16 @@ export default function(state = initialState, action){
             return{
                 ...state,
                 edit: action.payload
+            }
+        case UPDATE_CONTACT:
+            return{
+                ...state,
+                update: action.payload
+            }
+        case DELETE_CONTACT:
+            return{
+                ...state,
+                delete: action.payload
             }
         default:
             return state;
