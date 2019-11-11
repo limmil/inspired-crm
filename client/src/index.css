@@ -349,3 +349,95 @@ footer.page-footer {
       padding: 0 12px;
    }
 }
+
+/*----------------------------------------
+    Profile Page
+------------------------------------------*/
+
+.hero {
+   display: block;
+   width: 100%;
+   height: 30;
+   background-image: url("https://images.unsplash.com/photo-1483959651481-dc75b89291f1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1501&q=80");
+   background-repeat: no-repeat;
+   background-position: center center;
+   background-attachment: fixed;
+   -webkit-background-size: cover;
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+}
+
+.hero h1 {
+   padding-top: 50px;
+   margin-left: -820px;
+   padding-bottom: 50px;
+
+   font-size: 35px;
+   font-family: Myriad Pro;
+   color: #fff;
+}
+
+/* ------------------------------------ */
+/*----------------------------------------
+    Profile Page
+------------------------------------------*/
+#user-profile .user-section-negative-margin {
+   position: relative;
+
+   margin-top: -110px;
+}
+
+#user-profile .card-border {
+   border-radius: 10px;
+}
+
+#user-profile .photo-border {
+   border-radius: 6px;
+}
+
+#user-profile .vertical-align-bottom {
+   vertical-align: bottom;
+}
+
+#user-profile .vertical-align-middle {
+   vertical-align: middle;
+}
+
+#user-profile .user-card-negative-margin {
+   margin-top: -13px;
+}
+
+#user-profile .star-width {
+   font-size: 20px;
+
+   width: 18px;
+
+   cursor: pointer;
+}
+
+#user-profile .material-icons.vertical-align-middle {
+   vertical-align: middle;
+}
+
+#user-profile .latest-update {
+   cursor: pointer;
+}
+
+#user-profile .user-projects img.responsive-img {
+   cursor: pointer;
+}
+
+#user-profile #feed .social-icon .material-icons {
+   cursor: pointer;
+}
+
+#user-profile hr {
+   opacity: 0.4;
+}
+
+@media only screen and (max-device-width: 1024px) {
+   .user-profile {
+      margin-top: 1rem;
+   }
+}

@@ -151,7 +151,7 @@ class Landing extends Component {
                   <img src="./assets/img/bg4.jpg" alt="Banner 3"></img>
                </div>
             </div>
-            
+
             <Footer />
          </div>
       );

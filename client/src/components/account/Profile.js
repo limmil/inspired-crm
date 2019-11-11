@@ -9,6 +9,7 @@ import DashboardNavbar from "../dashboard/DashboardNavbar";
 import DashboardFooter from "../dashboard/DashboardFooter";
 
 // Profile components.
+import ProfileHeader from "./ProfileHeader";
 import Personal from "./Personal";
 import ChangePassword from "./ChangePassword";
 import ModificationLog from "../log/ModificationLog";
@@ -28,6 +29,9 @@ class Profile extends Component {
             <DashboardNavbar />
 
             <div class="container">
+               <div class="section">
+                  <ProfileHeader />
+               </div>{" "}
                <div class="row">
                   <div class="col s12">
                      <ul class="tabs">
@@ -59,7 +63,9 @@ class Profile extends Component {
                   </div>
                </div>
             </div>
-
+            <br />
+            <br />
+            <br />
             <DashboardFooter />
          </div>
       );
