@@ -179,7 +179,7 @@ class AddContact extends Component {
                      <div class="modal-footer">
                         <button
                            type="submit"
-                           class="modal-close waves-effect waves-light btn"
+                           class="modal-close waves-effect waves-light btn btn-primary"
                         >SUBMIT</button>
                      </div>
                   </form>
