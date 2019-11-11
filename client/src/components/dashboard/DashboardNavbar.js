@@ -49,12 +49,6 @@ class DashboardNavbar extends Component {
                      </ul>
                      <ul class="right hide-on-med-and-down">
                         <li>
-                           <a class="modal-trigger" href="#modificationlog">
-                              <i class="large material-icons">description</i>
-                           </a>
-                        </li>
-
-                        <li>
                            <a class="modal-trigger" href="#addcontact">
                               <i class="large material-icons">add_circle</i>
                            </a>
@@ -91,8 +85,16 @@ class DashboardNavbar extends Component {
 
             <ul id="nav-mobile" class="sidenav">
                <li>
-                  <b>Welcome</b>, {user.name.split(" ")[0]}
+                  <center>
+                     <b>Welcome</b>, {user.name.split(" ")[0]}
+                  </center>
                </li>
+               <li>
+                  <Link to="/account" onClick={this.forceUpdate}>
+                     <i class="material-icons">account_circle</i>My Account
+                  </Link>
+               </li>
+               <li class="divider"></li>
                <li>
                   {" "}
                   <center>
@@ -109,11 +111,7 @@ class DashboardNavbar extends Component {
                      <i class="material-icons">event</i>Calendar
                   </Link>
                </li>
-               <li>
-                  <a class="modal-trigger" href="#modificationlog">
-                     <i class="material-icons">description</i>Modification Log
-                  </a>
-               </li>
+
                <li class="divider"></li>
                <li>
                   <center>
@@ -175,8 +173,8 @@ class DashboardNavbar extends Component {
 
             <ul id="main-dropdown3" class="dropdown-content">
                <li>
-                  <Link to="/profile" onClick={this.forceUpdate}>
-                     My Profile
+                  <Link to="/account" onClick={this.forceUpdate}>
+                     My Account
                   </Link>
                </li>
                <li class="divider"></li>
@@ -191,8 +189,9 @@ class DashboardNavbar extends Component {
             <div id="editcontact" class="modal">
                <EditContact />
             </div>
-            <div id="modificationlog" class="modal">
-               <ModificationLog />
+
+            <div id="deletecontact" class="modal">
+               <DeleteContact />
             </div>
             <div id="deletecontact" class="modal">
                <DeleteContact />

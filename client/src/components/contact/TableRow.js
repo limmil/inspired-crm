@@ -3,9 +3,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import PropTypes from "prop-types"
-import { connect } from "react-redux"
-import { editContact, deleteContact } from "../../actions/contactActions"
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { editContact, deleteContact } from "../../actions/contactActions";
 
 class TableRow extends Component {
    constructor(props) {
@@ -25,7 +25,7 @@ class TableRow extends Component {
          .post("/api/contacts/delete/", obj)
          .then(res => console.log(res))
          .catch(err => console.log(err));
-         window.location.reload(false);
+      window.location.reload(false);
    }
 
    edit() {
@@ -47,12 +47,16 @@ class TableRow extends Component {
             <td>{this.props.obj.lastreachout}</td>
             <td>{this.props.obj.date}</td>
             <td>
-               <a class="waves-effect waves-light btn modal-trigger" href="#editcontact" onClick={this.edit} >
+               <a class="modal-trigger" href="#editcontact" onClick={this.edit}>
                   <i class="material-icons">create</i>
                </a>
             </td>
             <td>
-               <a class="waves-effect waves-light btn modal-trigger" href="#deletecontact" onClick={this.remove} >
+               <a
+                  class="modal-trigger"
+                  href="#deletecontact"
+                  onClick={this.remove}
+               >
                   <i class="material-icons">delete</i>
                </a>
             </td>
@@ -64,10 +68,13 @@ class TableRow extends Component {
 TableRow.propTypes = {
    editContact: PropTypes.func.isRequired,
    edit: PropTypes.object
-}
+};
 
 const mapStateToProps = state => ({
    edit: state.contacts.edit
 });
 
-export default connect(mapStateToProps, {editContact})(TableRow);
+export default connect(
+   mapStateToProps,
+   { editContact }
+)(TableRow);

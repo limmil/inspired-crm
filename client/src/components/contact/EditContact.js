@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { connect } from 'react-redux';
-import PropTypes from "prop-types"
-import { updateContact } from "../../actions/contactActions"
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { updateContact } from "../../actions/contactActions";
 
 class EditContact extends Component {
    constructor(props) {
@@ -27,8 +27,8 @@ class EditContact extends Component {
       };
    }
 
-   componentDidUpdate(prevProps){
-      if(prevProps.edit !== this.props.edit){
+   componentDidUpdate(prevProps) {
+      if (prevProps.edit !== this.props.edit) {
          this.setState({
             id: this.props.edit._id,
             lname: this.props.edit.lname,
@@ -38,7 +38,7 @@ class EditContact extends Component {
             temp: this.props.edit.temp,
             lastreachout: this.props.edit.lastreachout,
             date: this.props.edit.date
-         })
+         });
       }
    }
 
@@ -162,7 +162,9 @@ class EditContact extends Component {
                               <option value="Warm">Warm</option>
                               <option value="Hot">Hot</option>
                            </select>
-                           <label style={{fontSize: '15px'}}>Selected: {this.state.temp}</label>
+                           <label style={{ fontSize: "15px" }}>
+                              Selected: {this.state.temp}
+                           </label>
                         </div>
 
                         <div class="input-field col s6">
@@ -196,10 +198,13 @@ class EditContact extends Component {
 EditContact.propTypes = {
    edit: PropTypes.object,
    updateContact: PropTypes.func.isRequired
-}
+};
 
 const mapStateToProps = state => ({
    edit: state.contacts.edit
- });
+});
 
-export default connect(mapStateToProps, {updateContact})(EditContact);
+export default connect(
+   mapStateToProps,
+   { updateContact }
+)(EditContact);
