@@ -109,6 +109,7 @@ class EditContact extends Component {
                     value={this.state.fname}
                     onChange={this.onChangeFirstName}
                   />
+                  <span class="helper-text">First Name</span>
                 </div>
 
                 <div class="input-field col s6">
@@ -120,6 +121,7 @@ class EditContact extends Component {
                     value={this.state.lname}
                     onChange={this.onChangeLastName}
                   />
+                  <span class="helper-text">Last Name</span>
                 </div>
               </div>
 
@@ -133,9 +135,10 @@ class EditContact extends Component {
                     value={this.state.phone}
                     onChange={this.onChangePhoneNumber}
                   />
+                  <span class="helper-text">Phone Number</span>
                 </div>
 
-                <div class="input-field col s6">
+                <div class="input-field col s6 active">
                   <i class="material-icons prefix">email</i>
                   <input
                     id="icon_email"
@@ -144,13 +147,14 @@ class EditContact extends Component {
                     value={this.state.emailaddr}
                     onChange={this.onChangeEmailAddr}
                   />
+                  <span class="helper-text">E-mail</span>
                 </div>
               </div>
 
               <div class="row">
                 <div class="input-field col s6">
                   <i class="material-icons prefix">tonality</i>
-                  <select
+                  <select class="active"
                     value={this.state.temp}
                     onChange={this.onChangeTemp}
                     class="validate"
