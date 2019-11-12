@@ -2,9 +2,13 @@ import React, { Component } from "react";
 import DashboardNavbar from "./DashboardNavbar";
 import DashboardFooter from "./DashboardFooter";
 
+// Help modals.
 import ReachOutsHelp from "../help/ReachOutsHelp.js";
 import FollowUpsHelp from "../help/FollowUpsHelp.js";
 import TeamReachOutsHelp from "../help/TeamReachOutsHelp.js";
+
+// Goal tracker modals.
+import GoalSettingMenu from "../goal/GoalSettingMenu.js";
 
 class Dashboard extends Component {
   render() {
@@ -19,7 +23,12 @@ class Dashboard extends Component {
               <div class="card-panel center">
                 <h6 align="right">
                   Current goal plan :: <a href="#!">Keep the Lights On</a>{" "}
-                  <a class="waves-effect waves-light btn-small">Goal Options</a>
+                  <a
+                    class="modal-trigger waves-effect waves-light btn-small"
+                    href="#goalsettingmenu"
+                  >
+                    Goal Options
+                  </a>
                 </h6>
               </div>
             </div>
@@ -107,6 +116,10 @@ class Dashboard extends Component {
 
         <div id="teamreachoutshelp" class="modal bottom-sheet">
           <TeamReachOutsHelp />
+        </div>
+
+        <div id="goalsettingmenu" class="modal">
+          <GoalSettingMenu />
         </div>
 
         <DashboardFooter />
