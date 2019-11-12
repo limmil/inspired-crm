@@ -102,19 +102,7 @@ class GoalSettingMenu extends Component {
               can always change the plan at another time!
             </p>
 
-            <div class="input-field col s12">
-              <select>
-                <option value="" disabled selected>
-                  Choose your option
-                </option>
-                <option value="1">Keep the Lights On</option>
-                <option value="2">Positioned for Growth</option>
-                <option value="3">Watch Out World</option>
-              </select>
-              <label>
-                <b>Selected Plan</b>: Keep the Lights On
-              </label>
-            </div>
+            <p><b>Current goal plan :: Keep the Lights On</b></p>
 
             <div class="row">
               <div class="col s12 m4">
@@ -142,6 +130,9 @@ class GoalSettingMenu extends Component {
                       <i class="material-icons tiny">check_circle</i> Team Reach
                       Outs: 5
                     </h6>
+                  </div>
+                  <div class="card-action center">
+                    <a class="modal-close waves-effect waves-light btn-small blue" >Select</a>
                   </div>
                 </div>
               </div>
@@ -172,6 +163,9 @@ class GoalSettingMenu extends Component {
                       Outs: 10
                     </h6>
                   </div>
+                  <div class="card-action center">
+                    <a class="modal-close waves-effect waves-light btn-small green darken-3" >Select</a>
+                  </div>
                 </div>
               </div>
 
@@ -201,6 +195,9 @@ class GoalSettingMenu extends Component {
                       Outs: 15
                     </h6>
                   </div>
+                  <div class="card-action center">
+                    <a class="modal-close waves-effect waves-light btn-small red" >Select</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -228,12 +225,11 @@ class GoalSettingMenu extends Component {
                           <i class="material-icons prefix">check_circle</i>
                           <input
                             id="icon_prefix"
-                            type="text"
+                            type="number"
                             class="validate"
+                            min="1" max="99999"
                           />
-                          <label for="icon_weekly1">
-                            Weekly New Reach Outs goal:
-                          </label>
+                          <span class="helper-text">Weekly New Reach Outs Goal</span>
                         </div>
                       </div>
                       <div class="row">
@@ -241,12 +237,11 @@ class GoalSettingMenu extends Component {
                           <i class="material-icons prefix">check_circle</i>
                           <input
                             id="icon_prefix"
-                            type="text"
+                            type="number"
                             class="validate"
+                            min="1" max="99999"
                           />
-                          <label for="icon_weekly2">
-                            Weekly Follow Ups goal:
-                          </label>
+                          <span class="helper-text">Weekly Follow Ups Goal</span>
                         </div>
                       </div>
                       <div class="row">
@@ -254,28 +249,20 @@ class GoalSettingMenu extends Component {
                           <i class="material-icons prefix">check_circle</i>
                           <input
                             id="icon_prefix"
-                            type="text"
+                            type="number"
                             class="validate"
+                            min="1" max="99999"
                           />
-                          <label for="icon_weekly3">
-                            Weekly Team needs goal:
-                          </label>
+                          <span class="helper-text">Weekly Team Reach Outs Goal</span>
                         </div>
                       </div>
                     </form>
                   </div>
+                  <div class="card-action center">
+                    <a class="modal-close waves-effect waves-light btn-small yellow darken-2" >Select</a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="modal-footer">
-              <center>
-                <button
-                  type="submit"
-                  className="modal-close waves-effect waves-light btn btn-primary"
-                >
-                  Save
-                </button>
-              </center>
             </div>
           </form>
         </div>
