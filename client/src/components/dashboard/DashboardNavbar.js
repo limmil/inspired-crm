@@ -25,7 +25,7 @@ class DashboardNavbar extends Component {
     return (
       <div>
         <div className="navbar-fixed">
-          <nav className="z-depth-0"></nav>
+          <nav className="z-depth-1"></nav>
 
           <nav class="blue-grey" role="navigation">
             <div class="nav-wrapper container">
@@ -125,8 +125,9 @@ class DashboardNavbar extends Component {
 
           <li class="divider"></li>
           <li>
-            <a onClick={this.onLogoutClick}>Logout</a>
+            <a onClick={this.onLogoutClick}><i class="material-icons">arrow_forward</i>Logout</a>
           </li>
+
         </ul>
 
         <ul id="main-dropdown1" class="dropdown-content">
@@ -163,12 +164,12 @@ class DashboardNavbar extends Component {
         <ul id="main-dropdown3" class="dropdown-content">
           <li>
             <Link to="/account" onClick={this.forceUpdate}>
-              My Account
+            <i class="large material-icons">account_box</i>My Account
             </Link>
           </li>
           <li class="divider"></li>
           <li>
-            <a onClick={this.onLogoutClick}>Logout</a>
+          <a onClick={this.onLogoutClick}><i class="material-icons">arrow_forward</i>Logout</a>
           </li>
         </ul>
 

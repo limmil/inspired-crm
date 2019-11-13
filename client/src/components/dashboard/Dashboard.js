@@ -39,13 +39,9 @@ class Dashboard extends Component {
             </div>
           </div>
 
-          <div class="divider"></div>
+          
 
           <div class="section">
-            <h5 class="black-text">Overview</h5>
-
-            <div id="containerd" class="margin" role="group"></div>
-
             <div class="row">
               <div class="col s12 m4">
                 <div class="card-panel center">
@@ -61,13 +57,20 @@ class Dashboard extends Component {
                   <div class="progress grey lighten-1">
                     <div class="determinate white" mapStyle="width: 40%;"></div>
                   </div>
-                  <p>
-                    New Reach Outs{" "}
-                    <a class="modal-trigger" href="#reachoutshelp">
-                      <i class="material-icons">help</i>
-                    </a>
-                  </p>
-                  <p class="light"></p>
+                  <div class="row">
+                    <div class="col s6">
+                      Reach Outs{" "}
+                      <a class="modal-trigger" href="#reachoutshelp">
+                        <i class="material-icons">help</i>
+                      </a>
+                    </div>
+                    <div class="col s1 push-s4">
+                      <a class="modal-trigger" href="#reachoutshelp">
+                        <i class="material-icons">highlight</i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="divider"></div>
                 </div>
               </div>
 
@@ -85,19 +88,26 @@ class Dashboard extends Component {
                   <div class="progress grey lighten-1">
                     <div class="determinate blue" mapStyle="width: 20%;"></div>
                   </div>
-                  <p>
-                    Follow Ups
-                    <a class="modal-trigger" href="#followupshelp">
-                      <i class="material-icons">help</i>
-                    </a>
-                  </p>
-                  <p class="light"></p>
+                  <div class="row">
+                    <div class="col s6">
+                      Follow Ups{" "}
+                      <a class="modal-trigger" href="#followupshelp">
+                        <i class="material-icons">help</i>
+                      </a>
+                    </div>
+                    <div class="col s1 push-s4">
+                      <a class="modal-trigger" href="#followupshelp">
+                        <i class="material-icons">highlight</i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="divider"></div>
                 </div>
               </div>
 
               <div class="col s12 m4">
                 <div class="card-panel center">
-                  <i class="material-icons medium">supervisor_account</i>
+                  <i class="material-icons medium">people</i>
 
                   <TeamReachOuts />
                   <h5>Team Reach Outs</h5>
@@ -108,13 +118,22 @@ class Dashboard extends Component {
                   <div class="progress grey lighten-1">
                     <div class="determinate white" mapStyle="width: 40%;"></div>
                   </div>
-                  <p>
-                    Team Reach Outs{" "}
-                    <a class="modal-trigger" href="#teamreachoutshelp">
-                      <i class="material-icons">help</i>
-                    </a>
-                  </p>
-                  <p class="light"></p>
+
+                  <div class="row">
+                    <div class="col s6">
+                      Team Reach Outs{" "}
+                      <a class="modal-trigger" href="#teamreachoutshelp">
+                        <i class="material-icons">help</i>
+                      </a>
+                    </div>
+                    <div class="col s1 push-s4">
+                      <a class="modal-trigger" href="#teamreachoutshelp">
+                        <i class="material-icons">highlight</i>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
                 </div>
               </div>
             </div>
