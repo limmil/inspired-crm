@@ -4,7 +4,7 @@
       $(".sidenav").sidenav();
 
       // Nav triggers.
-      $(".dropdown-trigger").dropdown({ hover: true, coverTrigger: false });
+      $(".dropdown-trigger").dropdown({ hover: true, coverTrigger: false, constrainWidth: false});
 
       // Modal triggers.
       $(".modal").modal();
