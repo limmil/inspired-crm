@@ -160,7 +160,7 @@ class EditContact extends Component {
                     class="validate"
                   >
                     <option value="" disabled selected>
-                      Choose temp option
+                      N/A
                     </option>
                     <option value="Cold">Cold</option>
                     <option value="Warm">Warm</option>
@@ -169,6 +169,7 @@ class EditContact extends Component {
                   <label style={{ fontSize: "15px" }}>
                     Selected: {this.state.temp}
                   </label>
+                  <span class="helper-text">Temp</span>
                 </div>
 
                 <div class="input-field col s6">
@@ -180,6 +181,7 @@ class EditContact extends Component {
                     value={this.state.lastreachout}
                     onChange={this.onChangeLastReachOut}
                   />
+                  <span class="helper-text">Last Reach Out</span>
                 </div>
               </div>
 
