@@ -126,7 +126,7 @@ class GoalSettingMenu extends Component {
                     </h6>
                     <h6 align="left">
                       <i class="material-icons tiny">check_circle</i> Follow
-                      Ups: 0
+                      Ups: 10
                     </h6>
                     <h6 align="left">
                       <i class="material-icons tiny">check_circle</i> Team Reach
