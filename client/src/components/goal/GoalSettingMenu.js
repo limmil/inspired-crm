@@ -102,7 +102,9 @@ class GoalSettingMenu extends Component {
               can always change the plan at another time!
             </p>
 
-            <p><b>Current goal plan :: Keep the Lights On</b></p>
+            <p align="center">
+              <b>Selected Plan</b>: Keep the Lights On
+            </p>
 
             <div class="row">
               <div class="col s12 m4">
@@ -132,7 +134,9 @@ class GoalSettingMenu extends Component {
                     </h6>
                   </div>
                   <div class="card-action center">
-                    <a class="modal-close waves-effect waves-light btn-small blue" >Select</a>
+                    <a class="modal-close waves-effect waves-light btn-small blue">
+                      Select
+                    </a>
                   </div>
                 </div>
               </div>
@@ -164,7 +168,9 @@ class GoalSettingMenu extends Component {
                     </h6>
                   </div>
                   <div class="card-action center">
-                    <a class="modal-close waves-effect waves-light btn-small green darken-3" >Select</a>
+                    <a class="modal-close waves-effect waves-light btn-small green darken-3">
+                      Select
+                    </a>
                   </div>
                 </div>
               </div>
@@ -196,7 +202,9 @@ class GoalSettingMenu extends Component {
                     </h6>
                   </div>
                   <div class="card-action center">
-                    <a class="modal-close waves-effect waves-light btn-small red" >Select</a>
+                    <a class="modal-close waves-effect waves-light btn-small red">
+                      Select
+                    </a>
                   </div>
                 </div>
               </div>
@@ -227,9 +235,12 @@ class GoalSettingMenu extends Component {
                             id="icon_prefix"
                             type="number"
                             class="validate"
-                            min="1" max="99999"
+                            min="1"
+                            max="99999"
                           />
-                          <span class="helper-text">Weekly New Reach Outs Goal</span>
+                          <span class="helper-text">
+                            Weekly New Reach Outs Goal
+                          </span>
                         </div>
                       </div>
                       <div class="row">
@@ -239,9 +250,12 @@ class GoalSettingMenu extends Component {
                             id="icon_prefix"
                             type="number"
                             class="validate"
-                            min="1" max="99999"
+                            min="1"
+                            max="99999"
                           />
-                          <span class="helper-text">Weekly Follow Ups Goal</span>
+                          <span class="helper-text">
+                            Weekly Follow Ups Goal
+                          </span>
                         </div>
                       </div>
                       <div class="row">
@@ -251,15 +265,20 @@ class GoalSettingMenu extends Component {
                             id="icon_prefix"
                             type="number"
                             class="validate"
-                            min="1" max="99999"
+                            min="1"
+                            max="99999"
                           />
-                          <span class="helper-text">Weekly Team Reach Outs Goal</span>
+                          <span class="helper-text">
+                            Weekly Team Reach Outs Goal
+                          </span>
                         </div>
                       </div>
                     </form>
                   </div>
                   <div class="card-action center">
-                    <a class="modal-close waves-effect waves-light btn-small yellow darken-2" >Select</a>
+                    <a class="modal-close waves-effect waves-light btn-small yellow darken-2">
+                      Select
+                    </a>
                   </div>
                 </div>
               </div>
