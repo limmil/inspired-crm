@@ -99,7 +99,7 @@ class AddContact extends Component {
                     value={this.state.fname}
                     onChange={this.onChangeFirstName}
                   />
-                  <label for="icon_prefix">First Name</label>
+                  <span class="helper-text">First Name</span>
                 </div>
 
                 <div class="input-field col s6">
@@ -111,7 +111,7 @@ class AddContact extends Component {
                     value={this.state.lname}
                     onChange={this.onChangeLastName}
                   />
-                  <label for="icon_prefix">Last Name</label>
+                  <span class="helper-text">Last Name</span>
                 </div>
               </div>
 
@@ -125,7 +125,7 @@ class AddContact extends Component {
                     value={this.state.phone}
                     onChange={this.onChangePhoneNumber}
                   />
-                  <label for="icon_telephone">Phone Number</label>
+                  <span class="helper-text">Phone Number</span>
                 </div>
 
                 <div class="input-field col s6">
@@ -137,7 +137,7 @@ class AddContact extends Component {
                     value={this.state.emailaddr}
                     onChange={this.onChangeEmailAddr}
                   />
-                  <label for="icon_email">E-mail</label>
+                  <span class="helper-text">E-mail</span>
                 </div>
               </div>
 
@@ -150,13 +150,13 @@ class AddContact extends Component {
                     class="validate"
                   >
                     <option value="" disabled selected>
-                      Choose temp option
+                      N/A
                     </option>
                     <option value="Cold">Cold</option>
                     <option value="Warm">Warm</option>
                     <option value="Hot">Hot</option>
                   </select>
-                  <label>Temp</label>
+                  <span class="helper-text">Temp</span>
                 </div>
 
                 <div class="input-field col s6">
@@ -168,7 +168,7 @@ class AddContact extends Component {
                     value={this.state.lastreachout}
                     onChange={this.onChangeLastReachOut}
                   />
-                  <label for="icon_assignment_ind">Last Reach Out</label>
+                  <span class="helper-text">Last Reach Out</span>
                 </div>
               </div>
 
