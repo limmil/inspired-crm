@@ -2,10 +2,13 @@ import React, { Component } from "react";
 import DashboardNavbar from "../dashboard/DashboardNavbar";
 import DashboardFooter from "../dashboard/DashboardFooter";
 
+
+
 class Pipeline extends Component {
   render() {
     return (
       <div>
+
         <DashboardNavbar />
 
         <div class="container">

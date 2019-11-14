@@ -25,6 +25,14 @@ document.addEventListener("DOMContentLoaded", function() {
    var instances = M.FormSelect.init(elems, options);
 });
 
+document.addEventListener("DOMContentLoaded", function(){
+	$('.preloader-background').delay(1700).fadeOut('slow');
+	
+	$('.preloader-wrapper')
+		.delay(1700)
+		.fadeOut();
+});
+
 // Or with jQuery.
 $(document).ready(function() {
    $("select").formSelect();
@@ -75,3 +83,4 @@ $(window).on("load resize", function() {
             : "0"
    });
 });
+
