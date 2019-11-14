@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Spinner from "./Spinner";
 
 class Landing extends Component {
    render() {
       return (
          <div>
+            <Spinner />
             <Navbar />
 
             <div id="index-banner" class="parallax-container">

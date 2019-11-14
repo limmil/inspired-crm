@@ -8,6 +8,8 @@ import { getContacts } from "../../actions/contactActions";
 import DashboardNavbar from "../dashboard/DashboardNavbar";
 import DashboardFooter from "../dashboard/DashboardFooter";
 
+
+
 class Contacts extends Component {
   componentDidMount() {
     const user = {
@@ -50,7 +52,9 @@ class Contacts extends Component {
 
   render() {
     return (
+      
       <div>
+       
         <DashboardNavbar />
 
         <div class="container">

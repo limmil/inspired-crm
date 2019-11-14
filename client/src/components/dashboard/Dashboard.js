@@ -15,10 +15,12 @@ import ReachOuts from "../chart/ReachOuts.js";
 import FollowUps from "../chart/FollowUps.js";
 import TeamReachOuts from "../chart/TeamReachOuts.js";
 
+
 class Dashboard extends Component {
   render() {
     return (
       <div>
+   
         <DashboardNavbar />
         <div class="container">
           <div class="row"></div>
@@ -120,13 +122,13 @@ class Dashboard extends Component {
                   </div>
 
                   <div class="row">
-                    <div class="col s6">
+                    <div class="col s8">
                       Team Reach Outs{" "}
                       <a class="modal-trigger" href="#teamreachoutshelp">
                         <i class="material-icons">help</i>
                       </a>
                     </div>
-                    <div class="col s1 push-s4">
+                    <div class="col s1 push-s2">
                       <a class="modal-trigger" href="#teamreachoutshelp">
                         <i class="material-icons">highlight</i>
                       </a>

@@ -102,8 +102,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import TableRow from "./TableRow";
-import DashboardNavbar from "../dashboard/DashboardNavbar";
-import DashboardFooter from "../dashboard/DashboardFooter";
 import PropTypes from "prop-types";
 import { updateContact } from "../../actions/calendarActions";
 import {
@@ -113,9 +111,14 @@ import {
 import moment from "./moment";
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
 
+// Calendar styles.
 import "./Calendar.css";
 import "react-big-calendar/lib/addons/dragAndDrop/styles.css";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+
+// Dashboard components.
+import DashboardNavbar from "../dashboard/DashboardNavbar";
+import DashboardFooter from "../dashboard/DashboardFooter";
 
 // const localizer = Calendar.momentLocalizer(moment);
 const localizer = momentLocalizer(moment)
@@ -207,6 +210,7 @@ class UserCalendar extends Component {
   render() {
     return (
       <div>
+ 
         <DashboardNavbar />
         <div className="UserCalendar">
         {/* <DnDCalendar */}
@@ -219,10 +223,10 @@ class UserCalendar extends Component {
             onEventDrop={this.onEventDrop}
             onEventResize={this.state.onEventResize}
             resizable
-           style={{ height: "100vh" }}
+           style={{ height: "75vh" }}
         />
       </div>
-
+      <DashboardFooter />
     </div>
     );
   }
