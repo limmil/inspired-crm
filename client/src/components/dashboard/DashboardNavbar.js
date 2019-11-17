@@ -64,6 +64,14 @@ class DashboardNavbar extends Component {
                         <li>
                            <a
                               class="dropdown-trigger"
+                              data-target="main-dropdown4"
+                           >
+                              <i class="large material-icons">notifications</i>
+                           </a>
+                        </li>
+                        <li>
+                           <a
+                              class="dropdown-trigger"
                               data-target="main-dropdown3"
                            >
                               <i class="large material-icons">account_circle</i>
@@ -189,6 +197,14 @@ class DashboardNavbar extends Component {
                   <a onClick={this.onLogoutClick}>
                      <i class="material-icons">arrow_forward</i>Logout
                   </a>
+               </li>
+            </ul>
+
+            <ul id="main-dropdown4" class="dropdown-content">
+               <li>
+                  <center>
+                     <b>Notifications</b>
+                  </center>
                </li>
             </ul>
 
