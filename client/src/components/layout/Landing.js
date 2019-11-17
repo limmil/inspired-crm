@@ -150,7 +150,7 @@ class Landing extends Component {
                   </div>
                </div>
                <div class="parallax">
-                  <img src="./assets/img/landing/b3.jpg" alt="Banner 3"></img>
+                  <img src="./assets/img/landing/bg3.jpg" alt="Banner 3"></img>
                </div>
             </div>
 
