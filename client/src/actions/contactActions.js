@@ -1,7 +1,6 @@
 import axios from "axios";
 import setAuthToken from "../utils/setAuthToken";
 import { 
-    GET_ERRORS,
     SET_CURRENT_USER, 
     GET_CONTACTS, 
     ADD_CONTACT,
@@ -20,7 +19,9 @@ export const getContacts = user => dispatch => {
             })
         })
         .catch(err => {
-            logoutUser(dispatch);
+            if (err.response.status === 401){
+                logoutUser(dispatch);
+            }
         });
 }
 
@@ -35,7 +36,9 @@ export const addContact = data => dispatch => {
             })
         })
         .catch(err => {
-            logoutUser(dispatch);
+            if (err.response.status === 401){
+                logoutUser(dispatch);
+            }
         });
 }
 
@@ -52,16 +55,21 @@ export const updateContact = edit => dispatch => {
     axios
         .post("/api/contacts/update", edit)
         .then(res => {
-            console.log(res)
+            console.log(res.data._id)
+            console.log(edit.id)
             delete edit.tokenhash
             delete edit.email
-            dispatch({
-                type: UPDATE_CONTACT,
-                payload: edit
-            })
+            if(res.data._id === edit.id) {
+                dispatch({
+                    type: UPDATE_CONTACT,
+                    payload: edit
+                })
+            }
         })
         .catch(err => {
-            logoutUser(dispatch);
+            if (err.response.status === 401){
+                logoutUser(dispatch);
+            }
         });
 }
 
@@ -73,13 +81,17 @@ export const deleteContact = contact => dispatch => {
             console.log(res)
             delete contact.tokenhash
             delete contact.email
-            dispatch({
-                type: DELETE_CONTACT,
-                payload: contact
-            })
+            if (res.data === "DELETED") {
+                dispatch({
+                    type: DELETE_CONTACT,
+                    payload: contact
+                })
+            }
         })
         .catch(err => {
-            logoutUser(dispatch);
+            if (err.response.status === 401){
+                logoutUser(dispatch);
+            }
         });
 }
 

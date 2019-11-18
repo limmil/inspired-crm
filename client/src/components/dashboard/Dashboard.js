@@ -57,7 +57,7 @@ class Dashboard extends Component {
                   <h6>Percentage: 0.06%</h6>
                   <h3 class="count">5</h3>
                   <div class="progress grey lighten-1">
-                    <div class="determinate white" mapStyle="width: 40%;"></div>
+                    <div class="determinate green" style={{width: '33%'}}></div>
                   </div>
                   <div class="row">
                     <div class="col s6">
@@ -88,7 +88,7 @@ class Dashboard extends Component {
                   <h6>Percentage: 0.1%</h6>
                   <h3 class="count">5</h3>
                   <div class="progress grey lighten-1">
-                    <div class="determinate blue" mapStyle="width: 20%;"></div>
+                    <div class="determinate green" style={{width: '60%'}}></div>
                   </div>
                   <div class="row">
                     <div class="col s6">
@@ -118,7 +118,7 @@ class Dashboard extends Component {
                   <h6>Percentage: 0.2%</h6>
                   <h3 class="count">2</h3>
                   <div class="progress grey lighten-1">
-                    <div class="determinate white" mapStyle="width: 40%;"></div>
+                    <div class="determinate green" style={{width: '80%'}}></div>
                   </div>
 
                   <div class="row">
