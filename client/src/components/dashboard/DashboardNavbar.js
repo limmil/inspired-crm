@@ -6,8 +6,10 @@ import { logoutUser } from "../../actions/authActions";
 
 // Modals.
 import AddContact from "../contact/AddContact.js";
+import DeleteContact from "../contact/DeleteContact.js";
 import EmailScripts from "../scripts/EmailScripts.js";
 import NotificationLog from "../log/NotificationLog.js";
+import EditContact from "../contact/EditContact.js";
 
 class DashboardNavbar extends Component {
    onLogoutClick = e => {
@@ -235,6 +237,14 @@ class DashboardNavbar extends Component {
             <div id="addcontact" class="modal">
                <AddContact />
             </div>
+            <div id="editcontact" class="modal">
+               <EditContact />
+            </div>
+            <div id="deletecontact" class="modal">
+               <DeleteContact />
+            </div>
+
+
             <div id="scripts" class="modal">
                <EmailScripts />
             </div>

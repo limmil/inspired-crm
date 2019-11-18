@@ -39,11 +39,13 @@ class TableRow extends Component {
   render() {
     return (
       <tr>
-        <td>{this.props.obj.fname}</td>
-        <td>{this.props.obj.lname}</td>
+        <td>{this.props.obj.fname} {this.props.obj.lname}</td>
+       
         <td>{this.props.obj.phone}</td>
         <td>{this.props.obj.emailaddr}</td>
         <td>{this.props.obj.temp}</td>
+        <td>{this.props.obj.contacttype}</td>
+        <td>{this.props.obj.pipelineposition}</td>
         <td>{this.props.obj.lastreachout}</td>
         <td>{this.props.obj.date}</td>
         <td>

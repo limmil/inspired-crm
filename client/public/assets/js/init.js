@@ -58,7 +58,8 @@ $(document).ready(function() {
    $(".tooltipped").tooltip({
       enterDelay: 0,
       transitionMovement: 0,
-      margin: 0
+      margin: 5,
+      html: true
    });
    $(".collapsible").collapsible();
 

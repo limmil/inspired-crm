@@ -33,8 +33,14 @@ const ContactSchema = new Schema({
     type: Date,
     default: Date.now
   },
+  contacttype: {
+    type: String
+  },
 
   // Contact classification for pipeline.
+  pipelineposition: {
+    type: String
+  },
   notcontacted: {
     type: String
   },
