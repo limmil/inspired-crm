@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import DashboardNavbar from "./DashboardNavbar";
-import DashboardFooter from "./DashboardFooter";
+
+// Dashboard components.
+import DashboardNavbar from "../dashboard/DashboardNavbar";
+import DashboardFooter from "../dashboard/DashboardFooter";
 
 // Help modals.
 import ReachOutsHelp from "../help/ReachOutsHelp.js";
@@ -8,7 +10,7 @@ import FollowUpsHelp from "../help/FollowUpsHelp.js";
 import TeamReachOutsHelp from "../help/TeamReachOutsHelp.js";
 
 // Goal tracker modals.
-import GoalSettingMenu from "../goal/GoalSettingMenu.js";
+import GoalSettingMenu from "./GoalSettingMenu.js";
 
 // Chart.js visualizations.
 import ReachOuts from "../chart/ReachOuts.js";
@@ -16,7 +18,7 @@ import FollowUps from "../chart/FollowUps.js";
 import TeamReachOuts from "../chart/TeamReachOuts.js";
 
 
-class Dashboard extends Component {
+class GoalTracker extends Component {
   render() {
     return (
       <div>
@@ -163,4 +165,4 @@ class Dashboard extends Component {
     );
   }
 }
-export default Dashboard;
+export default GoalTracker;

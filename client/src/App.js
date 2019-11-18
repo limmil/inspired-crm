@@ -12,7 +12,7 @@ import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import PrivateRoute from "./components/private-route/PrivateRoute";
-import Dashboard from "./components/dashboard/Dashboard";
+import GoalTracker from "./components/goal/GoalTracker";
 
 // Private Dashboard Component pages.
 import Contacts from "./components/contact/Contacts";
@@ -23,6 +23,7 @@ import Calendar from "./components/calendar/Calendar";
 import Pipeline from "./components/pipeline/Pipeline";
 import Account from "./components/account/Profile";
 import EmailScripts from "./components/scripts/EmailScripts";
+import NotificationLog from "./components/log/NotificationLog";
 
 // Help Modals.
 import ReachOutsHelp from "./components/help/ReachOutsHelp";
@@ -72,6 +73,11 @@ class App extends Component {
                         path="/emailscripts"
                         component={EmailScripts}
                      />
+                      <PrivateRoute
+                        path="/notifications"
+                        component={NotificationLog}
+                     />
+
                      <PrivateRoute
                         exact
                         path="/modificationlog"
@@ -95,8 +101,8 @@ class App extends Component {
                      />
                      <PrivateRoute
                         exact
-                        path="/dashboard"
-                        component={Dashboard}
+                        path="/goaltracker"
+                        component={GoalTracker}
                      />
                   </Switch>
                </div>

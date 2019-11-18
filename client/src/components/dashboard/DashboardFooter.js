@@ -13,7 +13,7 @@ class DashboardFooter extends Component {
                         document.write(new Date().getFullYear());
                      </script>{" "}
                      <Link
-                        to="/dashboard"
+                        to="/goaltracker"
                         onClick={this.forceUpdate}
                         class="grey-text text-lighten-2"
                      >

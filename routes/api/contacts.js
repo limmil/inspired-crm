@@ -86,15 +86,19 @@ passport.authenticate('jwt', { session: false }),
   User.findOne({ email }).then(user => {
     if (user.tokenhash == tokenhash){
       // delete one contact
-      Contact.deleteOne(
-        { _id: req.body.id },
-        (err) => {console.log(err)})
-          .then(res.status(200).send('DELETED'));
+      Contact.deleteOne({ _id: req.body.id })
+          .then(res.status(200).send('DELETED'))
+          .catch(err => {
+            if (err){
+              console.log(err)
+              res.status(500).send('something went wrong')
+            }
+          })
     } else{
       res.status(401).send('Unauthorized');
     }
   }).catch(err => {
-      console.log(err); 
+      //console.log(err); 
       res.status(500);
     });
 });
@@ -123,7 +127,7 @@ passport.authenticate('jwt', { session: false }),
           'lastreachout': req.body.lastreachout
           }
       }, {useFindAndModify: false})
-      .then(res.status(200).send('UPDATED'))
+      .then((outcome) => {res.status(200).send(outcome)})
       .catch(function (err, managerparent) {
         if (err) throw err;
         console.log(managerparent);
