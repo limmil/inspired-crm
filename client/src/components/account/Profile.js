@@ -14,6 +14,8 @@ import Personal from "./Personal";
 import ChangePassword from "./ChangePassword";
 import ModificationLog from "../log/ModificationLog";
 
+
+
 class Profile extends Component {
    onLogoutClick = e => {
       e.preventDefault();
@@ -26,6 +28,7 @@ class Profile extends Component {
 
       return (
          <div>
+         
             <DashboardNavbar />
 
             <div class="container">

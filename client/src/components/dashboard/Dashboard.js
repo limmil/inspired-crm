@@ -10,10 +10,17 @@ import TeamReachOutsHelp from "../help/TeamReachOutsHelp.js";
 // Goal tracker modals.
 import GoalSettingMenu from "../goal/GoalSettingMenu.js";
 
+// Chart.js visualizations.
+import ReachOuts from "../chart/ReachOuts.js";
+import FollowUps from "../chart/FollowUps.js";
+import TeamReachOuts from "../chart/TeamReachOuts.js";
+
+
 class Dashboard extends Component {
   render() {
     return (
       <div>
+   
         <DashboardNavbar />
         <div class="container">
           <div class="row"></div>
@@ -34,72 +41,101 @@ class Dashboard extends Component {
             </div>
           </div>
 
-          <div class="divider"></div>
+          
 
           <div class="section">
-            <h5 class="black-text">Overview</h5>
-
             <div class="row">
               <div class="col s12 m4">
                 <div class="card-panel center">
-                  <i class="material-icons medium">insert_emoticon</i>
+                  <i class="material-icons medium">record_voice_over</i>
+
+                  <ReachOuts />
+
                   <h5>Reach Outs</h5>
                   <h6>Target: 15</h6>
-                  <h6>Completed: 5</h6>
-                  <h6>Percentage: 33%</h6>
+                  <h6>Completed: 1</h6>
+                  <h6>Percentage: 0.06%</h6>
                   <h3 class="count">5</h3>
                   <div class="progress grey lighten-1">
                     <div class="determinate green" style={{width: '33%'}}></div>
                   </div>
-                  <p>
-                    New Reach Outs{" "}
-                    <a class="modal-trigger" href="#reachoutshelp">
-                      <i class="material-icons">help</i>
-                    </a>
-                  </p>
-                  <p class="light"></p>
+                  <div class="row">
+                    <div class="col s6">
+                      Reach Outs{" "}
+                      <a class="modal-trigger" href="#reachoutshelp">
+                        <i class="material-icons">help</i>
+                      </a>
+                    </div>
+                    <div class="col s1 push-s4">
+                      <a class="modal-trigger" href="#reachoutshelp">
+                        <i class="material-icons">highlight</i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="divider"></div>
                 </div>
               </div>
 
               <div class="col s12 m4">
                 <div class="card-panel center">
-                  <i class="material-icons medium">mode_edit</i>
+                  <i class="material-icons medium">insert_emoticon</i>
+
+                  <FollowUps />
+
                   <h5>Follow Ups</h5>
                   <h6>Target: 10</h6>
-                  <h6>Completed: 6</h6>
-                  <h6>Percentage: 60%</h6>
-                  <h3 class="count">6</h3>
+                  <h6>Completed: 1</h6>
+                  <h6>Percentage: 0.1%</h6>
+                  <h3 class="count">5</h3>
                   <div class="progress grey lighten-1">
                     <div class="determinate green" style={{width: '60%'}}></div>
                   </div>
-                  <p>
-                    Follow Ups
-                    <a class="modal-trigger" href="#followupshelp">
-                      <i class="material-icons">help</i>
-                    </a>
-                  </p>
-                  <p class="light"></p>
+                  <div class="row">
+                    <div class="col s6">
+                      Follow Ups{" "}
+                      <a class="modal-trigger" href="#followupshelp">
+                        <i class="material-icons">help</i>
+                      </a>
+                    </div>
+                    <div class="col s1 push-s4">
+                      <a class="modal-trigger" href="#followupshelp">
+                        <i class="material-icons">highlight</i>
+                      </a>
+                    </div>
+                  </div>
+                  <div class="divider"></div>
                 </div>
               </div>
 
               <div class="col s12 m4">
                 <div class="card-panel center">
-                  <i class="material-icons medium">mode_comment</i>
+                  <i class="material-icons medium">people</i>
+
+                  <TeamReachOuts />
                   <h5>Team Reach Outs</h5>
                   <h6>Target: 5</h6>
-                  <h6>Completed: 4</h6>
-                  <h6>Percentage: 80%</h6>
-                  <h3 class="count">4</h3>
+                  <h6>Completed: 1</h6>
+                  <h6>Percentage: 0.2%</h6>
+                  <h3 class="count">2</h3>
                   <div class="progress grey lighten-1">
                     <div class="determinate green" style={{width: '80%'}}></div>
                   </div>
-                  <p>
-                    Team Reach Outs{" "}
-                    <a class="modal-trigger" href="#teamreachoutshelp">
-                      <i class="material-icons">help</i>
-                    </a>
-                  </p>
-                  <p class="light"></p>
+
+                  <div class="row">
+                    <div class="col s8">
+                      Team Reach Outs{" "}
+                      <a class="modal-trigger" href="#teamreachoutshelp">
+                        <i class="material-icons">help</i>
+                      </a>
+                    </div>
+                    <div class="col s1 push-s2">
+                      <a class="modal-trigger" href="#teamreachoutshelp">
+                        <i class="material-icons">highlight</i>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="divider"></div>
                 </div>
               </div>
             </div>

@@ -6,6 +6,7 @@ class Pipeline extends Component {
   render() {
     return (
       <div>
+
         <DashboardNavbar />
 
         <div class="container">
