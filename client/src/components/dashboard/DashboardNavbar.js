@@ -6,9 +6,7 @@ import { logoutUser } from "../../actions/authActions";
 
 // Modals.
 import AddContact from "../contact/AddContact.js";
-import EditContact from "../contact/EditContact.js";
-import DeleteContact from "../contact/DeleteContact.js";
-import ModificationLog from "../log/ModificationLog.js";
+import EmailScripts from "../scripts/EmailScripts.js";
 
 class DashboardNavbar extends Component {
    onLogoutClick = e => {
@@ -47,15 +45,34 @@ class DashboardNavbar extends Component {
                      </ul>
                      <ul class="right hide-on-med-and-down">
                         <li>
-                           <a class="modal-trigger" href="#addcontact">
+                           <a
+                              class="modal-trigger tooltipped"
+                              data-position="bottom"
+                              data-tooltip="Scripts"
+                              href="#scripts"
+                           >
+                              <i class="large material-icons">library_books</i>
+                           </a>
+                        </li>
+
+                        <li>
+                           <a
+                              class="modal-trigger tooltipped"
+                              class="tooltipped"
+                              data-position="bottom"
+                              data-tooltip="Add Contact"
+                              href="#addcontact"
+                           >
                               <i class="large material-icons">add_circle</i>
                            </a>
                         </li>
                         <li>
                            <a
+                              class="tooltipped"
                               href="https://tomato-timer.com/"
                               target="_blank"
-                              alt="Tomato Timer"
+                              data-position="bottom"
+                              data-tooltip="Tomato Timer"
                               rel="noopener noreferrer"
                            >
                               <i class="large material-icons">timer</i>
@@ -63,7 +80,9 @@ class DashboardNavbar extends Component {
                         </li>
                         <li>
                            <a
-                              class="dropdown-trigger"
+                              class="dropdown-trigger tooltipped"
+                              data-position="bottom"
+                              data-tooltip="Notifications"
                               data-target="main-dropdown4"
                            >
                               <i class="large material-icons">notifications</i>
@@ -85,67 +104,6 @@ class DashboardNavbar extends Component {
                   </div>
                </nav>
             </div>
-
-            <ul id="nav-mobile" class="sidenav">
-               <li>
-                  <center>
-                     <b>Welcome</b>, {user.name.split(" ")[0]}
-                     <br />
-                     {user.email}
-                  </center>
-               </li>
-               <li>
-                  <Link to="/account" onClick={this.forceUpdate}>
-                     <i class="material-icons">account_circle</i>My Account
-                  </Link>
-               </li>
-               <li class="divider"></li>
-               <li>
-                  {" "}
-                  <center>
-                     <b>My Business</b>
-                  </center>
-               </li>
-               <li>
-                  <Link to="/dashboard" onClick={this.forceUpdate}>
-                     <i class="material-icons">dashboard</i>Dashboard
-                  </Link>
-               </li>
-               <li>
-                  <Link to="/calendar" onClick={this.forceUpdate}>
-                     <i class="material-icons">event</i>Calendar
-                  </Link>
-               </li>
-
-               <li class="divider"></li>
-               <li>
-                  <center>
-                     <b>Contact Management</b>
-                  </center>
-               </li>
-               <li>
-                  <Link to="/contacts" onClick={this.forceUpdate}>
-                     <i class="material-icons">contacts</i>Contact List
-                  </Link>
-               </li>
-               <li>
-                  <a class="modal-trigger" href="#addcontact">
-                     <i class="material-icons">add_box</i>Add Contact
-                  </a>
-               </li>
-               <li>
-                  <Link to="/pipeline" onClick={this.forceUpdate}>
-                     <i class="material-icons">assessment</i>Pipeline
-                  </Link>
-               </li>
-
-               <li class="divider"></li>
-               <li>
-                  <a onClick={this.onLogoutClick}>
-                     <i class="material-icons">arrow_forward</i>Logout
-                  </a>
-               </li>
-            </ul>
 
             <ul id="main-dropdown1" class="dropdown-content">
                <li>
@@ -208,15 +166,83 @@ class DashboardNavbar extends Component {
                </li>
             </ul>
 
+            <ul id="nav-mobile" class="sidenav">
+               <li>
+                  <center>
+                     <b>Welcome</b>, {user.name.split(" ")[0]}
+                     <br />
+                     {user.email}
+                  </center>
+               </li>
+               <li>
+                  <Link to="/account" onClick={this.forceUpdate}>
+                     <i class="material-icons">account_circle</i>My Account
+                  </Link>
+               </li>
+               <li class="divider"></li>
+               <li>
+                  {" "}
+                  <center>
+                     <b>My Business</b>
+                  </center>
+               </li>
+               <li>
+                  <Link to="/dashboard" onClick={this.forceUpdate}>
+                     <i class="material-icons">dashboard</i>Dashboard
+                  </Link>
+               </li>
+               <li>
+                  <Link to="/calendar" onClick={this.forceUpdate}>
+                     <i class="material-icons">event</i>Calendar
+                  </Link>
+               </li>
+
+               <li>
+                  <a
+                     class="modal-trigger tooltipped"
+                     data-position="bottom"
+                     data-tooltip="Scripts"
+                     href="#scripts"
+                  >
+                     <i class="material-icons">library_books</i>Scripts
+                  </a>
+               </li>
+
+               <li class="divider"></li>
+               <li>
+                  <center>
+                     <b>Contact Management</b>
+                  </center>
+               </li>
+               <li>
+                  <Link to="/contacts" onClick={this.forceUpdate}>
+                     <i class="material-icons">contacts</i>Contact List
+                  </Link>
+               </li>
+               <li>
+                  <a class="modal-trigger" href="#addcontact">
+                     <i class="material-icons">add_box</i>Add Contact
+                  </a>
+               </li>
+               <li>
+                  <Link to="/pipeline" onClick={this.forceUpdate}>
+                     <i class="material-icons">assessment</i>Pipeline
+                  </Link>
+               </li>
+
+               <li class="divider"></li>
+               <li>
+                  <a onClick={this.onLogoutClick}>
+                     <i class="material-icons">arrow_forward</i>Logout
+                  </a>
+               </li>
+            </ul>
+
             <div id="addcontact" class="modal">
                <AddContact />
             </div>
-            <div id="editcontact" class="modal">
-               <EditContact />
-            </div>
-
-            <div id="deletecontact" class="modal">
-               <DeleteContact />
+            <div id="scripts" class="modal">
+               <EmailScripts />
             </div>
          </div>
       );

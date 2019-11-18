@@ -4,7 +4,11 @@
       $(".sidenav").sidenav();
 
       // Nav triggers.
-      $(".dropdown-trigger").dropdown({ hover: true, coverTrigger: false, constrainWidth: false});
+      $(".dropdown-trigger").dropdown({
+         hover: true,
+         coverTrigger: false,
+         constrainWidth: false
+      });
 
       // Modal triggers.
       $(".modal").modal();
@@ -13,6 +17,8 @@
       $("#followupshelp").openModal();
       $("#teamreachoutshelp").openModal();
       $("#editcontact").openModal();
+      $("#scripts").openModal();
+
       // or by click on trigger.
       $(".trigger-modal").modal();
 
@@ -25,12 +31,14 @@ document.addEventListener("DOMContentLoaded", function() {
    var instances = M.FormSelect.init(elems, options);
 });
 
-document.addEventListener("DOMContentLoaded", function(){
-	$('.preloader-background').delay(1700).fadeOut('slow');
-	
-	$('.preloader-wrapper')
-		.delay(1700)
-		.fadeOut();
+document.addEventListener("DOMContentLoaded", function() {
+   $(".preloader-background")
+      .delay(1700)
+      .fadeOut("slow");
+
+   $(".preloader-wrapper")
+      .delay(1700)
+      .fadeOut();
 });
 
 // Or with jQuery.
@@ -40,6 +48,12 @@ $(document).ready(function() {
    $(".section").fadeIn();
    $(".tabs").tabs();
    $(".datepicker").datepicker();
+   $(".tooltipped").tooltip({
+      enterDelay: 0,
+      transitionMovement: 0,
+      margin: 0
+   });
+   $(".collapsible").collapsible();
 
    // Counter
    $(".count").each(function() {
@@ -83,4 +97,3 @@ $(window).on("load resize", function() {
             : "0"
    });
 });
-
