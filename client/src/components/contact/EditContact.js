@@ -154,7 +154,7 @@ class EditContact extends Component {
               <div class="row">
                 <div class="input-field col s6">
                   <i class="material-icons prefix">tonality</i>
-                  <select class="active"
+                  <select
                     value={this.state.temp}
                     onChange={this.onChangeTemp}
                     class="validate"

@@ -45,11 +45,11 @@ class Dashboard extends Component {
                   <i class="material-icons medium">insert_emoticon</i>
                   <h5>Reach Outs</h5>
                   <h6>Target: 15</h6>
-                  <h6>Completed: 0</h6>
-                  <h6>Percentage: 0%</h6>
+                  <h6>Completed: 5</h6>
+                  <h6>Percentage: 33%</h6>
                   <h3 class="count">5</h3>
                   <div class="progress grey lighten-1">
-                    <div class="determinate white" mapStyle="width: 40%;"></div>
+                    <div class="determinate green" style={{width: '33%'}}></div>
                   </div>
                   <p>
                     New Reach Outs{" "}
@@ -66,11 +66,11 @@ class Dashboard extends Component {
                   <i class="material-icons medium">mode_edit</i>
                   <h5>Follow Ups</h5>
                   <h6>Target: 10</h6>
-                  <h6>Completed: 0</h6>
-                  <h6>Percentage: 0%</h6>
-                  <h3 class="count">5</h3>
+                  <h6>Completed: 6</h6>
+                  <h6>Percentage: 60%</h6>
+                  <h3 class="count">6</h3>
                   <div class="progress grey lighten-1">
-                    <div class="determinate blue" mapStyle="width: 20%;"></div>
+                    <div class="determinate green" style={{width: '60%'}}></div>
                   </div>
                   <p>
                     Follow Ups
@@ -87,11 +87,11 @@ class Dashboard extends Component {
                   <i class="material-icons medium">mode_comment</i>
                   <h5>Team Reach Outs</h5>
                   <h6>Target: 5</h6>
-                  <h6>Completed: 0</h6>
-                  <h6>Percentage: 0%</h6>
-                  <h3 class="count">2</h3>
+                  <h6>Completed: 4</h6>
+                  <h6>Percentage: 80%</h6>
+                  <h3 class="count">4</h3>
                   <div class="progress grey lighten-1">
-                    <div class="determinate white" mapStyle="width: 40%;"></div>
+                    <div class="determinate green" style={{width: '80%'}}></div>
                   </div>
                   <p>
                     Team Reach Outs{" "}
