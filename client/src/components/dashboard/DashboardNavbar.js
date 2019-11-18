@@ -58,7 +58,6 @@ class DashboardNavbar extends Component {
                         <li>
                            <a
                               class="modal-trigger tooltipped"
-                              class="tooltipped"
                               data-position="bottom"
                               data-tooltip="Add Contact"
                               href="#addcontact"
