@@ -536,6 +536,10 @@ nav ul a {
    margin: 0;
 }
 
-.dropdown-trigger-1 {
+/* -----------------------------------
+   For click dropdown navbar.
+   ----------------------------------- */
+
+.dropdown-trigger-click {
    cursor: pointer;
-}
+ }

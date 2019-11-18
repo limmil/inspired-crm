@@ -10,6 +10,13 @@
          constrainWidth: false
       });
 
+      // Nav triggers.
+      $(".dropdown-trigger-click").dropdown({
+         hover: false,
+         coverTrigger: false,
+         constrainWidth: false
+      });
+
       // Modal triggers.
       $(".modal").modal();
       $("#addcontact").openModal();
