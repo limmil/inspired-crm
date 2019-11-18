@@ -12,6 +12,13 @@ class AddContact extends Component {
     this.onChangePhoneNumber = this.onChangePhoneNumber.bind(this);
     this.onChangeEmailAddr = this.onChangeEmailAddr.bind(this);
     this.onChangeTemp = this.onChangeTemp.bind(this);
+
+    // 
+    this.onChangeContactType = this.onChangeContactType.bind(this);
+    this.onChangePipelinePosition = this.onChangePipelinePosition.bind(this);
+
+    // 
+
     this.onChangeLastReachOut = this.onChangeLastReachOut.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
@@ -21,6 +28,8 @@ class AddContact extends Component {
       phone: "",
       emailaddr: "",
       temp: "",
+      contacttype: "",
+      pipelineposition: "",
       lastreachout: ""
     };
   }
@@ -50,6 +59,20 @@ class AddContact extends Component {
       temp: e.target.value
     });
   }
+
+
+  onChangeContactType(e) {
+    this.setState({
+      contacttype: e.target.value
+    });
+  }
+
+  onChangePipelinePosition(e) {
+    this.setState({
+      pipelineposition: e.target.value
+    });
+  }
+
   onChangeLastReachOut(e) {
     this.setState({
       lastreachout: e.target.value
@@ -66,6 +89,8 @@ class AddContact extends Component {
       phone: this.state.phone,
       emailaddr: this.state.emailaddr,
       temp: this.state.temp,
+      contacttype: this.state.contacttype,
+      pipelineposition: this.state.pipelineposition,
       lastreachout: this.state.lastreachout
     };
     this.props.addContact(contactData);
@@ -75,6 +100,8 @@ class AddContact extends Component {
       phone: "",
       emailaddr: "",
       temp: "",
+      contacttype: "",
+      pipelineposition: "",
       lastreachout: ""
     });
     //window.location.reload(false);
@@ -171,6 +198,58 @@ class AddContact extends Component {
                   <span class="helper-text">Last Reach Out</span>
                 </div>
               </div>
+
+            
+              <div class="row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">perm_identity</i>
+                  <select
+                    value={this.state.contacttype}
+                    onChange={this.onChangeContactType}
+                    class="validate"
+                  >
+                    <option value="" disabled selected>
+                      N/A
+                    </option>
+                    <option value="Customer Prospect">Customer Prospect</option>
+                    <option value="Consultant Prospect">Consultant Prospect</option>
+                    <option value="Customer to Convert">Customer to Convert</option>
+                    <option value="Member Customer">Member Customer</option>
+                    <option value="Retail Customer">Retail Customer</option>
+                    <option value="Downline">Downline</option>
+                    <option value="Sideline Team Member">Sideline Team Member</option>
+                    <option value="Upline<">Upline</option>
+                    <option value="Cancelled Customer">Cancelled Customer</option>
+                    <option value="Cancelled Team Member">Cancelled Team Member</option>
+                    <option value="Referral Source">Referral Source</option>
+          
+
+                  </select>
+                  <span class="helper-text">Contact Type</span>
+                </div>
+
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">perm_identity</i>
+                  <select
+                    value={this.state.pipelineposition}
+                    onChange={this.onChangePipelinePosition}
+                    class="validate"
+                  >
+                    <option value="" disabled selected>
+                      N/A
+                    </option>
+                    <option value="Not Contacted">Not Contacted</option>
+                    <option value="Contacted">Contacted</option>
+                    <option value="Needs Follow Up">Needs Follow Up</option>
+                    <option value="All Info Sent">All Info Sent</option>
+                    <option value="Follow Up">Follow Up</option>
+                    <option value="Closed/Signed">Closed/Signed</option>
+                    <option value="Not Right Now">Not Right Now</option>
+                  </select>
+                  <span class="helper-text">Pipeline Position</span>
+                </div>
+              </div>
+
 
               <div class="modal-footer">
                 <button
