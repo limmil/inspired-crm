@@ -22,6 +22,7 @@ import ModificationLog from "./components/log/ModificationLog";
 import Calendar from "./components/calendar/Calendar";
 import Pipeline from "./components/pipeline/Pipeline";
 import Account from "./components/account/Profile";
+import EmailScripts from "./components/scripts/EmailScripts";
 
 // Help Modals.
 import ReachOutsHelp from "./components/help/ReachOutsHelp";
@@ -67,6 +68,10 @@ class App extends Component {
                      <PrivateRoute path="/calendar" component={Calendar} />
                      <PrivateRoute path="/account" component={Account} />
                      <PrivateRoute path="/pipeline" component={Pipeline} />
+                     <PrivateRoute
+                        path="/emailscripts"
+                        component={EmailScripts}
+                     />
                      <PrivateRoute
                         exact
                         path="/modificationlog"

@@ -16,11 +16,11 @@ class Landing extends Component {
                   <div class="container">
                      <br />
                      <br />
-                     <h1 class="header center white-text text-lighten-2">
+                     <h1 class="header center white-text text-lighten-2" id="shadow">
                         <b>Boost Your Business</b>
                      </h1>
                      <div class="row center">
-                        <h5 class="header col s12 light">
+                        <h5 class="header col s12 light" id="shadow">
                            Manage all your contacts, communications, activities
                            and sales in one single place.
                         </h5>
@@ -41,7 +41,7 @@ class Landing extends Component {
                   </div>
                </div>
                <div class="parallax">
-                  <img src="./assets/img/bg1.jpg" alt="Banner 1"></img>
+                  <img src="./assets/img/landing/bg1.jpg" alt="Banner 1"></img>
                </div>
             </div>
 
@@ -102,7 +102,7 @@ class Landing extends Component {
                <div class="section no-pad-bot">
                   <div class="container">
                      <div class="row center">
-                        <h5 class="header col s12 light">
+                        <h5 class="header col s12 light" id="shadow">
                            Reach out to prospects at the right moment and engage
                            them across every channel.
                         </h5>
@@ -110,7 +110,7 @@ class Landing extends Component {
                   </div>
                </div>
                <div class="parallax">
-                  <img src="./assets/img/bg5.jpg" alt="Banner 2"></img>
+                  <img src="./assets/img/landing/bg2.jpg" alt="Banner 2"></img>
                </div>
             </div>
 
@@ -142,15 +142,15 @@ class Landing extends Component {
                <div class="section no-pad-bot">
                   <div class="container">
                      <div class="row center">
-                        <h5 class="header col s12 light">
-                           CRM application that helps you sell smarter, better,
+                        <h5 class="header col s12 light" id="shadow">
+                           Application that helps you sell smarter, better,
                            faster.
                         </h5>
                      </div>
                   </div>
                </div>
                <div class="parallax">
-                  <img src="./assets/img/bg4.jpg" alt="Banner 3"></img>
+                  <img src="./assets/img/landing/bg3.jpg" alt="Banner 3"></img>
                </div>
             </div>
 
