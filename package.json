@@ -14,7 +14,9 @@
    "author": "",
    "license": "MIT",
    "dependencies": {
+      "@material/data-table": "^4.0.0",
       "bcryptjs": "^2.4.3",
+      "bootstrap-material-design": "^4.1.2",
       "concurrently": "^4.0.1",
       "dotenv": "^8.1.0",
       "express": "^4.16.4",
@@ -37,6 +39,7 @@
       "react-style": "^0.5.5",
       "reactstrap": "^8.0.1",
       "rebass": "^3.0.0-12",
+      "tablesorter": "^2.31.1",
       "validator": "^10.9.0",
       "webkit-npm": "^3.1.1"
    }

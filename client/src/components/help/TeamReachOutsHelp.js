@@ -6,12 +6,12 @@ class TeamReachOutsHelp extends Component {
       return (
          <header>
             <div class="modal-content">
-               <h4>
+               <h5>
                   <i class="material-icons small">help</i> Team Reach Outs Help
-               </h4>
+               </h5>
                <p>
                   Here you can manage follow ups with your team. First, add your
-                  team members on the team page here Once your team has been
+                  team members on the team page here. Once your team has been
                   entered or imported, then simply select which team members you
                   would like to follow up with in this section.
                </p>

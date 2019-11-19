@@ -6,9 +6,9 @@ class ReachOutsHelp extends Component {
       return (
          <header>
             <div class="modal-content">
-               <h4>
+               <h5>
                   <i class="material-icons small">help</i> New Reach Outs Help
-               </h4>
+               </h5>
                <p>
                   Select the contacts you have never spoken to about your
                   business. If you select them here, you intend to reach out to
