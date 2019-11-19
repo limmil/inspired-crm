@@ -185,14 +185,14 @@ class EditContact extends Component {
                               class="validate"
                            >
                               <option value="" disabled selected>
-                                 N/A
+                                
                               </option>
                               <option value="Cold">Cold</option>
                               <option value="Warm">Warm</option>
                               <option value="Hot">Hot</option>
                            </select>
-                           <label style={{ fontSize: "15px" }}>
-                              Selected: {this.state.temp}
+                           <label style={{ fontSize: "12px" }}>
+                           Current: {this.state.temp}
                            </label>
                            <span class="helper-text">Temp</span>
                         </div>
@@ -219,7 +219,7 @@ class EditContact extends Component {
                               class="validate"
                            >
                               <option value="" disabled selected>
-                                 N/A
+                              
                               </option>
                               <option value="Customer Prospect">
                                  Customer Prospect
@@ -251,8 +251,8 @@ class EditContact extends Component {
                                  Referral Source
                               </option>
                            </select>
-                           <label style={{ fontSize: "15px" }}>
-                              Selected: {this.state.contacttype}
+                           <label style={{ fontSize: "12px" }}>
+                           Current: {this.state.contacttype}
                            </label>
                            <span class="helper-text">Contact Type</span>
                         </div>
@@ -265,7 +265,7 @@ class EditContact extends Component {
                               class="validate"
                            >
                               <option value="" disabled selected>
-                                 N/A
+                                
                               </option>
                               <option value="Not Contacted">
                                  Not Contacted
@@ -285,8 +285,8 @@ class EditContact extends Component {
                                  Not Right Now
                               </option>
                            </select>
-                           <label style={{ fontSize: "15px" }}>
-                              Selected: {this.state.pipelineposition}
+                           <label style={{ fontSize: "12px" }}>
+                              Current: {this.state.pipelineposition}
                            </label>
                            <span class="helper-text">Pipeline Position</span>
                         </div>
