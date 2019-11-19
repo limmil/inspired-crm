@@ -55,16 +55,21 @@ class Contacts extends Component {
 
             <div class="container">
                <div class="row">
-               
-        
                   <div class="col s12">
                      <h5>Contact List</h5>
                      <hr />
-                     <table class="highlight responsive-table">
+                     <table id="myTable" class="highlight tablesorter">
                         <thead>
                            <tr>
+                              <th class="valign-wrapper">
+                                 <label>
+                                    <input type="checkbox" />
+                                    <span></span>
+                                 </label>
+                              </th>
+
                               <th>Name</th>
-                              
+
                               <th>Phone Number</th>
                               <th>E-mail</th>
                               <th>Temp</th>
@@ -81,8 +86,10 @@ class Contacts extends Component {
                   </div>
                </div>
             </div>
-
-          
+            <br />
+            <br />
+            <br />
+            <br />
 
             <DashboardFooter />
          </div>
