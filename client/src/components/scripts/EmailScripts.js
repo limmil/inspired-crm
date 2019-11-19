@@ -104,15 +104,13 @@ class EmailScripts extends Component {
                               onCopy={() => this.setState({ copied: true })}
                            >
                               <div class="modal-footer">
-                                 <button class="waves-effect waves-light btn left">
+                                 <button onclick="M.toast({html: 'I am a toast'})" class="waves-effect waves-light btn left">
                                     Copy To Clipboard
                                  </button>
                               </div>
                            </CopyToClipboard>
 
-                           {this.state.copied ? (
-                              <span style={{ color: "red" }}> Copied!</span>
-                           ) : null}
+                          
                         </div>
                      </div>
                   </li>
@@ -158,9 +156,7 @@ class EmailScripts extends Component {
                               </div>
                            </CopyToClipboard>
 
-                           {this.state.copied ? (
-                              <span style={{ color: "red" }}> Copied!</span>
-                           ) : null}
+                           
                         </div>
                      </div>
                   </li>

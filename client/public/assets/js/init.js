@@ -26,6 +26,8 @@
       $("#editcontact").openModal();
       $("#scripts").openModal();
 
+
+
       // or by click on trigger.
       $(".trigger-modal").modal();
 
@@ -51,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // Or with jQuery.
 $(document).ready(function() {
    $("select").formSelect();
-
+   
    $(".section").fadeIn();
    $(".tabs").tabs();
    $(".datepicker").datepicker();
