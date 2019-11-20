@@ -12,11 +12,10 @@ class EditContact extends Component {
       this.onChangePhoneNumber = this.onChangePhoneNumber.bind(this);
       this.onChangeEmailAddr = this.onChangeEmailAddr.bind(this);
       this.onChangeTemp = this.onChangeTemp.bind(this);
-
       this.onChangeContactType = this.onChangeContactType.bind(this);
       this.onChangePipelinePosition = this.onChangePipelinePosition.bind(this);
-
       this.onChangeLastReachOut = this.onChangeLastReachOut.bind(this);
+      this.onChangeNotes = this.onChangeNotes.bind(this);
       this.onSubmit = this.onSubmit.bind(this);
 
       this.state = {
@@ -29,7 +28,8 @@ class EditContact extends Component {
          contacttype: "",
          pipelineposition: "",
          lastreachout: "",
-         date: ""
+         date: "",
+         notes: ""
       };
    }
 
@@ -45,7 +45,8 @@ class EditContact extends Component {
             contacttype: this.props.edit.contacttype,
             pipelineposition: this.props.edit.pipelineposition,
             lastreachout: this.props.edit.lastreachout,
-            date: this.props.edit.date
+            date: this.props.edit.date,
+            notes: this.props.edit.notes
          });
       }
    }
@@ -94,6 +95,12 @@ class EditContact extends Component {
       });
    }
 
+   onChangeNotes(e) {
+      this.setState({
+         notes: e.target.value
+      });
+   }
+
    onSubmit(e) {
       e.preventDefault();
       const contactData = {
@@ -108,7 +115,8 @@ class EditContact extends Component {
          contacttype: this.state.contacttype,
          pipelineposition: this.state.pipelineposition,
          lastreachout: this.state.lastreachout,
-         date: this.state.date
+         date: this.state.date,
+         notes: this.state.notes
       };
       this.props.updateContact(contactData);
    }
@@ -184,15 +192,13 @@ class EditContact extends Component {
                               onChange={this.onChangeTemp}
                               class="validate"
                            >
-                              <option value="" disabled selected>
-                                
-                              </option>
+                              <option value="" disabled selected></option>
                               <option value="Cold">Cold</option>
                               <option value="Warm">Warm</option>
                               <option value="Hot">Hot</option>
                            </select>
                            <label style={{ fontSize: "12px" }}>
-                           Current: {this.state.temp}
+                              Current: {this.state.temp}
                            </label>
                            <span class="helper-text">Temp</span>
                         </div>
@@ -218,9 +224,7 @@ class EditContact extends Component {
                               onChange={this.onChangeContactType}
                               class="validate"
                            >
-                              <option value="" disabled selected>
-                              
-                              </option>
+                              <option value="" disabled selected></option>
                               <option value="Customer Prospect">
                                  Customer Prospect
                               </option>
@@ -252,7 +256,7 @@ class EditContact extends Component {
                               </option>
                            </select>
                            <label style={{ fontSize: "12px" }}>
-                           Current: {this.state.contacttype}
+                              Current: {this.state.contacttype}
                            </label>
                            <span class="helper-text">Contact Type</span>
                         </div>
@@ -264,9 +268,7 @@ class EditContact extends Component {
                               onChange={this.onChangePipelinePosition}
                               class="validate"
                            >
-                              <option value="" disabled selected>
-                                
-                              </option>
+                              <option value="" disabled selected></option>
                               <option value="Not Contacted">
                                  Not Contacted
                               </option>
@@ -289,6 +291,22 @@ class EditContact extends Component {
                               Current: {this.state.pipelineposition}
                            </label>
                            <span class="helper-text">Pipeline Position</span>
+                        </div>
+                     </div>
+
+                     <div class="row">
+                        <div class="input-field col s12">
+                           <i class="material-icons prefix">note</i>
+                           <textarea
+                              id="textarea2"
+                              value={this.state.notes}
+                              onChange={this.onChangeNotes}
+                              class="materialize-textarea validate"
+                              data-length="120"
+                           ></textarea>
+                           <label for="textarea2"></label>
+
+                           <span class="helper-text">Notes</span>
                         </div>
                      </div>
 

@@ -107,15 +107,6 @@ $(document).ready(function() {
    // ------------------------------------------------
    // For sortable datatable.
    // ------------------------------------------------
-
-   $("#myTable").tablesorter();
-
-   $("#myTable").tablesorter({
-      sortList: [
-         [0, 0],
-         [1, 0]
-      ]
-   });
 });
 
 // For footer.
@@ -129,5 +120,18 @@ $(window).on("load resize", function() {
          $(window).width() >= 768 && $(window).height() >= 500
             ? $("footer").outerHeight() + "px"
             : "0"
+   });
+});
+
+$(function() {
+   $("#myTable").tablesorter();
+});
+
+$(function() {
+   $("#myTable").tablesorter({
+      sortList: [
+         [0, 0],
+         [1, 0]
+      ]
    });
 });
