@@ -33,6 +33,7 @@ class Dashboard extends Component {
                   <a
                     class="modal-trigger waves-effect waves-light btn-small"
                     href="#goalsettingmenu"
+                    style={{ marginLeft: "20px" }}
                   >
                     Goal Options
                   </a>
@@ -57,7 +58,7 @@ class Dashboard extends Component {
                   <h6>Percentage: 0.06%</h6>
                   <h3 class="count">5</h3>
                   <div class="progress grey lighten-1">
-                    <div class="determinate green" style={{width: '33%'}}></div>
+                    <div class="determinate green" style={{width: '0%'}}></div>
                   </div>
                   <div class="row">
                     <div class="col s6">
@@ -88,7 +89,7 @@ class Dashboard extends Component {
                   <h6>Percentage: 0.1%</h6>
                   <h3 class="count">5</h3>
                   <div class="progress grey lighten-1">
-                    <div class="determinate green" style={{width: '60%'}}></div>
+                    <div class="determinate green" style={{width: '0%'}}></div>
                   </div>
                   <div class="row">
                     <div class="col s6">
@@ -118,7 +119,7 @@ class Dashboard extends Component {
                   <h6>Percentage: 0.2%</h6>
                   <h3 class="count">2</h3>
                   <div class="progress grey lighten-1">
-                    <div class="determinate green" style={{width: '80%'}}></div>
+                    <div class="determinate green" style={{width: '0%'}}></div>
                   </div>
 
                   <div class="row">

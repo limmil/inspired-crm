@@ -7,9 +7,17 @@ const UserSchema = new Schema({
     type: String
   },
   // user logins
-  name: {
+  fname: {
     type: String,
     required: true
+  },
+  lname: {
+    type: String,
+    required: true
+  },
+  company: {
+    type: String,
+    default: ""
   },
   email: {
     type: String,
@@ -18,6 +26,40 @@ const UserSchema = new Schema({
   password: {
     type: String,
     required: true
+  },
+
+  // User goal tracking==========================
+  plan: {
+    // 0=custom, 1=KTLO, 2=PFG, 3=WOW
+    type: Number,
+    default: 0
+  },
+  // New Reach Outs Goal
+  nrog: {
+    type: Number,
+    default: 0
+  },
+  nrogdone: {
+    type: Number,
+    default: 0
+  },
+  // Follow Up Goal
+  fug: {
+    type: Number,
+    default: 0
+  },
+  fugdone: {
+    type: Number,
+    default: 0
+  },
+  // Team Reach Out Goal
+  trog: {
+    type: Number,
+    default: 0
+  },
+  trogdone: {
+    type: Number,
+    default: 0
   },
   date: {
     type: Date,
