@@ -122,16 +122,3 @@ $(window).on("load resize", function() {
             : "0"
    });
 });
-
-$(function() {
-   $("#myTable").tablesorter();
-});
-
-$(function() {
-   $("#myTable").tablesorter({
-      sortList: [
-         [0, 0],
-         [1, 0]
-      ]
-   });
-});
