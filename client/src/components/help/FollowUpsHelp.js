@@ -6,9 +6,9 @@ class FollowUpsHelp extends Component {
       return (
          <header>
             <div class="modal-content">
-               <h4>
+               <h5>
                   <i class="material-icons small">help</i> Follow Ups Help
-               </h4>
+               </h5>
                <p>
                   You’ve heard it a million times, but it’s never enough –
                   Fortune is in the follow up!! Select the people you need to

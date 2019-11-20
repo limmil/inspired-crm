@@ -6,7 +6,10 @@ import { logoutUser } from "../../actions/authActions";
 
 // Modals.
 import AddContact from "../contact/AddContact.js";
+import DeleteContact from "../contact/DeleteContact.js";
 import EmailScripts from "../scripts/EmailScripts.js";
+import NotificationLog from "../log/NotificationLog.js";
+import EditContact from "../contact/EditContact.js";
 
 class DashboardNavbar extends Component {
    onLogoutClick = e => {
@@ -79,17 +82,17 @@ class DashboardNavbar extends Component {
                         </li>
                         <li>
                            <a
-                              class="dropdown-trigger tooltipped"
+                              class="modal-trigger tooltipped"
                               data-position="bottom"
                               data-tooltip="Notifications"
-                              data-target="main-dropdown4"
+                              href="#notifications"
                            >
                               <i class="large material-icons">notifications</i>
                            </a>
                         </li>
                         <li>
                            <a
-                              class="dropdown-trigger"
+                              class="dropdown-trigger-click"
                               data-target="main-dropdown3"
                            >
                               <i class="large material-icons">account_circle</i>
@@ -106,8 +109,8 @@ class DashboardNavbar extends Component {
 
             <ul id="main-dropdown1" class="dropdown-content">
                <li>
-                  <Link to="/dashboard" onClick={this.forceUpdate}>
-                     <i class="material-icons">dashboard</i>Dashboard
+                  <Link to="/goaltracker" onClick={this.forceUpdate}>
+                     <i class="material-icons">check</i>Goal Tracker
                   </Link>
                </li>
                <li>
@@ -157,14 +160,6 @@ class DashboardNavbar extends Component {
                </li>
             </ul>
 
-            <ul id="main-dropdown4" class="dropdown-content">
-               <li>
-                  <center>
-                     <b>Notifications</b>
-                  </center>
-               </li>
-            </ul>
-
             <ul id="nav-mobile" class="sidenav">
                <li>
                   <center>
@@ -178,6 +173,13 @@ class DashboardNavbar extends Component {
                      <i class="material-icons">account_circle</i>My Account
                   </Link>
                </li>
+
+               <li>
+                  <a class="modal-trigger" href="#notifications">
+                     <i class="material-icons">notifications</i>Notifications
+                  </a>
+               </li>
+
                <li class="divider"></li>
                <li>
                   {" "}
@@ -186,8 +188,8 @@ class DashboardNavbar extends Component {
                   </center>
                </li>
                <li>
-                  <Link to="/dashboard" onClick={this.forceUpdate}>
-                     <i class="material-icons">dashboard</i>Dashboard
+                  <Link to="/goaltracker" onClick={this.forceUpdate}>
+                     <i class="material-icons">check</i>Goal Tracker
                   </Link>
                </li>
                <li>
@@ -197,12 +199,7 @@ class DashboardNavbar extends Component {
                </li>
 
                <li>
-                  <a
-                     class="modal-trigger tooltipped"
-                     data-position="bottom"
-                     data-tooltip="Scripts"
-                     href="#scripts"
-                  >
+                  <a class="modal-trigger" href="#scripts">
                      <i class="material-icons">library_books</i>Scripts
                   </a>
                </li>
@@ -240,8 +237,19 @@ class DashboardNavbar extends Component {
             <div id="addcontact" class="modal">
                <AddContact />
             </div>
+            <div id="editcontact" class="modal">
+               <EditContact />
+            </div>
+            <div id="deletecontact" class="modal">
+               <DeleteContact />
+            </div>
+
+
             <div id="scripts" class="modal">
                <EmailScripts />
+            </div>
+            <div id="notifications" class="modal">
+               <NotificationLog />
             </div>
          </div>
       );

@@ -10,6 +10,13 @@
          constrainWidth: false
       });
 
+      // Nav triggers.
+      $(".dropdown-trigger-click").dropdown({
+         hover: false,
+         coverTrigger: false,
+         constrainWidth: false
+      });
+
       // Modal triggers.
       $(".modal").modal();
       $("#addcontact").openModal();
@@ -44,16 +51,30 @@ document.addEventListener("DOMContentLoaded", function() {
 // Or with jQuery.
 $(document).ready(function() {
    $("select").formSelect();
-
    $(".section").fadeIn();
    $(".tabs").tabs();
    $(".datepicker").datepicker();
    $(".tooltipped").tooltip({
-      enterDelay: 0,
+      enterDelay: 200,
       transitionMovement: 0,
-      margin: 0
+      margin: 5,
+      outDuration: 5,
+      html: true
    });
+
    $(".collapsible").collapsible();
+
+   $("td input[type=checkbox]").on("change", function(e) {
+      console.log("change");
+      row = $(this).closest("tr");
+      console.log(row);
+      console.log($(this).is(":checked"));
+      if ($(this).is(":checked")) {
+         row.addClass("selected");
+      } else {
+         row.removeClass("selected");
+      }
+   });
 
    // Counter
    $(".count").each(function() {
@@ -82,6 +103,10 @@ $(document).ready(function() {
       Materialize.toast("Comment Denied", 3000);
       e.preventDefault();
    });
+
+   // ------------------------------------------------
+   // For sortable datatable.
+   // ------------------------------------------------
 });
 
 // For footer.
