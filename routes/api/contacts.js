@@ -32,7 +32,8 @@ router.post(
                temp: req.body.temp,
                contacttype: req.body.contacttype,
                pipelineposition: req.body.pipelineposition,
-               lastreachout: req.body.lastreachout
+               lastreachout: req.body.lastreachout,
+               notes: req.body.notes
             });
             newContact
                .save()
@@ -139,7 +140,8 @@ router.post(
                      temp: req.body.temp,
                      contacttype: req.body.contacttype,
                      pipelineposition: req.body.pipelineposition,
-                     lastreachout: req.body.lastreachout
+                     lastreachout: req.body.lastreachout,
+                     notes: req.body.notes
                   }
                },
                { useFindAndModify: false }
