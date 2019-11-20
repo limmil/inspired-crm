@@ -34,6 +34,7 @@ class GoalTracker extends Component {
                            <a
                               class="modal-trigger waves-effect waves-light btn-small"
                               href="#goalsettingmenu"
+                              style={{ marginLeft: "20px" }}
                            >
                               Goal Options
                            </a>
@@ -60,7 +61,7 @@ class GoalTracker extends Component {
                            <div class="progress grey lighten-1">
                               <div
                                  class="determinate green"
-                                 style={{ width: "33%" }}
+                                 style={{ width: "0%" }}
                               ></div>
                            </div>
                            <div class="row">
@@ -100,7 +101,7 @@ class GoalTracker extends Component {
                            <div class="progress grey lighten-1">
                               <div
                                  class="determinate green"
-                                 style={{ width: "60%" }}
+                                 style={{ width: "0%" }}
                               ></div>
                            </div>
                            <div class="row">
@@ -139,7 +140,7 @@ class GoalTracker extends Component {
                            <div class="progress grey lighten-1">
                               <div
                                  class="determinate green"
-                                 style={{ width: "80%" }}
+                                 style={{ width: "0%" }}
                               ></div>
                            </div>
 
