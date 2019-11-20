@@ -58,7 +58,7 @@ class Contacts extends Component {
                   <div class="col s12">
                      <h5>Contact List</h5>
                      <hr />
-                     <table id="myTable" class="highlight tablesorter">
+                     <table id="myTable" class="highlight">
                         <thead>
                            <tr>
                               <th class="valign-wrapper">
