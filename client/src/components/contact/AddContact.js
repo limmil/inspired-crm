@@ -3,6 +3,9 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addContact } from "../../actions/contactActions";
+import M from "materialize-css";
+import "materialize-css/dist/css/materialize.min.css";
+
 
 class AddContact extends Component {
    constructor(props) {
@@ -35,6 +38,8 @@ class AddContact extends Component {
          notes: ""
       };
    }
+
+   
 
    onChangeLastName(e) {
       this.setState({
@@ -112,8 +117,16 @@ class AddContact extends Component {
          pipelineposition: "",
          lastreachout: "",
          notes: ""
+
       });
-      //window.location.reload(false);
+      var elems = document.querySelectorAll('select');
+      var instances = M.FormSelect.init(elems);
+      // temp select field
+      instances[0].input.value = ""
+      // contact type select field
+      instances[1].input.value = ""
+      // pipline select field
+      instances[2].input.value = ""
    }
 
    render() {
