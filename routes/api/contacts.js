@@ -45,6 +45,9 @@ router.post(
          } else {
             res.status(401).send("Unauthorized");
          }
+      }).catch(err => {
+         console.log(err);
+         res.status(500);
       });
    }
 );
@@ -108,7 +111,7 @@ router.post(
             }
          })
          .catch(err => {
-            //console.log(err);
+            console.log(err);
             res.status(500);
          });
    }

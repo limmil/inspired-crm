@@ -3,6 +3,8 @@ import axios from "axios";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { updateContact } from "../../actions/contactActions";
+import M from "materialize-css";
+import "materialize-css/dist/css/materialize.min.css";
 
 class EditContact extends Component {
    constructor(props) {
@@ -48,6 +50,11 @@ class EditContact extends Component {
             date: this.props.edit.date,
             notes: this.props.edit.notes
          });
+         var elems = document.querySelectorAll('select');
+         var instances = M.FormSelect.init(elems);
+         instances[3].input.value = this.props.edit.temp;
+         instances[4].input.value = this.props.edit.contacttype;
+         instances[5].input.value = this.props.edit.pipelineposition;
       }
    }
 
@@ -198,7 +205,6 @@ class EditContact extends Component {
                               <option value="Hot">Hot</option>
                            </select>
                            <label style={{ fontSize: "12px" }}>
-                              Current: {this.state.temp}
                            </label>
                            <span class="helper-text">Temp</span>
                         </div>
@@ -256,7 +262,6 @@ class EditContact extends Component {
                               </option>
                            </select>
                            <label style={{ fontSize: "12px" }}>
-                              Current: {this.state.contacttype}
                            </label>
                            <span class="helper-text">Contact Type</span>
                         </div>
@@ -288,7 +293,6 @@ class EditContact extends Component {
                               </option>
                            </select>
                            <label style={{ fontSize: "12px" }}>
-                              Current: {this.state.pipelineposition}
                            </label>
                            <span class="helper-text">Pipeline Position</span>
                         </div>

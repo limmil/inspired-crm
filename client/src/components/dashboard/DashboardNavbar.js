@@ -142,7 +142,7 @@ class DashboardNavbar extends Component {
             <ul id="main-dropdown3" class="dropdown-content">
                <li>
                   <center>
-                     <b>Welcome</b>, {user.name.split(" ")[0]}
+                     <b>Welcome</b>, {user.fname}
                      <br />
                      {user.email}
                   </center>
@@ -164,7 +164,7 @@ class DashboardNavbar extends Component {
             <ul id="nav-mobile" class="sidenav">
                <li>
                   <center>
-                     <b>Welcome</b>, {user.name.split(" ")[0]}
+                     <b>Welcome</b>, {user.fname}
                      <br />
                      {user.email}
                   </center>

@@ -31,10 +31,12 @@ router.post("/register", (req, res) => {
       return res.status(400).json({ email: "Email already exists" });
     } else {
       const newUser = new User({
-        name: req.body.name,
+        fname: req.body.fname,
+        lname: req.body.lname,
         email: email,
         password: req.body.password,
       });
+      console.log(newUser)
 
       // Hash password before saving in database
       bcrypt.genSalt(10, (err, salt) => {
@@ -81,7 +83,9 @@ router.post("/login", (req, res) => {
         // Create JWT Payload
         const payload = {
           email: user.email,
-          name: user.name
+          fname: user.fname,
+          lname: user.lname,
+          company: user.company
         };
         // Sign token
         jwt.sign(
