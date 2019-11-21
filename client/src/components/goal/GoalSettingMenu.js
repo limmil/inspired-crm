@@ -94,7 +94,7 @@ class GoalSettingMenu extends Component {
       return (
          <header>
             <div class="modal-content">
-               <form class="col s12" onSubmit={this.onSubmit}>
+               <font class="col s12" onSubmit={this.onSubmit}>
                   <h5>Goal Setting Menu</h5>
                   <p>
                      Choose how hard you would like to run. Pick a plan from
@@ -109,7 +109,7 @@ class GoalSettingMenu extends Component {
 
                   <div class="row">
                      <div class="col s12 m4">
-                        <div class="card-panel blue lighten-2">
+                        <div class="card-panel blue lighten-2 hoverable z-depth-6">
                            <div class="card-content center">
                               <h6>
                                  <font color="white">
@@ -122,15 +122,30 @@ class GoalSettingMenu extends Component {
                               <h6 align="left">Weekly Targets</h6>
 
                               <h6 align="left">
-                                 <i class="material-icons tiny">check_circle</i>{" "}
+                                 <i
+                                    class="material-icons tiny"
+                                    style={{ color: "#64b5f6" }}
+                                 >
+                                    check_circle
+                                 </i>{" "}
                                  New Reach Outs: 15
                               </h6>
                               <h6 align="left">
-                                 <i class="material-icons tiny">check_circle</i>{" "}
+                                 <i
+                                    class="material-icons tiny"
+                                    style={{ color: "#64b5f6" }}
+                                 >
+                                    check_circle
+                                 </i>{" "}
                                  Follow Ups: 10
                               </h6>
                               <h6 align="left">
-                                 <i class="material-icons tiny">check_circle</i>{" "}
+                                 <i
+                                    class="material-icons tiny"
+                                    style={{ color: "#64b5f6" }}
+                                 >
+                                    check_circle
+                                 </i>{" "}
                                  Team Reach Outs: 5
                               </h6>
                            </div>
@@ -143,7 +158,7 @@ class GoalSettingMenu extends Component {
                      </div>
 
                      <div class="col s12 m4">
-                        <div class="card-panel light-green darken-3">
+                        <div class="card-panel light-green darken-3 hoverable z-depth-6">
                            <div class="card-content center">
                               <h6>
                                  <font color="white">
@@ -156,15 +171,30 @@ class GoalSettingMenu extends Component {
                               <h6 align="left">Weekly Targets</h6>
 
                               <h6 align="left">
-                                 <i class="material-icons tiny">check_circle</i>{" "}
+                                 <i
+                                    class="material-icons tiny"
+                                    style={{ color: "#558b2f" }}
+                                 >
+                                    check_circle
+                                 </i>{" "}
                                  New Reach Outs: 25
                               </h6>
                               <h6 align="left">
-                                 <i class="material-icons tiny">check_circle</i>{" "}
+                                 <i
+                                    class="material-icons tiny"
+                                    style={{ color: "#558b2f" }}
+                                 >
+                                    check_circle
+                                 </i>{" "}
                                  Follow Ups: 15
                               </h6>
                               <h6 align="left">
-                                 <i class="material-icons tiny">check_circle</i>{" "}
+                                 <i
+                                    class="material-icons tiny"
+                                    style={{ color: "#558b2f" }}
+                                 >
+                                    check_circle
+                                 </i>{" "}
                                  Team Reach Outs: 10
                               </h6>
                            </div>
@@ -177,7 +207,7 @@ class GoalSettingMenu extends Component {
                      </div>
 
                      <div class="col s12 m4">
-                        <div class="card-panel red lighten-2">
+                        <div class="card-panel red lighten-2 hoverable z-depth-6">
                            <div class="card-content center">
                               <h6>
                                  <font color="white">
@@ -190,15 +220,30 @@ class GoalSettingMenu extends Component {
                               <h6 align="left">Weekly Targets</h6>
 
                               <h6 align="left">
-                                 <i class="material-icons tiny">check_circle</i>{" "}
+                                 <i
+                                    class="material-icons tiny"
+                                    style={{ color: "#e57373" }}
+                                 >
+                                    check_circle
+                                 </i>{" "}
                                  New Reach Outs: 35
                               </h6>
                               <h6 align="left">
-                                 <i class="material-icons tiny">check_circle</i>{" "}
+                                 <i
+                                    class="material-icons tiny"
+                                    style={{ color: "#e57373" }}
+                                 >
+                                    check_circle
+                                 </i>{" "}
                                  Follow Ups: 25
                               </h6>
                               <h6 align="left">
-                                 <i class="material-icons tiny">check_circle</i>{" "}
+                                 <i
+                                    class="material-icons tiny"
+                                    style={{ color: "#e57373" }}
+                                 >
+                                    check_circle
+                                 </i>{" "}
                                  Team Reach Outs: 15
                               </h6>
                            </div>
@@ -219,7 +264,7 @@ class GoalSettingMenu extends Component {
 
                   <div class="row">
                      <div class="col s12">
-                        <div class="card-panel yellow accent-4">
+                        <div class="card-panel yellow accent-4 hoverable z-depth-6">
                            <div class="card-content center">
                               <h6>
                                  <font color="white">
@@ -232,7 +277,10 @@ class GoalSettingMenu extends Component {
                               <form>
                                  <div class="row">
                                     <div class="input-field col s12">
-                                       <i class="material-icons prefix">
+                                       <i
+                                          class="material-icons prefix"
+                                          style={{ color: "#ffd600" }}
+                                       >
                                           check_circle
                                        </i>
                                        <input
@@ -249,7 +297,10 @@ class GoalSettingMenu extends Component {
                                  </div>
                                  <div class="row">
                                     <div class="input-field col s12">
-                                       <i class="material-icons prefix">
+                                       <i
+                                          class="material-icons prefix"
+                                          style={{ color: "#ffd600" }}
+                                       >
                                           check_circle
                                        </i>
                                        <input
@@ -266,7 +317,10 @@ class GoalSettingMenu extends Component {
                                  </div>
                                  <div class="row">
                                     <div class="input-field col s12">
-                                       <i class="material-icons prefix">
+                                       <i
+                                          class="material-icons prefix"
+                                          style={{ color: "#ffd600" }}
+                                       >
                                           check_circle
                                        </i>
                                        <input
@@ -291,7 +345,7 @@ class GoalSettingMenu extends Component {
                         </div>
                      </div>
                   </div>
-               </form>
+               </font>
             </div>
          </header>
       );

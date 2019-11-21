@@ -20,7 +20,7 @@ class Personal extends Component {
             <div class="row">
                <div class="input-field col s6">
                   <input
-                     placeholder={user.fname}
+                     value={user.fname}
                      id="first_name"
                      type="text"
                      class="validate"
@@ -29,7 +29,7 @@ class Personal extends Component {
                </div>
                <div class="input-field col s6">
                   <input
-                     placeholder={user.lname}
+                     value={user.lname}
                      id="last_name"
                      type="text"
                      class="validate"
@@ -40,7 +40,7 @@ class Personal extends Component {
             <div class="row">
                <div class="input-field col s6">
                   <input
-                     placeholder={user.email}
+                     value={user.email}
                      id="email"
                      type="text"
                      class="validate"
