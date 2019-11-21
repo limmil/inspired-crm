@@ -37,6 +37,8 @@
       "react-simple-dnd": "^0.1.2",
       "react-smooth-dnd": "^0.11.1",
       "react-style": "^0.5.5",
+      "react-toastify": "^5.4.1",
+      "react-tooltip": "^3.11.1",
       "reactstrap": "^8.0.1",
       "rebass": "^3.0.0-12",
       "tablesorter": "^2.31.1",
