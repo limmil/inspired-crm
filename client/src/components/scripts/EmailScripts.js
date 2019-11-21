@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+// minified version is also included
+// import 'react-toastify/dist/ReactToastify.min.css';
 
 class EmailScripts extends Component {
    state = {
@@ -7,10 +11,17 @@ class EmailScripts extends Component {
       copied: false
    };
 
+   notify = () => {
+      toast.info("Copied To Clipboard!", {
+         position: toast.POSITION.BOTTOM_CENTER
+      });
+   };
+
    render() {
       return (
          <header>
             <div class="modal-content">
+               <ToastContainer autoClose={1500} draggable={true}/>
                <h5>E-mail Scripts</h5>
 
                <ul class="collapsible">
@@ -104,13 +115,14 @@ class EmailScripts extends Component {
                               onCopy={() => this.setState({ copied: true })}
                            >
                               <div class="modal-footer">
-                                 <button onclick="M.toast({html: 'I am a toast'})" class="waves-effect waves-light btn left">
+                                 <button
+                                    onClick={this.notify}
+                                    class="waves-effect waves-light btn left"
+                                 >
                                     Copy To Clipboard
                                  </button>
                               </div>
                            </CopyToClipboard>
-
-                          
                         </div>
                      </div>
                   </li>
@@ -150,17 +162,27 @@ class EmailScripts extends Component {
                               onCopy={() => this.setState({ copied: true })}
                            >
                               <div class="modal-footer">
-                                 <button class="waves-effect waves-light btn left">
+                                 <button
+                                    onClick={this.notify}
+                                    class="waves-effect waves-light btn left"
+                                 >
                                     Copy To Clipboard
                                  </button>
                               </div>
                            </CopyToClipboard>
-
-                           
                         </div>
                      </div>
                   </li>
                </ul>
+
+               <div class="modal-footer">
+                  <button
+                     className="modal-close waves-effect waves-light btn btn-primary"
+                     style={{ marginRight: "10px" }}
+                  >
+                     Close
+                  </button>
+               </div>
             </div>
          </header>
       );

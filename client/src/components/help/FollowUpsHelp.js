@@ -7,7 +7,7 @@ class FollowUpsHelp extends Component {
          <header>
             <div class="modal-content">
                <h5>
-                  <i class="material-icons small">help</i> Follow Ups Help
+               <i class="material-icons small" style={{color: '#e5e600'}}>help</i> Follow Ups Help
                </h5>
                <p>
                   You’ve heard it a million times, but it’s never enough –

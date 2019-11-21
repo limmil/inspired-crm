@@ -7,7 +7,7 @@ class ReachOutsHelp extends Component {
          <header>
             <div class="modal-content">
                <h5>
-                  <i class="material-icons small">help</i> New Reach Outs Help
+               <i class="material-icons small" style={{color: '#e5e600'}}>help</i> New Reach Outs Help
                </h5>
                <p>
                   Select the contacts you have never spoken to about your

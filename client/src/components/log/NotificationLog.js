@@ -10,22 +10,22 @@ class NotificationLog extends Component {
                   <ul class="tabs tabs-fixed-width">
                      <li class="tab col s3">
                         <a href="#email" class="active">
-                           E-mail
+                           E-mail (0)
                         </a>
                      </li>
                      <li class="tab col s3">
-                        <a href="#alerts">Alerts</a>
+                        <a href="#alerts">Alerts (0)</a>
                      </li>
                   </ul>
                </div>
 
                <div id="email" class="col s12">
-                  <p><i class="material-icons">error</i> No E-Mail
+                  <p align="center"><i class="material-icons small" style={{color: '#e63f3b'}}>error_outline</i> No E-Mail
                   Notifications</p>
                </div>
 
                <div id="alerts" class="col s12">
-               <p><i class="material-icons">error</i> No Alert Notifications</p>
+               <p align="center"><i class="material-icons small" style={{color: '#e63f3b'}}>error_outline</i> No Alert Notifications</p>
                </div>
             </div>
          </div>

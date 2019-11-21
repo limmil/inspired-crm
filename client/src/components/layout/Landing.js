@@ -128,10 +128,7 @@ class Landing extends Component {
                            your solution but who have not yet made a purchase.
                            For businesses to grow, you have to convert leads to
                            loyal customers. And to do that right, you need to
-                           manage sales leads in an organized manner. In this
-                           page, you will learn everything you need to know
-                           about lead management and how it can help close deals
-                           faster.
+                           manage sales leads in an organized manner.
                         </p>
                      </div>
                   </div>

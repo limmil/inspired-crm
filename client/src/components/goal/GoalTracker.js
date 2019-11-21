@@ -67,7 +67,12 @@ class GoalTracker extends Component {
                               <div class="col s6">
                                  Reach Outs{" "}
                                  <a class="modal-trigger" href="#reachoutshelp">
-                                    <i class="material-icons">help</i>
+                                    <i
+                                       class="material-icons"
+                                       style={{ color: "#e5e600" }}
+                                    >
+                                       help
+                                    </i>
                                  </a>
                               </div>
                               <div class="col s1 push-s4">
@@ -76,6 +81,7 @@ class GoalTracker extends Component {
                                        class="material-icons tooltipped"
                                        data-position="bottom"
                                        data-tooltip="Future Scheduled Reach Outs"
+                                       style={{ color: "#c16152" }}
                                     >
                                        highlight
                                     </i>
@@ -107,7 +113,12 @@ class GoalTracker extends Component {
                               <div class="col s6">
                                  Follow Ups{" "}
                                  <a class="modal-trigger" href="#followupshelp">
-                                    <i class="material-icons">help</i>
+                                    <i
+                                       class="material-icons"
+                                       style={{ color: "#e5e600" }}
+                                    >
+                                       help
+                                    </i>
                                  </a>
                               </div>
                               <div class="col s1 push-s4">
@@ -116,6 +127,7 @@ class GoalTracker extends Component {
                                        class="material-icons tooltipped"
                                        data-position="bottom"
                                        data-tooltip="Future Scheduled Follow Ups"
+                                       style={{ color: "#c16152" }}
                                     >
                                        highlight
                                     </i>
@@ -150,7 +162,12 @@ class GoalTracker extends Component {
                                     class="modal-trigger"
                                     href="#teamreachoutshelp"
                                  >
-                                    <i class="material-icons">help</i>
+                                    <i
+                                       class="material-icons"
+                                       style={{ color: "#e5e600" }}
+                                    >
+                                       help
+                                    </i>
                                  </a>
                               </div>
                               <div class="col s1 push-s2">
@@ -162,6 +179,7 @@ class GoalTracker extends Component {
                                        class="material-icons tooltipped"
                                        data-position="bottom"
                                        data-tooltip="Future Scheduled Team Reach Outs"
+                                       style={{ color: "#c16152" }}
                                     >
                                        highlight
                                     </i>
@@ -175,8 +193,7 @@ class GoalTracker extends Component {
                   </div>
                </div>
             </div>
-            <br />
-            <br />
+          
 
             <div id="reachoutshelp" class="modal bottom-sheet">
                <ReachOutsHelp />

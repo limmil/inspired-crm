@@ -10,6 +10,7 @@ import DeleteContact from "../contact/DeleteContact.js";
 import EmailScripts from "../scripts/EmailScripts.js";
 import NotificationLog from "../log/NotificationLog.js";
 import EditContact from "../contact/EditContact.js";
+import CreateEmail from "../email/CreateEmail.js";
 
 class DashboardNavbar extends Component {
    onLogoutClick = e => {
@@ -244,12 +245,14 @@ class DashboardNavbar extends Component {
                <DeleteContact />
             </div>
 
-
             <div id="scripts" class="modal">
                <EmailScripts />
             </div>
             <div id="notifications" class="modal">
                <NotificationLog />
+            </div>
+            <div id="createemail" class="modal">
+               <CreateEmail />
             </div>
          </div>
       );

@@ -25,7 +25,7 @@
       $("#teamreachoutshelp").openModal();
       $("#editcontact").openModal();
       $("#scripts").openModal();
-
+     
       // or by click on trigger.
       $(".trigger-modal").modal();
 
@@ -50,16 +50,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Or with jQuery.
 $(document).ready(function() {
+   
    $("select").formSelect();
    $(".section").fadeIn();
    $(".tabs").tabs();
    $(".datepicker").datepicker();
+   
+   M.updateTextFields();
+
    $(".tooltipped").tooltip({
       enterDelay: 200,
       transitionMovement: 0,
       margin: 5,
       outDuration: 5,
-      html: true
+      html: true,
+      container: 'body'
    });
 
    $(".collapsible").collapsible();
@@ -122,3 +127,4 @@ $(window).on("load resize", function() {
             : "0"
    });
 });
+
