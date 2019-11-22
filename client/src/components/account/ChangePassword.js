@@ -29,6 +29,11 @@ class ChangePassword extends Component {
          });
          if (this.props.errors.passwordchange === "success") {
             M.toast({html: "Password Updated", classes: "rounded"})
+            this.setState({
+               password: "",
+               newpassword: "",
+               newpassword2: ""
+            });
          }
       }
    }
@@ -59,11 +64,6 @@ class ChangePassword extends Component {
          newpassword2: this.state.newpassword2
       };
       this.props.updatePassword(contactData)
-      this.setState({
-         password: "",
-         newpassword: "",
-         newpassword2: ""
-      });
    }
 
    render() {
