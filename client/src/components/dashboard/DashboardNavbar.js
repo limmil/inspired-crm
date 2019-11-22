@@ -102,7 +102,9 @@ class DashboardNavbar extends Component {
                      </ul>
 
                      <a data-target="nav-mobile" class="sidenav-trigger">
-                        <i class="material-icons">menu</i>
+                        <i class="material-icons" style={{ color: "white" }}>
+                           menu
+                        </i>
                      </a>
                   </div>
                </nav>
@@ -111,12 +113,18 @@ class DashboardNavbar extends Component {
             <ul id="main-dropdown1" class="dropdown-content">
                <li>
                   <Link to="/goaltracker" onClick={this.forceUpdate}>
-                     <i class="material-icons">check</i>Goal Tracker
+                     <i class="material-icons" style={{ color: "#424242" }}>
+                        check
+                     </i>
+                     <font color="#363636">Goal Tracker</font>
                   </Link>
                </li>
                <li>
                   <Link to="/calendar" onClick={this.forceUpdate}>
-                     <i class="material-icons">event</i>Calendar
+                     <i class="material-icons" style={{ color: "#424242" }}>
+                        event
+                     </i>
+                     <font color="#363636">Calendar</font>
                   </Link>
                </li>
             </ul>
@@ -124,17 +132,26 @@ class DashboardNavbar extends Component {
             <ul id="main-dropdown2" class="dropdown-content">
                <li>
                   <Link to="/contacts" onClick={this.forceUpdate}>
-                     <i class="material-icons">contacts</i>Contact List
+                     <i class="material-icons" style={{ color: "#424242" }}>
+                        contacts
+                     </i>
+                     <font color="#363636">Contact List</font>
                   </Link>
                </li>
                <li>
                   <a class="modal-trigger" href="#addcontact">
-                     <i class="material-icons">add_box</i>Add Contact
+                     <i class="material-icons" style={{ color: "#424242" }}>
+                        add_box
+                     </i>
+                     <font color="#363636">Add Contact</font>
                   </a>
                </li>
                <li>
                   <Link to="/pipeline" onClick={this.forceUpdate}>
-                     <i class="material-icons">assessment</i>Pipeline
+                     <i class="material-icons" style={{ color: "#424242" }}>
+                        assessment
+                     </i>
+                     <font color="#363636">Pipeline</font>
                   </Link>
                </li>
             </ul>
@@ -150,88 +167,152 @@ class DashboardNavbar extends Component {
 
                <li>
                   <Link to="/account" onClick={this.forceUpdate}>
-                     <i class="large material-icons">account_box</i>My Account
+                     <i
+                        class="large material-icons"
+                        style={{ color: "#424242" }}
+                     >
+                        account_box
+                     </i>
+                     <font color="#363636">My Account</font>
                   </Link>
                </li>
 
                <li>
                   <a onClick={this.onLogoutClick}>
-                     <i class="material-icons">arrow_forward</i>Logout
+                     <i class="material-icons" style={{ color: "#424242" }}>
+                        exit_to_app
+                     </i>
+                     <font color="#363636">Logout</font>
                   </a>
                </li>
             </ul>
 
             <ul id="nav-mobile" class="sidenav">
                <li>
-                  <center>
-                     <b>Welcome</b>, {user.fname}
-                     <br />
-                     {user.email}
-                  </center>
+                  <div class="user-view">
+                     <div class="background">
+                        <img src="./assets/img/gallary/22.png" />
+                     </div>
+                     <a href="#user">
+                        <img class="circle" src="./assets/img/useravatar.png" />
+                     </a>
+                     <a href="#name">
+                        <span class="white-text name" id="shadow">
+                           {user.fname} {user.lname}
+                        </span>
+                     </a>
+                     <a href="#email">
+                        <span class="white-text email" id="shadow">
+                           {user.email}
+                        </span>
+                     </a>
+                  </div>
                </li>
-               <li>
-                  <Link to="/account" onClick={this.forceUpdate}>
-                     <i class="material-icons">account_circle</i>My Account
-                  </Link>
-               </li>
+               <li class="no-padding">
+                  <ul class="collapsible collapsible-accordion">
+                     <li>
+                        <a class="collapsible-header waves-effect">
+                           My Account
+                           <i class="material-icons">arrow_drop_down</i>
+                        </a>
+                        <div class="collapsible-body">
+                           <ul>
+                              <li>
+                                 <Link to="/account" onClick={this.forceUpdate}>
+                                    <i class="material-icons">account_circle</i>
+                                    My Profile
+                                 </Link>
+                              </li>
+                              <li>
+                                 <a onClick={this.onLogoutClick}>
+                                    <i class="material-icons">exit_to_app</i>
+                                    Logout
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
 
-               <li>
-                  <a class="modal-trigger" href="#notifications">
-                     <i class="material-icons">notifications</i>Notifications
-                  </a>
-               </li>
+                     <li>
+                        <a class="collapsible-header waves-effect">
+                           My Business
+                           <i class="material-icons">arrow_drop_down</i>
+                        </a>
+                        <div class="collapsible-body">
+                           <ul>
+                              <li>
+                                 <Link
+                                    to="/goaltracker"
+                                    onClick={this.forceUpdate}
+                                 >
+                                    <i class="material-icons">check</i>Goal
+                                    Tracker
+                                 </Link>
+                              </li>
+                              <li>
+                                 <Link
+                                    to="/calendar"
+                                    onClick={this.forceUpdate}
+                                 >
+                                    <i class="material-icons">event</i>Calendar
+                                 </Link>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
 
-               <li class="divider"></li>
-               <li>
-                  {" "}
-                  <center>
-                     <b>My Business</b>
-                  </center>
-               </li>
-               <li>
-                  <Link to="/goaltracker" onClick={this.forceUpdate}>
-                     <i class="material-icons">check</i>Goal Tracker
-                  </Link>
-               </li>
-               <li>
-                  <Link to="/calendar" onClick={this.forceUpdate}>
-                     <i class="material-icons">event</i>Calendar
-                  </Link>
-               </li>
+                     <li>
+                        <a class="collapsible-header waves-effect">
+                           Contact Management
+                           <i class="material-icons">arrow_drop_down</i>
+                        </a>
+                        <div class="collapsible-body">
+                           <ul>
+                              <li>
+                                 <Link
+                                    to="/contacts"
+                                    onClick={this.forceUpdate}
+                                 >
+                                    <i class="material-icons">contacts</i>
+                                    Contact List
+                                 </Link>
+                              </li>
+                              <li>
+                                 <a class="modal-trigger" href="#addcontact">
+                                    <i class="material-icons">add_box</i>Add
+                                    Contact
+                                 </a>
+                              </li>
+                              <li>
+                                 <Link
+                                    to="/pipeline"
+                                    onClick={this.forceUpdate}
+                                 >
+                                    <i class="material-icons">assessment</i>
+                                    Pipeline
+                                 </Link>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
 
-               <li>
-                  <a class="modal-trigger" href="#scripts">
-                     <i class="material-icons">library_books</i>Scripts
-                  </a>
-               </li>
-
-               <li class="divider"></li>
-               <li>
-                  <center>
-                     <b>Contact Management</b>
-                  </center>
-               </li>
-               <li>
-                  <Link to="/contacts" onClick={this.forceUpdate}>
-                     <i class="material-icons">contacts</i>Contact List
-                  </Link>
-               </li>
-               <li>
-                  <a class="modal-trigger" href="#addcontact">
-                     <i class="material-icons">add_box</i>Add Contact
-                  </a>
-               </li>
-               <li>
-                  <Link to="/pipeline" onClick={this.forceUpdate}>
-                     <i class="material-icons">assessment</i>Pipeline
-                  </Link>
-               </li>
-
-               <li class="divider"></li>
-               <li>
-                  <a onClick={this.onLogoutClick}>
-                     <i class="material-icons">arrow_forward</i>Logout
-                  </a>
+                     <li>
+                        <a class="collapsible-header waves-effect">
+                           Team + Marketing
+                           <i class="material-icons">arrow_drop_down</i>
+                        </a>
+                        <div class="collapsible-body">
+                           <ul>
+                              <li>
+                                 <a class="modal-trigger" href="#scripts">
+                                    <i class="material-icons">library_books</i>
+                                    Scripts
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                     </li>
+                  </ul>
                </li>
             </ul>
 

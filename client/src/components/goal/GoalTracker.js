@@ -194,7 +194,9 @@ class GoalTracker extends Component {
                   </div>
                </div>
             </div>
-          
+
+            <br />
+            <br />
 
             <div id="reachoutshelp" class="modal bottom-sheet">
                <ReachOutsHelp />
