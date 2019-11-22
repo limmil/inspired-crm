@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-import axios from "axios";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addContact } from "../../actions/contactActions";
 import M from "materialize-css";
-import "materialize-css/dist/css/materialize.min.css";
 
 class AddContact extends Component {
    constructor(props) {

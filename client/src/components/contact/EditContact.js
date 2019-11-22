@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { updateContact } from "../../actions/contactActions";
 import M from "materialize-css";
-import "materialize-css/dist/css/materialize.min.css";
 
 class EditContact extends Component {
    constructor(props) {
