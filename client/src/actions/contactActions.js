@@ -55,8 +55,6 @@ export const updateContact = edit => dispatch => {
     axios
         .post("/api/contacts/update", edit)
         .then(res => {
-            console.log(res.data._id)
-            console.log(edit.id)
             delete edit.tokenhash
             delete edit.email
             if(res.data._id === edit.id) {

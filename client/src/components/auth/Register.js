@@ -9,7 +9,8 @@ class Register extends Component {
    constructor() {
       super();
       this.state = {
-         name: "",
+         fname: "",
+         lname: "",
          email: "",
          password: "",
          password2: "",
@@ -41,13 +42,15 @@ class Register extends Component {
       e.preventDefault();
 
       const newUser = {
-         name: this.state.name,
+         fname: this.state.fname,
+         lname: this.state.lname,
          email: this.state.email,
          password: this.state.password,
          password2: this.state.password2
       };
 
       this.props.registerUser(newUser, this.props.history);
+      console.log(newUser)
    };
 
    render() {
@@ -77,16 +80,30 @@ class Register extends Component {
                      <div className="input-field col s12">
                         <input
                            onChange={this.onChange}
-                           value={this.state.name}
-                           error={errors.name}
-                           id="name"
+                           value={this.state.fname}
+                           error={errors.fname}
+                           id="fname"
                            type="text"
                            className={classnames("", {
-                              invalid: errors.name
+                              invalid: errors.fname
                            })}
                         />
-                        <label htmlFor="name">Name</label>
-                        <span className="red-text">{errors.name}</span>
+                        <label htmlFor="fname">First Name</label>
+                        <span className="red-text">{errors.fname}</span>
+                     </div>
+                     <div className="input-field col s12">
+                        <input
+                           onChange={this.onChange}
+                           value={this.state.lname}
+                           error={errors.lname}
+                           id="lname"
+                           type="text"
+                           className={classnames("", {
+                              invalid: errors.lname
+                           })}
+                        />
+                        <label htmlFor="lname">Last Name</label>
+                        <span className="red-text">{errors.lname}</span>
                      </div>
                      <div className="input-field col s12">
                         <input

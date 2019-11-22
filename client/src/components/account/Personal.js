@@ -20,7 +20,7 @@ class Personal extends Component {
             <div class="row">
                <div class="input-field col s6">
                   <input
-                     value={user.name.split(" ")[0]}
+                     value={user.fname}
                      id="first_name"
                      type="text"
                      class="validate"
@@ -29,7 +29,7 @@ class Personal extends Component {
                </div>
                <div class="input-field col s6">
                   <input
-                     value={user.name.split(" ")[1]}
+                     value={user.lname}
                      id="last_name"
                      type="text"
                      class="validate"

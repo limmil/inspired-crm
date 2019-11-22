@@ -111,12 +111,18 @@ class DashboardNavbar extends Component {
             <ul id="main-dropdown1" class="dropdown-content">
                <li>
                   <Link to="/goaltracker" onClick={this.forceUpdate}>
-                     <i class="material-icons">check</i>Goal Tracker
+                     <i class="material-icons" style={{ color: "#c20300" }}>
+                        check
+                     </i>
+                     <font color="#363636">Goal Tracker</font>
                   </Link>
                </li>
                <li>
                   <Link to="/calendar" onClick={this.forceUpdate}>
-                     <i class="material-icons">event</i>Calendar
+                     <i class="material-icons" style={{ color: "#ff7e4f" }}>
+                        event
+                     </i>
+                     <font color="#363636">Calendar</font>
                   </Link>
                </li>
             </ul>
@@ -124,17 +130,26 @@ class DashboardNavbar extends Component {
             <ul id="main-dropdown2" class="dropdown-content">
                <li>
                   <Link to="/contacts" onClick={this.forceUpdate}>
-                     <i class="material-icons">contacts</i>Contact List
+                     <i class="material-icons" style={{ color: "#c20300" }}>
+                        contacts
+                     </i>
+                     <font color="#363636">Contact List</font>
                   </Link>
                </li>
                <li>
                   <a class="modal-trigger" href="#addcontact">
-                     <i class="material-icons">add_box</i>Add Contact
+                     <i class="material-icons" style={{ color: "#ff7e4f" }}>
+                        add_box
+                     </i>
+                     <font color="#363636">Add Contact</font>
                   </a>
                </li>
                <li>
                   <Link to="/pipeline" onClick={this.forceUpdate}>
-                     <i class="material-icons">assessment</i>Pipeline
+                     <i class="material-icons" style={{ color: "#c300ff" }}>
+                        assessment
+                     </i>
+                     <font color="#363636">Pipeline</font>
                   </Link>
                </li>
             </ul>
@@ -142,7 +157,7 @@ class DashboardNavbar extends Component {
             <ul id="main-dropdown3" class="dropdown-content">
                <li>
                   <center>
-                     <b>Welcome</b>, {user.name.split(" ")[0]}
+                     <b>Welcome</b>, {user.fname}
                      <br />
                      {user.email}
                   </center>
@@ -150,13 +165,22 @@ class DashboardNavbar extends Component {
 
                <li>
                   <Link to="/account" onClick={this.forceUpdate}>
-                     <i class="large material-icons">account_box</i>My Account
+                     <i
+                        class="large material-icons"
+                        style={{ color: "#008039" }}
+                     >
+                        account_box
+                     </i>
+                     <font color="#363636">My Account</font>
                   </Link>
                </li>
 
                <li>
                   <a onClick={this.onLogoutClick}>
-                     <i class="material-icons">arrow_forward</i>Logout
+                     <i class="material-icons" style={{ color: "#66000e" }}>
+                        arrow_forward
+                     </i>
+                     <font color="#363636">Logout</font>
                   </a>
                </li>
             </ul>
@@ -164,7 +188,7 @@ class DashboardNavbar extends Component {
             <ul id="nav-mobile" class="sidenav">
                <li>
                   <center>
-                     <b>Welcome</b>, {user.name.split(" ")[0]}
+                     <b>Welcome</b>, {user.fname}
                      <br />
                      {user.email}
                   </center>
