@@ -61,7 +61,7 @@ class Contacts extends Component {
                      <table id="myTable" class="highlight">
                         <thead>
                            <tr>
-                              <th class="valign-wrapper">
+                              <th>
                                  <label>
                                     <input type="checkbox" />
                                     <span></span>
