@@ -62,7 +62,9 @@ class TableRow extends Component {
             <td>{this.props.obj.temp}</td>
             <td>{this.props.obj.contacttype}</td>
             <td>{this.props.obj.pipelineposition}</td>
-            <td>{this.props.obj.lastreachout}</td>
+            <td>
+               {this.props.obj.lastreachout} {this.props.obj.lastreachouttime}
+            </td>
             <td>{this.props.obj.date}</td>
             <td>
                <a class="modal-trigger" href="#editcontact" onClick={this.edit}>

@@ -26,6 +26,10 @@ const ContactSchema = new Schema({
    lastreachout: {
       type: String
    },
+   lastreachouttime: {
+      type: String
+   },
+
    notes: {
       type: String
    },

@@ -54,40 +54,43 @@ class Contacts extends Component {
             <DashboardNavbar />
 
             <div class="container">
-               <div class="row">
-                  <div class="col s12">
-                     <h5>Contact List</h5>
-                     <hr />
-                     <table id="myTable" class="highlight">
-                        <thead>
-                           <tr>
-                              <th>
-                                 <label>
-                                    <input type="checkbox" />
-                                    <span></span>
-                                 </label>
-                              </th>
+               <div
+                  class="card-panel contact-list-col z-depth-2"
+                  style={{ height: "75vh" }}
+               >
+                  <div class="row">
+                     <div class="col s12">
+                        <h5>Contact List</h5>
+                        <hr />
+                        <table id="myTable" class="highlight">
+                           <thead>
+                              <tr>
+                                 <th>
+                                    <label>
+                                       <input type="checkbox" />
+                                       <span></span>
+                                    </label>
+                                 </th>
 
-                              <th>Name</th>
+                                 <th>Name</th>
 
-                              <th>Phone Number</th>
-                              <th>E-mail</th>
-                              <th>Temp</th>
-                              <th>Contact Type</th>
-                              <th>Position</th>
-                              <th>Last Reach Out</th>
-                              <th>Date Created</th>
-                              <th colSpan="2">Action</th>
-                           </tr>
-                        </thead>
+                                 <th>Phone Number</th>
+                                 <th>E-mail</th>
+                                 <th>Temp</th>
+                                 <th>Contact Type</th>
+                                 <th>Position</th>
+                                 <th>Last Reach Out</th>
+                                 <th>Date Created</th>
+                                 <th colSpan="2">Action</th>
+                              </tr>
+                           </thead>
 
-                        <tbody>{this.tabRow()}</tbody>
-                     </table>
+                           <tbody>{this.tabRow()}</tbody>
+                        </table>
+                     </div>
                   </div>
                </div>
             </div>
-            <br />
-            <br />
             <br />
             <br />
 

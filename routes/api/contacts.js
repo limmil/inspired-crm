@@ -20,35 +20,38 @@ router.post(
       // Check validation
       const email = req.body.email;
       const tokenhash = req.body.tokenhash;
-      User.findOne({ email }).then(user => {
-         if (user.tokenhash == tokenhash) {
-            // add one contact
-            const newContact = new Contact({
-               user: user._id,
-               lname: req.body.lname,
-               fname: req.body.fname,
-               phone: req.body.phone,
-               emailaddr: req.body.emailaddr,
-               temp: req.body.temp,
-               contacttype: req.body.contacttype,
-               pipelineposition: req.body.pipelineposition,
-               lastreachout: req.body.lastreachout,
-               notes: req.body.notes
-            });
-            newContact
-               .save()
-               .then(contact => res.json(contact))
-               .catch(err => {
-                  console.log(err);
-                  res.status(500);
+      User.findOne({ email })
+         .then(user => {
+            if (user.tokenhash == tokenhash) {
+               // add one contact
+               const newContact = new Contact({
+                  user: user._id,
+                  lname: req.body.lname,
+                  fname: req.body.fname,
+                  phone: req.body.phone,
+                  emailaddr: req.body.emailaddr,
+                  temp: req.body.temp,
+                  contacttype: req.body.contacttype,
+                  pipelineposition: req.body.pipelineposition,
+                  lastreachout: req.body.lastreachout,
+                  lastreachouttime: req.body.lastreachouttime,
+                  notes: req.body.notes
                });
-         } else {
-            res.status(401).send("Unauthorized");
-         }
-      }).catch(err => {
-         console.log(err);
-         res.status(500);
-      });
+               newContact
+                  .save()
+                  .then(contact => res.json(contact))
+                  .catch(err => {
+                     console.log(err);
+                     res.status(500);
+                  });
+            } else {
+               res.status(401).send("Unauthorized");
+            }
+         })
+         .catch(err => {
+            console.log(err);
+            res.status(500);
+         });
    }
 );
 //=================================================================
@@ -144,6 +147,7 @@ router.post(
                      contacttype: req.body.contacttype,
                      pipelineposition: req.body.pipelineposition,
                      lastreachout: req.body.lastreachout,
+                     lastreachouttime: req.body.lastreachouttime,
                      notes: req.body.notes
                   }
                },

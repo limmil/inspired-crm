@@ -6,7 +6,6 @@ import { addContact } from "../../actions/contactActions";
 import M from "materialize-css";
 import "materialize-css/dist/css/materialize.min.css";
 
-
 class AddContact extends Component {
    constructor(props) {
       super(props);
@@ -23,6 +22,7 @@ class AddContact extends Component {
       //
 
       this.onChangeLastReachOut = this.onChangeLastReachOut.bind(this);
+      this.onChangeLastReachOutTime = this.onChangeLastReachOutTime.bind(this);
       this.onChangeNotes = this.onChangeNotes.bind(this);
       this.onSubmit = this.onSubmit.bind(this);
 
@@ -35,11 +35,10 @@ class AddContact extends Component {
          contacttype: "",
          pipelineposition: "",
          lastreachout: "",
+         lastreachouttime: "",
          notes: ""
       };
    }
-
-   
 
    onChangeLastName(e) {
       this.setState({
@@ -85,6 +84,12 @@ class AddContact extends Component {
       });
    }
 
+   onChangeLastReachOutTime(e) {
+      this.setState({
+         lastreachouttime: e.target.value
+      });
+   }
+
    onChangeNotes(e) {
       this.setState({
          notes: e.target.value
@@ -104,6 +109,7 @@ class AddContact extends Component {
          contacttype: this.state.contacttype,
          pipelineposition: this.state.pipelineposition,
          lastreachout: this.state.lastreachout,
+         lastreachouttime: this.state.lastreachouttime,
          notes: this.state.notes
       };
       this.props.addContact(contactData);
@@ -116,17 +122,17 @@ class AddContact extends Component {
          contacttype: "",
          pipelineposition: "",
          lastreachout: "",
+         lastreachouttime: "",
          notes: ""
-
       });
-      var elems = document.querySelectorAll('select');
+      var elems = document.querySelectorAll("select");
       var instances = M.FormSelect.init(elems);
       // temp select field
-      instances[0].input.value = ""
+      instances[0].input.value = "";
       // contact type select field
-      instances[1].input.value = ""
+      instances[1].input.value = "";
       // pipline select field
-      instances[2].input.value = ""
+      instances[2].input.value = "";
    }
 
    render() {
@@ -206,7 +212,7 @@ class AddContact extends Component {
                            <span class="helper-text">Temp</span>
                         </div>
 
-                        <div class="input-field col s6">
+                        <div class="input-field col s3">
                            <i class="material-icons prefix">assignment_ind</i>
                            <input
                               id="icon_assignment_ind"
@@ -216,6 +222,18 @@ class AddContact extends Component {
                               onChange={this.onChangeLastReachOut}
                            />
                            <span class="helper-text">Last Reach Out</span>
+                        </div>
+
+                        <div class="input-field col s3">
+                           <i class="material-icons prefix">assignment_ind</i>
+                           <input
+                              id="icon_assignment_ind"
+                              type="time"
+                              class="validate"
+                              value={this.state.lastreachouttime}
+                              onChange={this.onChangeLastReachOutTime}
+                           />
+                           <span class="helper-text">Last Reach Out Time</span>
                         </div>
                      </div>
 
