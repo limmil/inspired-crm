@@ -10,7 +10,8 @@ const Container = styled.div`
    width: 100vh;
    display: flex;
    flex-direction: column;
-   height: 90vh;
+   height: 70vh;
+   position: relative;
 `;
 const Title = styled.h6`
    padding: 8px;

@@ -57,17 +57,18 @@ footer.page-footer {
 }
 
 /* For contact list page. */
-.card { width:1000px;}
-
-
-
-@media only screen
-and (max-width : 480px) {
-.card { width:100px;}
+.card {
+   width: 1000px;
 }
 
+@media only screen and (max-width: 480px) {
+   .card {
+      width: 100px;
+   }
+}
 
-@media only screen
-and (max-width : 767px) {
-.card { width:400px;}
+@media only screen and (max-width: 767px) {
+   .card {
+      width: 400px;
+   }
 }
