@@ -113,7 +113,7 @@ class DashboardNavbar extends Component {
             <ul id="main-dropdown1" class="dropdown-content">
                <li>
                   <Link to="/goaltracker" onClick={this.forceUpdate}>
-                     <i class="material-icons" style={{ color: "#c20300" }}>
+                     <i class="material-icons" style={{ color: "#424242" }}>
                         check
                      </i>
                      <font color="#363636">Goal Tracker</font>
@@ -121,7 +121,7 @@ class DashboardNavbar extends Component {
                </li>
                <li>
                   <Link to="/calendar" onClick={this.forceUpdate}>
-                     <i class="material-icons" style={{ color: "#34eb52" }}>
+                     <i class="material-icons" style={{ color: "#424242" }}>
                         event
                      </i>
                      <font color="#363636">Calendar</font>
@@ -132,7 +132,7 @@ class DashboardNavbar extends Component {
             <ul id="main-dropdown2" class="dropdown-content">
                <li>
                   <Link to="/contacts" onClick={this.forceUpdate}>
-                     <i class="material-icons" style={{ color: "#0052cc" }}>
+                     <i class="material-icons" style={{ color: "#424242" }}>
                         contacts
                      </i>
                      <font color="#363636">Contact List</font>
@@ -140,7 +140,7 @@ class DashboardNavbar extends Component {
                </li>
                <li>
                   <a class="modal-trigger" href="#addcontact">
-                     <i class="material-icons" style={{ color: "#eb7434" }}>
+                     <i class="material-icons" style={{ color: "#424242" }}>
                         add_box
                      </i>
                      <font color="#363636">Add Contact</font>
@@ -148,7 +148,7 @@ class DashboardNavbar extends Component {
                </li>
                <li>
                   <Link to="/pipeline" onClick={this.forceUpdate}>
-                     <i class="material-icons" style={{ color: "#02dbf7" }}>
+                     <i class="material-icons" style={{ color: "#424242" }}>
                         assessment
                      </i>
                      <font color="#363636">Pipeline</font>

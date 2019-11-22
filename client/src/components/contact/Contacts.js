@@ -53,40 +53,188 @@ class Contacts extends Component {
          <div>
             <DashboardNavbar />
 
-            <div class="container">
-               <div
-                  class="card-panel contact-list-col z-depth-2"
-                  style={{ height: "75vh" }}
-               >
+            <div class="section">
+               <div class="section">
                   <div class="row">
-                     <div class="col s12">
-                        <h5>Contact List</h5>
-                        <hr />
-                        <table id="myTable" class="highlight">
-                           <thead>
-                              <tr>
-                                 <th>
-                                    <label>
-                                       <input type="checkbox" />
-                                       <span></span>
-                                    </label>
-                                 </th>
+                     <div class="col s12 m2">
+                        <div
+                           class="card-panel contact-list-col z-depth-1"
+                           style={{ padding: "5px" }}
+                        >
+                           <h6 align="center">Filter Menu</h6>
+                           <ul class="collapsible" data-collapsible="accordion">
+                              <li>
+                                 <div class="collapsible-header">
+                                    <i class="material-icons">expand_more</i>
+                                    Contact Type:
+                                 </div>
+                                 <div class="collapsible-body">
+                                    <form action="#">
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Customer Prospect</span>
+                                       </label>
+                                       <br />
 
-                                 <th>Name</th>
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Consultant Prospect</span>
+                                       </label>
+                                       <br />
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Customer to Convert</span>
+                                       </label>
+                                       <br />
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Member Customer</span>
+                                       </label>
+                                       <br />
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Downline</span>
+                                       </label>
+                                       <br />
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Sideline Team Member</span>
+                                       </label>
+                                       <br />
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Upline</span>
+                                       </label>
+                                       <br />
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Cancelled Customer</span>
+                                       </label>
+                                       <br />
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Cancelled Team Member</span>
+                                       </label>
+                                       <br />
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Referral Source</span>
+                                       </label>
+                                    </form>
+                                 </div>
+                              </li>
+                              <li>
+                                 <div class="collapsible-header">
+                                    <i class="material-icons">expand_more</i>
+                                    Pipeline Position:
+                                 </div>
+                                 <div class="collapsible-body">
+                                    <form action="#">
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Not Contacted</span>
+                                       </label>
+                                       <br />
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Contacted</span>
+                                       </label>
+                                       <br />
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Needs Follow Up</span>
+                                       </label>
+                                       <br />
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>All Info Sent</span>
+                                       </label>
+                                       <br />
+                                 
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Follow Up</span>
+                                       </label>
+                                       <br />
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Closed/Signed</span>
+                                       </label>
+                                       <br />
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Not Right Now</span>
+                                       </label>
+                                    </form>
+                                 </div>
+                              </li>
+                              <li>
+                                 <div class="collapsible-header">
+                                    <i class="material-icons">expand_more</i>
+                                    Lead Temp:
+                                 </div>
+                                 <div class="collapsible-body">
+                                    <form action="#">
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Cold</span>
+                                       </label>
+                                       <br />
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Warm</span>
+                                       </label>
+                                       <br />
+                                       <label>
+                                          <input type="checkbox" />
+                                          <span>Hot</span>
+                                       </label>
+                                    </form>
+                                 </div>
+                              </li>
+                           </ul>
+                        </div>
+                     </div>
 
-                                 <th>Phone Number</th>
-                                 <th>E-mail</th>
-                                 <th>Temp</th>
-                                 <th>Contact Type</th>
-                                 <th>Position</th>
-                                 <th>Last Reach Out</th>
-                                 <th>Date Created</th>
-                                 <th colSpan="2">Action</th>
-                              </tr>
-                           </thead>
+                     <div class="col s12 m10">
+                        <div
+                           class="card-panel contact-list-col z-depth-1"
+                           style={{ height: "80vh", padding: "0px" }}
+                        >
+                           <div class="row">
+                              <div class="col s12">
+                                 <table
+                                    id="myTable"
+                                    class="highlight"
+                                    style={{ width: "1500px", margin: "auto" }}
+                                 >
+                                    <thead>
+                                       <tr>
+                                          <th>
+                                             <label>
+                                                <input type="checkbox" />
+                                                <span></span>
+                                             </label>
+                                          </th>
 
-                           <tbody>{this.tabRow()}</tbody>
-                        </table>
+                                          <th>Name</th>
+
+                                          <th>Phone Number</th>
+                                          <th>E-mail</th>
+                                          <th>Temp</th>
+                                          <th>Contact Type</th>
+                                          <th>Position</th>
+                                          <th>Last Reach Out</th>
+                                          <th>Date Created</th>
+                                          <th colSpan="2">Action</th>
+                                       </tr>
+                                    </thead>
+
+                                    <tbody>{this.tabRow()}</tbody>
+                                 </table>
+                              </div>
+                           </div>
+                        </div>
                      </div>
                   </div>
                </div>
