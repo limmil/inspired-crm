@@ -12,7 +12,7 @@ $(function() {
     datasets: [
       {
         label: ["Reach Outs"],
-        data: [1, 15],
+        data: [1, 14],
         backgroundColor: ["#ff9372"],
         borderColor: ["#fff"],
         borderWidth: [0, 0]
@@ -26,7 +26,7 @@ $(function() {
     datasets: [
       {
         label: "Follow Ups",
-        data: [1, 10],
+        data: [1, 9],
         backgroundColor: ["#88d1c7"],
         borderColor: ["#fff"],
         borderWidth: [0, 0]
@@ -39,7 +39,7 @@ $(function() {
     datasets: [
       {
         label: "Team Reach Outs",
-        data: [1, 5],
+        data: [1, 4],
         backgroundColor: ["#614f70"],
         borderColor: ["#fff"],
         borderWidth: [0, 0]

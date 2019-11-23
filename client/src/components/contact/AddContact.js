@@ -295,7 +295,7 @@ class AddContact extends Component {
                               <option value="All Info Sent">
                                  All Info Sent
                               </option>
-                              <option value="Follow Up">Follow Up</option>
+                              <option value="Follow Up">Followed Up</option>
                               <option value="Closed/Signed">
                                  Closed/Signed
                               </option>

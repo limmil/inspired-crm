@@ -53,6 +53,45 @@ class Contacts extends Component {
          <div>
             <DashboardNavbar />
 
+            <div class="row" style={{ marginBottom: "-30px" }}>
+               <div class="col s12">
+                  <div class="card-panel center" style={{ padding: "0px" }}>
+                     <div class="row">
+                        <div class="input-field col s6">
+                           <i class="material-icons prefix">search</i>
+                           <input
+                              type="text"
+                              id="autocomplete-input"
+                              class="autocomplete"
+                           />
+                           <label for="autocomplete-input">
+                              Search contact...
+                           </label>
+                        </div>
+
+                        <div class="col s6" style={{ paddingTop: "20px" }}>
+                           <a
+                              class="waves-effect waves-light btn tooltipped"
+                              href="#"
+                              data-position="bottom"
+                              data-tooltip="Add contacts to the Goal <br> Tracker based on the Pipeline <br> Position or if the contact is a <br> Team Member"
+                              style={{ margin: "4px" }}
+                           >
+                              Add To Goal Tracker
+                           </a>
+                           <a
+                              class="waves-effect waves-light btn"
+                              href="#"
+                              style={{ margin: "4px" }}
+                           >
+                              Delete
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
             <div class="section">
                <div class="section">
                   <div class="row">
@@ -150,10 +189,10 @@ class Contacts extends Component {
                                           <span>All Info Sent</span>
                                        </label>
                                        <br />
-                                 
+
                                        <label>
                                           <input type="checkbox" />
-                                          <span>Follow Up</span>
+                                          <span>Followed Up</span>
                                        </label>
                                        <br />
                                        <label>

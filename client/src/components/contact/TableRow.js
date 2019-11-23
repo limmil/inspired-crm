@@ -83,6 +83,19 @@ class TableRow extends Component {
                   <i class="material-icons">delete</i>
                </a>
             </td>
+
+            <td>
+               <a
+                  href="#addtogoaltracker"
+                  onClick=""
+                  data-tip="Add contacts to the Goal Tracker based on the Pipeline Position or if the contact is a Team Member"
+               >
+                  <i class="material-icons">track_changes</i>
+               </a>
+            </td>
+
+
+
          </tr>
       );
    }

@@ -12,7 +12,7 @@ class EmailScripts extends Component {
    };
 
    notify = () => {
-      toast.info("Copied To Clipboard!", {
+      toast.info("Copied To Clipboard", {
          position: toast.POSITION.BOTTOM_CENTER
       });
    };
