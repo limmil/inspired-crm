@@ -41,7 +41,14 @@ if (localStorage.jwtToken) {
    // Decode token and get user info and exp
    const decoded = jwt_decode(token);
    // Set user and isAuthenticated
-   store.dispatch(setCurrentUser(decoded));
+   // if/else statement for update profile redux state handling
+   if(localStorage.jwtTokenProfileUpdate) {
+      const updatedToken = localStorage.jwtTokenProfileUpdate;
+      const updatedDecode = jwt_decode(updatedToken);
+      store.dispatch(setCurrentUser(updatedDecode));
+   }else {
+      store.dispatch(setCurrentUser(decoded));
+   }
    // Check for expired token
    const currentTime = Date.now() / 1000; // to get in milliseconds
    if (decoded.exp < currentTime) {

@@ -1,4 +1,4 @@
-import { SET_CURRENT_USER, USER_LOADING } from "../actions/types";
+import { SET_CURRENT_USER, USER_LOADING, SET_CURRENT_PROFILE } from "../actions/types";
 
 const isEmpty = require("is-empty");
 
@@ -16,6 +16,14 @@ export default function(state = initialState, action) {
         isAuthenticated: !isEmpty(action.payload),
         user: action.payload
       };
+    case SET_CURRENT_PROFILE:
+      state.user.fname = action.payload.fname;
+      state.user.lname = action.payload.lname;
+      state.user.company = action.payload.company;
+
+      return {
+        ...state
+      }
     case USER_LOADING:
       return {
         ...state,

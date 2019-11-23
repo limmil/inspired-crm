@@ -10,7 +10,7 @@ import DashboardFooter from "../dashboard/DashboardFooter";
 
 const Container = styled.div`
    display: flex;
-   width: 1620px;
+   width: 1880px;
    margin: auto;
 `;
 
@@ -95,7 +95,7 @@ class Pipeline extends Component {
          <div>
             <DashboardNavbar />
             <div class="section">
-               <div class="card-panel pipeline-col z-depth-2">
+               <div class="card-panel pipeline-col z-depth-1">
                   <DragDropContext
                      onDragStart={this.onDragStart}
                      onDragUpdate={this.onDragUpdate}

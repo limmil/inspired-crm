@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { updateContact } from "../../actions/contactActions";
 import M from "materialize-css";
-import "materialize-css/dist/css/materialize.min.css";
 
 class EditContact extends Component {
    constructor(props) {
@@ -304,7 +303,7 @@ class EditContact extends Component {
                               <option value="All Info Sent">
                                  All Info Sent
                               </option>
-                              <option value="Follow Up">Follow Up</option>
+                              <option value="Followed Up">Followed Up</option>
                               <option value="Closed/Signed">
                                  Closed/Signed
                               </option>
