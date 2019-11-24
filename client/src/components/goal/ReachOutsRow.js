@@ -45,15 +45,30 @@ class ReachOutsRow extends Component {
       return (
          <tr>
             <ReactTooltip />
-            <td class="valign-wrapper">
-               <label>
-                  <input type="checkbox" />
-                  <span></span>
-               </label>
+            <td>
+               <a class="modal-trigger" href="#editcontact" onClick={this.edit}>
+                  {this.props.obj.fname} {this.props.obj.lname}
+               </a>
             </td>
 
             <td>
-               {this.props.obj.fname} {this.props.obj.lname}
+               <a
+                  class="modal-trigger waves-effect waves-light btn-small"
+                  href="#completereachout"
+               >
+                  Complete
+               </a>
+            </td>
+
+            <td>
+               <a
+                  class="modal-trigger"
+                  href="#deletecontact"
+                  onClick={this.remove}
+                  data-tip="Remove Contact from New Reachouts"
+               >
+                  <i class="material-icons">delete</i>
+               </a>
             </td>
          </tr>
       );

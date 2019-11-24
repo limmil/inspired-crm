@@ -17,7 +17,28 @@ import ReachOuts from "../chart/ReachOuts.js";
 import FollowUps from "../chart/FollowUps.js";
 import TeamReachOuts from "../chart/TeamReachOuts.js";
 
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import ReachOutsRow from "./ReachOutsRow";
+import { getContacts } from "../../actions/contactActions";
+
 class GoalTracker extends Component {
+   componentDidMount() {
+      const user = {
+         email: localStorage.getItem("userEmail"),
+         tokenhash: localStorage.getItem("tokenHash")
+      };
+
+      this.props.getContacts(user);
+   }
+
+   // ReachOutsRow
+   roRow() {
+      return this.props.contacts.map(function(object, i) {
+         return <ReachOutsRow obj={object} key={i} />;
+      });
+   }
+
    render() {
       return (
          <div>
@@ -46,7 +67,7 @@ class GoalTracker extends Component {
                <div class="section">
                   <div class="row">
                      <div class="col s12 m4">
-                        <div class="card-panel center">
+                        <div class="card-panel center" style={{ height: '1200px'}}>
                            <i class="material-icons medium">
                               record_voice_over
                            </i>
@@ -54,7 +75,6 @@ class GoalTracker extends Component {
                            <h6>(Weekly % Complete)</h6>
                            <ReachOuts />
 
-                           
                            <h6>Target: 15</h6>
                            <h6>Completed: 1</h6>
                            <h6>Percentage: 0.06%</h6>
@@ -85,17 +105,34 @@ class GoalTracker extends Component {
                               </div>
                            </div>
                            <div class="divider"></div>
+
+                           <div class="row">
+                              <div class="col s12">
+                                 <table
+                                    id="myTable"
+                                    class="highlight"
+                                    style={{ width: "100%", margin: "auto" }}
+                                 >
+                                    <thead>
+                                       <tr>
+                                  
+                                       </tr>
+                                    </thead>
+
+                                    <tbody>{this.roRow()}</tbody>
+                                 </table>
+                              </div>
+                           </div>
                         </div>
                      </div>
 
                      <div class="col s12 m4">
-                        <div class="card-panel center">
+                        <div class="card-panel center" style={{ height: '1200px'}}>
                            <i class="material-icons medium">insert_emoticon</i>
                            <h5>Follow Ups</h5>
                            <h6>(Weekly % Complete)</h6>
                            <FollowUps />
 
-                       
                            <h6>Target: 10</h6>
                            <h6>Completed: 1</h6>
                            <h6>Percentage: 0.1%</h6>
@@ -130,12 +167,12 @@ class GoalTracker extends Component {
                      </div>
 
                      <div class="col s12 m4">
-                        <div class="card-panel center">
+                        <div class="card-panel center" style={{ height: '1200px'}}>
                            <i class="material-icons medium">people</i>
                            <h5>Team Reach Outs</h5>
                            <h6>(Weekly % Complete)</h6>
                            <TeamReachOuts />
-                   
+
                            <h6>Target: 5</h6>
                            <h6>Completed: 1</h6>
                            <h6>Percentage: 0.2%</h6>
@@ -203,4 +240,19 @@ class GoalTracker extends Component {
       );
    }
 }
-export default GoalTracker;
+GoalTracker.propTypes = {
+   getContacts: PropTypes.func.isRequired,
+   contacts: PropTypes.array.isRequired,
+   contact: PropTypes.object,
+   update: PropTypes.object,
+   delete: PropTypes.object
+};
+
+const mapStateToProps = state => ({
+   contacts: state.contacts.contacts,
+   contact: state.contacts.contact,
+   update: state.contacts.update,
+   delete: state.contacts.delete
+});
+
+export default connect(mapStateToProps, { getContacts })(GoalTracker);
