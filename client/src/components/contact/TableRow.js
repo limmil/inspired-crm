@@ -1,4 +1,8 @@
+// -------------------------------------------------------------------
 // TableRow.js
+// --
+// This is responsible for filling up the contact list table.
+// -------------------------------------------------------------------
 
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
@@ -93,9 +97,6 @@ class TableRow extends Component {
                   <i class="material-icons">track_changes</i>
                </a>
             </td>
-
-
-
          </tr>
       );
    }

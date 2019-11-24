@@ -1,3 +1,9 @@
+/* ------------------------------------------------------------------------
+   App.css
+   --
+   The entire app css. Modify here. Not index.css
+   ------------------------------------------------------------------------ */
+
 body {
    position: relative;
    padding-bottom: 5rem;
@@ -200,11 +206,11 @@ p {
    text-align: center;
 }
 
-.btn-group>a.btn-flat {
+.btn-group > a.btn-flat {
    color: black;
 }
 
-.btn-group>a.btn-flat:hover {
+.btn-group > a.btn-flat:hover {
    color: rgb(0, 87, 218);
 }
 
@@ -467,7 +473,6 @@ footer.page-footer {
 }
 
 @media only screen and (max-device-width: 1024px) {
-
    .chart-container,
    .pie-chart-container,
    .doughnut-chart-container {
@@ -479,8 +484,8 @@ footer.page-footer {
     For dashboard navbar 
     ------------------------------- */
 
-.dropdown-content li>a,
-.dropdown-content li>span {
+.dropdown-content li > a,
+.dropdown-content li > span {
    font-size: 16px;
    color: #363636;
    display: block;
@@ -552,27 +557,27 @@ nav ul a {
 /**
   * start of checkbox-color
   */
-.checkbox-pink[type="checkbox"]+label:before {
+.checkbox-pink[type="checkbox"] + label:before {
    background: transparent;
 }
 
-.checkbox-pink[type="checkbox"]:checked+label:before {
+.checkbox-pink[type="checkbox"]:checked + label:before {
    border: 2px solid transparent;
    border-bottom: 2px solid #ec407a;
    border-right: 2px solid #ec407a;
    background: transparent;
 }
 
-.checkbox-pink.filled-in[type="checkbox"]+label:after {
+.checkbox-pink.filled-in[type="checkbox"] + label:after {
    background: transparent;
 }
 
-.checkbox-pink.filled-in[type="checkbox"]:checked+label:after {
+.checkbox-pink.filled-in[type="checkbox"]:checked + label:after {
    background: #ec407a;
    border: 2px solid #ec407a;
 }
 
-.checkbox-pink.filled-in[type="checkbox"]:checked+label:before {
+.checkbox-pink.filled-in[type="checkbox"]:checked + label:before {
    border-top: 2px solid transparent;
    border-left: 2px solid transparent;
    border-right: 2px solid #fff;
@@ -648,14 +653,12 @@ nav ul a {
     For contact list.
     ------------------------------ */
 
-
-
-
 .contact-list-col {
    flex: 1;
    padding: 10px;
    background: rgb(255, 255, 255);
    overflow-x: scroll;
+   overflow-y: scroll;
 }
 
 /* width */
@@ -681,4 +684,3 @@ nav ul a {
 /* ------------------------------
     For collapsible no border
     ------------------------------ */
-

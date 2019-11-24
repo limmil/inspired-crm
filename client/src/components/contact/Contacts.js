@@ -1,3 +1,9 @@
+// -------------------------------------------------------------------
+// Contacts.js
+// --
+// The user's contact list.
+// -------------------------------------------------------------------
+
 import React, { Component } from "react";
 import TableRow from "./TableRow";
 import PropTypes from "prop-types";
@@ -245,7 +251,7 @@ class Contacts extends Component {
                                  <table
                                     id="myTable"
                                     class="highlight"
-                                    style={{ width: "1500px", margin: "auto" }}
+                                    style={{ width: "1400px", margin: "auto" }}
                                  >
                                     <thead>
                                        <tr>
@@ -265,7 +271,7 @@ class Contacts extends Component {
                                           <th>Position</th>
                                           <th>Last Reach Out</th>
                                           <th>Date Created</th>
-                                          <th colSpan="2">Action</th>
+                                          <th colSpan="3">Action</th>
                                        </tr>
                                     </thead>
 

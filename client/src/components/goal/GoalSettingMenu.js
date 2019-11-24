@@ -1,3 +1,9 @@
+// -------------------------------------------------------------------
+// GoalTrackerMenu.js
+// --
+// User selects goals.
+// -------------------------------------------------------------------
+
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -257,13 +263,15 @@ class GoalSettingMenu extends Component {
                   </div>
 
                   <div class="row">
-                     <font color="red">*</font> None of the plans above suit
-                     your needs? Set your targets and create your own custom
-                     plan below:
+                     <h6>
+                        <font color="red">*</font> None of the plans above suit
+                        your needs? Set your targets and create your own custom
+                        plan below:
+                     </h6>
                   </div>
 
                   <div class="row">
-                     <div class="col s12">
+                     <div class="col s6 offset-s3">
                         <div class="card-panel yellow accent-4 hoverable z-depth-6">
                            <div class="card-content center">
                               <h6>
@@ -276,63 +284,79 @@ class GoalSettingMenu extends Component {
                            <div class="card-content white">
                               <form>
                                  <div class="row">
-                                    <div class="input-field col s12">
+                                    <div class="col s12">
                                        <i
                                           class="material-icons prefix"
-                                          style={{ color: "#ffd600" }}
+                                          style={{
+                                             color: "#ffd600",
+                                             marginTop: "30px",
+                                             paddingRight: "5px"
+                                          }}
                                        >
                                           check_circle
                                        </i>
-                                       <input
-                                          id="icon_prefix"
-                                          type="number"
-                                          class="validate"
-                                          min="1"
-                                          max="99999"
-                                       />
-                                       <span class="helper-text">
-                                          Weekly New Reach Outs Goal
-                                       </span>
+                                       Weekly New Reach Outs Goal:
+                                       <div class="input-field inline">
+                                          <input
+                                             id="custom_goal1_inline"
+                                             type="number"
+                                             class="validate"
+                                             min="1"
+                                             max="99999"
+                                             value="15"
+                                          />
+                                       </div>
+                                    </div>
+                                 </div>
+
+                                 <div class="row">
+                                    <div class="col s12">
+                                       <i
+                                          class="material-icons prefix"
+                                          style={{
+                                             color: "#ffd600",
+                                             marginTop: "30px",
+                                             paddingRight: "5px"
+                                          }}
+                                       >
+                                          check_circle
+                                       </i>
+                                       Weekly Follow Ups Goal:
+                                       <div class="input-field inline">
+                                          <input
+                                             id="custom_goal2_inline"
+                                             type="number"
+                                             class="validate"
+                                             min="1"
+                                             max="99999"
+                                             value="10"
+                                          />
+                                       </div>
                                     </div>
                                  </div>
                                  <div class="row">
-                                    <div class="input-field col s12">
+                                    <div class="col s12">
                                        <i
                                           class="material-icons prefix"
-                                          style={{ color: "#ffd600" }}
+                                          style={{
+                                             color: "#ffd600",
+                                             marginTop: "30px",
+                                             paddingRight: "5px"
+                                          }}
                                        >
                                           check_circle
                                        </i>
-                                       <input
-                                          id="icon_prefix"
-                                          type="number"
-                                          class="validate"
-                                          min="1"
-                                          max="99999"
-                                       />
-                                       <span class="helper-text">
-                                          Weekly Follow Ups Goal
-                                       </span>
-                                    </div>
-                                 </div>
-                                 <div class="row">
-                                    <div class="input-field col s12">
-                                       <i
-                                          class="material-icons prefix"
-                                          style={{ color: "#ffd600" }}
-                                       >
-                                          check_circle
-                                       </i>
-                                       <input
-                                          id="icon_prefix"
-                                          type="number"
-                                          class="validate"
-                                          min="1"
-                                          max="99999"
-                                       />
-                                       <span class="helper-text">
-                                          Weekly Team Reach Outs Goal
-                                       </span>
+                                       Weekly Team Reach Outs Goal:
+                                       <div class="input-field inline">
+                                          <input
+                                             id="custom_goal3_inline"
+                                             type="number"
+                                             class="validate"
+                                             min="1"
+                                             max="99999"
+                                             value="5"
+                                          />
+                                       </div>
                                     </div>
                                  </div>
                               </form>
