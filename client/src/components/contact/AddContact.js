@@ -1,3 +1,9 @@
+// -------------------------------------------------------------------
+// AddContact.js
+// --
+// User adds a contact to the contact list.
+// -------------------------------------------------------------------
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -146,7 +152,7 @@ class AddContact extends Component {
                         <div class="input-field col s6">
                            <i class="material-icons prefix">account_circle</i>
                            <input
-                              id="icon_prefix"
+                              id="first_name"
                               type="text"
                               class="validate"
                               value={this.state.fname}
@@ -158,7 +164,7 @@ class AddContact extends Component {
                         <div class="input-field col s6">
                            <i class="material-icons prefix">account_circle</i>
                            <input
-                              id="icon_prefix"
+                              id="last_name"
                               type="text"
                               class="validate"
                               value={this.state.lname}
@@ -172,7 +178,7 @@ class AddContact extends Component {
                         <div class="input-field col s6">
                            <i class="material-icons prefix">phone</i>
                            <input
-                              id="icon_telephone"
+                              id="phone_number"
                               type="text"
                               class="validate"
                               value={this.state.phone}
@@ -184,7 +190,7 @@ class AddContact extends Component {
                         <div class="input-field col s6">
                            <i class="material-icons prefix">email</i>
                            <input
-                              id="icon_email"
+                              id="email_addr"
                               type="text"
                               class="validate"
                               value={this.state.emailaddr}
@@ -213,7 +219,7 @@ class AddContact extends Component {
                         <div class="input-field col s3">
                            <i class="material-icons prefix">assignment_ind</i>
                            <input
-                              id="icon_assignment_ind"
+                              id="last_reach_out_date"
                               type="date"
                               class="validate"
                               value={this.state.lastreachout}
@@ -225,7 +231,7 @@ class AddContact extends Component {
                         <div class="input-field col s3">
                            <i class="material-icons prefix">assignment_ind</i>
                            <input
-                              id="icon_assignment_ind"
+                              id="last_reach_out_time"
                               type="time"
                               class="validate"
                               value={this.state.lastreachouttime}

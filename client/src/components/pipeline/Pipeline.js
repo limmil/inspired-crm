@@ -10,7 +10,7 @@ import DashboardFooter from "../dashboard/DashboardFooter";
 
 const Container = styled.div`
    display: flex;
-   width: 1880px;
+   width: 1700px;
    margin: auto;
 `;
 
