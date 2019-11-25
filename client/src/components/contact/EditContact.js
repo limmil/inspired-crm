@@ -63,7 +63,7 @@ class EditContact extends Component {
          instances[3].input.value = this.props.edit.temp;
          instances[4].input.value = this.props.edit.contacttype;
          instances[5].input.value = this.props.edit.pipelineposition;
-         instances[6].input.value = this.props.edit.lastreachouttime;
+         // instances[6].input.value = this.props.edit.lastreachouttime;
       }
    }
 
@@ -137,7 +137,7 @@ class EditContact extends Component {
          contacttype: this.state.contacttype,
          pipelineposition: this.state.pipelineposition,
          lastreachout: this.state.lastreachout,
-         lastreachouttime: this.state.lastreachout,
+         lastreachouttime: this.state.lastreachouttime,
          date: this.state.date,
          notes: this.state.notes
       };
@@ -151,7 +151,8 @@ class EditContact extends Component {
                <h5>
                   {this.state.fname} {this.state.lname}
                </h5>
-               <hr />
+               <div class="row"></div>
+
 
                <div class="row">
                   <form class="col s12" onSubmit={this.onSubmit}>
@@ -343,9 +344,9 @@ class EditContact extends Component {
                         <button
                            type="submit"
                            className="modal-close waves-effect waves-light btn btn-primary"
-                           style={{ marginRight: "10px" }}
+                           style={{ margin: "4px" }}
                         >
-                           Save
+                           Save Contact
                         </button>
                      </div>
                   </form>
