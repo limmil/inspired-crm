@@ -40,7 +40,7 @@ class DeleteContact extends Component {
             onKeyPress={this.onSubmit}
             type="submit"
             value="delete"
-            class="modal-close waves-effect waves-red btn btn-primary red"
+            class="modal-close waves-effect waves-light btn red darken-2"
             style={{ marginRight: "10px" }}
           >
             Delete

@@ -124,7 +124,8 @@ class GoalSettingMenu extends Component {
                               </h6>
                            </div>
 
-                           <div class="card-content white">
+                           <div class="card-content white" style={{padding: '10px'}}>
+                              
                               <h6 align="left">Weekly Targets</h6>
 
                               <h6 align="left">
@@ -156,7 +157,7 @@ class GoalSettingMenu extends Component {
                               </h6>
                            </div>
                            <div class="card-action center">
-                              <a class="modal-close waves-effect waves-light btn-small blue">
+                              <a class="modal-close waves-effect waves-light btn-small blue" style={{marginTop: '10px'}}>
                                  Select
                               </a>
                            </div>
@@ -173,7 +174,7 @@ class GoalSettingMenu extends Component {
                               </h6>
                            </div>
 
-                           <div class="card-content white">
+                           <div class="card-content white" style={{padding: '10px'}}>
                               <h6 align="left">Weekly Targets</h6>
 
                               <h6 align="left">
@@ -205,7 +206,7 @@ class GoalSettingMenu extends Component {
                               </h6>
                            </div>
                            <div class="card-action center">
-                              <a class="modal-close waves-effect waves-light btn-small green darken-3">
+                              <a class="modal-close waves-effect waves-light btn-small green darken-3" style={{marginTop: '10px'}}>
                                  Select
                               </a>
                            </div>
@@ -222,7 +223,7 @@ class GoalSettingMenu extends Component {
                               </h6>
                            </div>
 
-                           <div class="card-content white">
+                           <div class="card-content white" style={{padding: '10px'}}>
                               <h6 align="left">Weekly Targets</h6>
 
                               <h6 align="left">
@@ -254,7 +255,7 @@ class GoalSettingMenu extends Component {
                               </h6>
                            </div>
                            <div class="card-action center">
-                              <a class="modal-close waves-effect waves-light btn-small red">
+                              <a class="modal-close waves-effect waves-light btn-small red" style={{marginTop: '10px'}}>
                                  Select
                               </a>
                            </div>
@@ -281,7 +282,7 @@ class GoalSettingMenu extends Component {
                               </h6>
                            </div>
 
-                           <div class="card-content white">
+                           <div class="card-content white" style={{padding: '10px'}}>
                               <form>
                                  <div class="row">
                                     <div class="col s12">
@@ -362,7 +363,7 @@ class GoalSettingMenu extends Component {
                               </form>
                            </div>
                            <div class="card-action center">
-                              <a class="modal-close waves-effect waves-light btn-small yellow darken-2">
+                              <a class="modal-close waves-effect waves-light btn-small yellow darken-2" style={{marginTop: '10px'}}>
                                  Select
                               </a>
                            </div>

@@ -102,7 +102,7 @@ class DashboardNavbar extends Component {
                         </li>
                         <li>
                            <a
-                              class="dropdown-trigger-click"
+                              class="dropdown-trigger"
                               data-target="main-dropdown3"
                            >
                               <i class="large material-icons">account_circle</i>
@@ -168,9 +168,9 @@ class DashboardNavbar extends Component {
             <ul id="main-dropdown3" class="dropdown-content">
                <li>
                   <center>
-                     <b>Welcome</b>, {user.fname}
+                     <p><b>Welcome</b>, {user.fname}
                      <br />
-                     {user.email}
+                     {user.email}</p>
                   </center>
                </li>
 
