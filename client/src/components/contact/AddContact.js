@@ -144,7 +144,7 @@ class AddContact extends Component {
          <header>
             <div class="modal-content">
                <h5>Add Contact</h5>
-               <hr />
+               <div class="row"></div>
 
                <div class="row">
                   <form class="col s12" onSubmit={this.onSubmit}>
@@ -332,9 +332,9 @@ class AddContact extends Component {
                         <button
                            type="submit"
                            className="modal-close waves-effect waves-light btn btn-primary"
-                           style={{ marginRight: "10px" }}
+                           style={{ margin: "4px" }}
                         >
-                           Save
+                           Add Contact
                         </button>
                      </div>
                   </form>

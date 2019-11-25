@@ -222,7 +222,7 @@ class DashboardNavbar extends Component {
                      <li>
                         <a class="collapsible-header waves-effect">
                            My Account
-                           <i class="material-icons">arrow_drop_down</i>
+                           <i class="material-icons expand">expand_more</i>
                         </a>
                         <div class="collapsible-body">
                            <ul>
@@ -245,7 +245,7 @@ class DashboardNavbar extends Component {
                      <li>
                         <a class="collapsible-header waves-effect">
                            My Business
-                           <i class="material-icons">arrow_drop_down</i>
+                           <i class="material-icons expand">expand_more</i>
                         </a>
                         <div class="collapsible-body">
                            <ul>
@@ -273,7 +273,7 @@ class DashboardNavbar extends Component {
                      <li>
                         <a class="collapsible-header waves-effect">
                            Contact Management
-                           <i class="material-icons">arrow_drop_down</i>
+                           <i class="material-icons expand">expand_more</i>
                         </a>
                         <div class="collapsible-body">
                            <ul>
@@ -308,7 +308,7 @@ class DashboardNavbar extends Component {
                      <li>
                         <a class="collapsible-header waves-effect">
                            Team + Marketing
-                           <i class="material-icons">arrow_drop_down</i>
+                           <i class="material-icons expand">expand_more</i>
                         </a>
                         <div class="collapsible-body">
                            <ul>
@@ -338,7 +338,7 @@ class DashboardNavbar extends Component {
             >
                <DeleteContact />
             </div>
-            <div id="scripts" class="modal">
+            <div id="scripts" class="modal modal-fixed-footer">
                <EmailScripts />
             </div>
             <div

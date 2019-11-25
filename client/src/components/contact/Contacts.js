@@ -110,7 +110,9 @@ class Contacts extends Component {
                            <ul class="collapsible" data-collapsible="accordion">
                               <li>
                                  <div class="collapsible-header">
-                                    <i class="material-icons">expand_more</i>
+                                    <i class="material-icons expand">
+                                       expand_more
+                                    </i>
                                     Contact Type:
                                  </div>
                                  <div class="collapsible-body">
@@ -170,7 +172,9 @@ class Contacts extends Component {
                               </li>
                               <li>
                                  <div class="collapsible-header">
-                                    <i class="material-icons">expand_more</i>
+                                    <i class="material-icons expand">
+                                       expand_more
+                                    </i>
                                     Pipeline Position:
                                  </div>
                                  <div class="collapsible-body">
@@ -215,7 +219,9 @@ class Contacts extends Component {
                               </li>
                               <li>
                                  <div class="collapsible-header">
-                                    <i class="material-icons">expand_more</i>
+                                    <i class="material-icons expand">
+                                       expand_more
+                                    </i>
                                     Lead Temp:
                                  </div>
                                  <div class="collapsible-body">

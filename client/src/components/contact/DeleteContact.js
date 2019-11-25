@@ -25,7 +25,7 @@ class DeleteContact extends Component {
       <header>
         <div class="modal-content">
           <h5>Delete Contact</h5>
-          <hr />
+          <div class="row"></div>
           <p>Are you sure you want to delete this contact?</p>
         </div>
         <div class="modal-footer">
@@ -33,7 +33,7 @@ class DeleteContact extends Component {
             class="modal-close waves-effect btn"
             style={{ marginRight: "10px" }}
           >
-            CANCEL
+            Cancel
           </button>
           <button
             onClick={this.onSubmit}
@@ -43,7 +43,7 @@ class DeleteContact extends Component {
             class="modal-close waves-effect waves-red btn btn-primary red"
             style={{ marginRight: "10px" }}
           >
-            DELETE
+            Delete
           </button>
         </div>
       </header>
