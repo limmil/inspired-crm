@@ -1,8 +1,7 @@
 // -------------------------------------------------------------------
 // DashboardNavbar.js
 // --
-// The navbar for the dashboard. This will also contain all the modals
-// to show up. Look at the end of the code.
+// The fixed navbar for the dashboard.
 // -------------------------------------------------------------------
 
 import React, { Component } from "react";
@@ -18,7 +17,6 @@ import EmailScripts from "../scripts/EmailScripts.js";
 import NotificationLog from "../log/NotificationLog.js";
 import EditContact from "../contact/EditContact.js";
 import CreateEmail from "../email/CreateEmail.js";
-import CompleteReachOut from "../goal/CompleteReachOut.js";
 
 class DashboardNavbar extends Component {
    onLogoutClick = e => {
@@ -36,7 +34,10 @@ class DashboardNavbar extends Component {
                <nav className="z-depth-1"></nav>
 
                <nav class="blue-grey" role="navigation">
-                  <div class="nav-wrapper container">
+                  <div
+                     class="nav-wrapper"
+                     style={{ paddingLeft: "50px", paddingRight: "50px" }}
+                  >
                      <ul class="left hide-on-med-and-down">
                         <li>
                            <a
@@ -101,7 +102,7 @@ class DashboardNavbar extends Component {
                         </li>
                         <li>
                            <a
-                              class="dropdown-trigger-click"
+                              class="dropdown-trigger"
                               data-target="main-dropdown3"
                            >
                               <i class="large material-icons">account_circle</i>
@@ -167,9 +168,9 @@ class DashboardNavbar extends Component {
             <ul id="main-dropdown3" class="dropdown-content">
                <li>
                   <center>
-                     <b>Welcome</b>, {user.fname}
+                     <p><b>Welcome</b>, {user.fname}
                      <br />
-                     {user.email}
+                     {user.email}</p>
                   </center>
                </li>
 
@@ -221,7 +222,7 @@ class DashboardNavbar extends Component {
                      <li>
                         <a class="collapsible-header waves-effect">
                            My Account
-                           <i class="material-icons">arrow_drop_down</i>
+                           <i class="material-icons expand">expand_more</i>
                         </a>
                         <div class="collapsible-body">
                            <ul>
@@ -244,7 +245,7 @@ class DashboardNavbar extends Component {
                      <li>
                         <a class="collapsible-header waves-effect">
                            My Business
-                           <i class="material-icons">arrow_drop_down</i>
+                           <i class="material-icons expand">expand_more</i>
                         </a>
                         <div class="collapsible-body">
                            <ul>
@@ -272,7 +273,7 @@ class DashboardNavbar extends Component {
                      <li>
                         <a class="collapsible-header waves-effect">
                            Contact Management
-                           <i class="material-icons">arrow_drop_down</i>
+                           <i class="material-icons expand">expand_more</i>
                         </a>
                         <div class="collapsible-body">
                            <ul>
@@ -307,7 +308,7 @@ class DashboardNavbar extends Component {
                      <li>
                         <a class="collapsible-header waves-effect">
                            Team + Marketing
-                           <i class="material-icons">arrow_drop_down</i>
+                           <i class="material-icons expand">expand_more</i>
                         </a>
                         <div class="collapsible-body">
                            <ul>
@@ -330,23 +331,26 @@ class DashboardNavbar extends Component {
             <div id="editcontact" class="modal">
                <EditContact />
             </div>
-            <div id="deletecontact" class="modal" style={{ width: '20%', padding: '0', left: '0', right: '0'}}>
+            <div
+               id="deletecontact"
+               class="modal"
+               style={{ width: "20%", padding: "0", left: "0", right: "0" }}
+            >
                <DeleteContact />
             </div>
-            <div id="scripts" class="modal">
+            <div id="scripts" class="modal modal-fixed-footer">
                <EmailScripts />
             </div>
-            <div id="notifications" class="modal" style={{ width: '30%', padding: '0', left: '0', right: '0'}}>
+            <div
+               id="notifications"
+               class="modal"
+               style={{ width: "30%", padding: "0", left: "0", right: "0" }}
+            >
                <NotificationLog />
             </div>
             <div id="createemail" class="modal">
                <CreateEmail />
             </div>
-            <div id="completereachout" class="modal" style={{ width: '20%', padding: '0', left: '0', right: '0'}}>
-               <CompleteReachOut />
-            </div>
-
-
          </div>
       );
    }

@@ -1,3 +1,9 @@
+/* ------------------------------------------------------------------------
+   App.css
+   --
+   The entire app css. Modify here. Not index.css
+   ------------------------------------------------------------------------ */
+
 body {
    position: relative;
    padding-bottom: 5rem;
@@ -648,14 +654,12 @@ nav ul a {
     For contact list.
     ------------------------------ */
 
-
-
-
 .contact-list-col {
    flex: 1;
    padding: 10px;
    background: rgb(255, 255, 255);
    overflow-x: scroll;
+   overflow-y: scroll;
 }
 
 /* width */
@@ -678,7 +682,20 @@ nav ul a {
    background: rgb(167, 167, 167);
 }
 
-/* ------------------------------
-    For collapsible no border
-    ------------------------------ */
+/* --------------------------------------
+    For collapsible header icon rotation
+    ------------------------------------- */
+
+/* Expand class created only for the collapsible-header. */
+.collapsible li.active i.expand {
+   -ms-transform: rotate(180deg);
+   /* IE 9 */
+   -webkit-transform: rotate(180deg);
+   /* Chrome, Safari, Opera */
+   transform: rotate(180deg);
+}
+
+/* --------------------------------------
+    For % inside doughnut chart.
+    ------------------------------------- */
 

@@ -1,3 +1,9 @@
+// -------------------------------------------------------------------
+// EditContact.js
+// --
+// User edits a contact on the contact list page.
+// -------------------------------------------------------------------
+
 import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
@@ -57,6 +63,7 @@ class EditContact extends Component {
          instances[3].input.value = this.props.edit.temp;
          instances[4].input.value = this.props.edit.contacttype;
          instances[5].input.value = this.props.edit.pipelineposition;
+         // instances[6].input.value = this.props.edit.lastreachouttime;
       }
    }
 
@@ -145,7 +152,8 @@ class EditContact extends Component {
                <h5>
                   {this.state.fname} {this.state.lname}
                </h5>
-               <hr />
+               <div class="row"></div>
+
 
                <div class="row">
                   <form class="col s12" onSubmit={this.onSubmit}>
@@ -153,7 +161,7 @@ class EditContact extends Component {
                         <div class="input-field col s6">
                            <i class="material-icons prefix">account_circle</i>
                            <input
-                              id="icon_prefix"
+                              id="first_name"
                               type="text"
                               class="validate"
                               value={this.state.fname}
@@ -165,7 +173,7 @@ class EditContact extends Component {
                         <div class="input-field col s6">
                            <i class="material-icons prefix">account_circle</i>
                            <input
-                              id="icon_prefix"
+                              id="last_name"
                               type="text"
                               class="validate"
                               value={this.state.lname}
@@ -179,7 +187,7 @@ class EditContact extends Component {
                         <div class="input-field col s6">
                            <i class="material-icons prefix">phone</i>
                            <input
-                              id="icon_telephone"
+                              id="phone_number"
                               type="text"
                               class="validate"
                               value={this.state.phone}
@@ -191,7 +199,7 @@ class EditContact extends Component {
                         <div class="input-field col s6 active">
                            <i class="material-icons prefix">email</i>
                            <input
-                              id="icon_email"
+                              id="email_addr"
                               type="text"
                               class="validate"
                               value={this.state.emailaddr}
@@ -221,7 +229,7 @@ class EditContact extends Component {
                         <div class="input-field col s3">
                            <i class="material-icons prefix">assignment_ind</i>
                            <input
-                              id="icon_assignment_ind"
+                              id="last_reach_out_date"
                               type="date"
                               class="validate"
                               value={this.state.lastreachout}
@@ -233,7 +241,7 @@ class EditContact extends Component {
                         <div class="input-field col s3">
                            <i class="material-icons prefix">assignment_ind</i>
                            <input
-                              id="icon_assignment_ind"
+                              id="last_reach_out_time"
                               type="time"
                               class="validate"
                               value={this.state.lastreachouttime}
@@ -337,9 +345,9 @@ class EditContact extends Component {
                         <button
                            type="submit"
                            className="modal-close waves-effect waves-light btn btn-primary"
-                           style={{ marginRight: "10px" }}
+                           style={{ margin: "4px" }}
                         >
-                           Save
+                           Save Contact
                         </button>
                      </div>
                   </form>
