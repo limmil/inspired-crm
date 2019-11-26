@@ -1,3 +1,10 @@
+// -------------------------------------------------------------------
+// DashboardNavbar.js
+// --
+// The navbar for the dashboard. This will also contain all the modals
+// to show up. Look at the end of the code.
+// -------------------------------------------------------------------
+
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -11,6 +18,7 @@ import EmailScripts from "../scripts/EmailScripts.js";
 import NotificationLog from "../log/NotificationLog.js";
 import EditContact from "../contact/EditContact.js";
 import CreateEmail from "../email/CreateEmail.js";
+import CompleteReachOut from "../goal/CompleteReachOut.js";
 
 class DashboardNavbar extends Component {
    onLogoutClick = e => {
@@ -322,19 +330,23 @@ class DashboardNavbar extends Component {
             <div id="editcontact" class="modal">
                <EditContact />
             </div>
-            <div id="deletecontact" class="modal">
+            <div id="deletecontact" class="modal" style={{ width: '20%', padding: '0', left: '0', right: '0'}}>
                <DeleteContact />
             </div>
-
             <div id="scripts" class="modal">
                <EmailScripts />
             </div>
-            <div id="notifications" class="modal">
+            <div id="notifications" class="modal" style={{ width: '30%', padding: '0', left: '0', right: '0'}}>
                <NotificationLog />
             </div>
             <div id="createemail" class="modal">
                <CreateEmail />
             </div>
+            <div id="completereachout" class="modal" style={{ width: '20%', padding: '0', left: '0', right: '0'}}>
+               <CompleteReachOut />
+            </div>
+
+
          </div>
       );
    }
