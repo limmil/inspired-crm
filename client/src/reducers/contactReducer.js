@@ -3,14 +3,17 @@ import {
     ADD_CONTACT,
     EDIT_CONTACT,
     UPDATE_CONTACT,
-    DELETE_CONTACT } from "../actions/types";
+    DELETE_CONTACT, 
+    SELECTALL_CONTACT} from "../actions/types";
 
 const initialState = {
     contacts: [],
     contact: {},
     edit: {},
     update: {},
-    delete: {}
+    delete: {},
+    selectall: false,
+    selected: {}
 };
 
 export default function(state = initialState, action){
@@ -39,6 +42,11 @@ export default function(state = initialState, action){
             return{
                 ...state,
                 delete: action.payload
+            }
+        case SELECTALL_CONTACT:
+            return{
+                ...state,
+                selectall: action.payload
             }
         default:
             return state;

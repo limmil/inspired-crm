@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import TableRow from "./TableRow";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getContacts } from "../../actions/contactActions";
+import { getContacts, selectAll } from "../../actions/contactActions";
 
 // Dashboard components.
 import DashboardNavbar from "../dashboard/DashboardNavbar";
@@ -51,10 +51,9 @@ class Contacts extends Component {
       }
    }
 
-   componentDidUpdate(){
-      console.log(this.state.selectall)
-      if(this.state.selectall){
-         // useaction to change redux state
+   componentDidUpdate(prevProps){
+      if(prevProps.selectall !== this.state.selectall){
+         this.props.selectAll(this.state.selectall);
       }
    }
 
@@ -277,7 +276,6 @@ class Contacts extends Component {
                                                    type="checkbox"
                                                    checked={this.state.selectall}
                                                    onChange={this.onChangeSelectAll}
-
                                                 />
                                                 <span></span>
                                              </label>
@@ -316,17 +314,22 @@ class Contacts extends Component {
 
 Contacts.propTypes = {
    getContacts: PropTypes.func.isRequired,
+   selectAll: PropTypes.func.isRequired,
    contacts: PropTypes.array.isRequired,
    contact: PropTypes.object,
    update: PropTypes.object,
-   delete: PropTypes.object
+   delete: PropTypes.object,
+   selectall: PropTypes.bool,
+   selected: PropTypes.object
 };
 
 const mapStateToProps = state => ({
    contacts: state.contacts.contacts,
    contact: state.contacts.contact,
    update: state.contacts.update,
-   delete: state.contacts.delete
+   delete: state.contacts.delete,
+   selectall: state.contacts.selectall,
+   selected: state.contacts.selected
 });
 
-export default connect(mapStateToProps, { getContacts })(Contacts);
+export default connect(mapStateToProps, { getContacts, selectAll })(Contacts);

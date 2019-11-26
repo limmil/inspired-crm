@@ -14,10 +14,23 @@ class TableRow extends Component {
       this.delete = this.delete.bind(this);
       this.edit = this.edit.bind(this);
       this.remove = this.remove.bind(this);
+      this.onChangeSelect = this.onChangeSelect.bind(this);
+
+      this.state = {
+         select: false,
+         selectall: false
+      }
    }
 
-   componentDidUpdate(){
-      console.log('udpated')
+   componentDidUpdate(prevProps){
+      if (prevProps.selectall !== this.props.selectall){
+         if (this.props.selectall !== this.state.select){
+            this.setState({
+               select: this.props.selectall
+            })
+         }
+         
+      }
    }
 
    delete() {
@@ -41,13 +54,23 @@ class TableRow extends Component {
       this.props.editContact(this.props.obj);
    }
 
+   onChangeSelect(e) {
+      this.setState({
+         select: e.target.checked
+      });
+   }
+
    render() {
       return (
          <tr>
             <ReactTooltip />
             <td class="valign-wrapper">
                <label>
-                  <input type="checkbox" />
+                  <input 
+                     type="checkbox" 
+                     checked={this.state.select}
+                     onChange={this.onChangeSelect}
+                  />
                   <span></span>
                </label>
             </td>
@@ -107,11 +130,13 @@ class TableRow extends Component {
 
 TableRow.propTypes = {
    editContact: PropTypes.func.isRequired,
-   edit: PropTypes.object
+   edit: PropTypes.object,
+   selectall: PropTypes.bool
 };
 
 const mapStateToProps = state => ({
-   edit: state.contacts.edit
+   edit: state.contacts.edit,
+   selectall: state.contacts.selectall
 });
 
 export default connect(mapStateToProps, { editContact })(TableRow);
