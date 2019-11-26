@@ -16,6 +16,10 @@ class TableRow extends Component {
       this.remove = this.remove.bind(this);
    }
 
+   componentDidUpdate(){
+      console.log('udpated')
+   }
+
    delete() {
       const obj = {
          email: localStorage.getItem("userEmail"),

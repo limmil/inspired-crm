@@ -130,11 +130,12 @@ class EditContact extends Component {
          contacttype: this.state.contacttype,
          pipelineposition: this.state.pipelineposition,
          lastreachout: this.state.lastreachout,
-         lastreachouttime: this.state.lastreachout,
+         lastreachouttime: this.state.lastreachouttime,
          date: this.state.date,
          notes: this.state.notes
       };
       this.props.updateContact(contactData);
+      console.log(this.state.lastreachouttime)
    }
 
    render() {

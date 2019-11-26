@@ -9,6 +9,15 @@ import DashboardNavbar from "../dashboard/DashboardNavbar";
 import DashboardFooter from "../dashboard/DashboardFooter";
 
 class Contacts extends Component {
+   constructor(props) {
+      super(props)
+      this.onChangeSelectAll = this.onChangeSelectAll.bind(this);
+
+      this.state = {
+         selectall: false
+      }
+   }
+
    componentDidMount() {
       const user = {
          email: localStorage.getItem("userEmail"),
@@ -40,6 +49,19 @@ class Contacts extends Component {
             this.props.contacts.splice(index, 1);
          }
       }
+   }
+
+   componentDidUpdate(){
+      console.log(this.state.selectall)
+      if(this.state.selectall){
+         // useaction to change redux state
+      }
+   }
+
+   onChangeSelectAll(e) {
+      this.setState({
+         selectall: e.target.checked
+      });
    }
 
    tabRow() {
@@ -251,7 +273,12 @@ class Contacts extends Component {
                                        <tr>
                                           <th>
                                              <label>
-                                                <input type="checkbox" />
+                                                <input 
+                                                   type="checkbox"
+                                                   checked={this.state.selectall}
+                                                   onChange={this.onChangeSelectAll}
+
+                                                />
                                                 <span></span>
                                              </label>
                                           </th>
