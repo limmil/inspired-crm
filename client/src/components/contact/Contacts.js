@@ -77,7 +77,7 @@ class Contacts extends Component {
 
                         <div class="col s6" style={{ paddingTop: "20px" }}>
                            <a
-                              class="waves-effect waves-light btn tooltipped"
+                              class="waves-effect waves-light btn-small tooltipped"
                               href="#"
                               data-position="bottom"
                               data-tooltip="Add contacts to the Goal <br> Tracker based on the Pipeline <br> Position or if the contact is a <br> Team Member"
@@ -86,7 +86,7 @@ class Contacts extends Component {
                               Add To Goal Tracker
                            </a>
                            <a
-                              class="waves-effect waves-light btn"
+                              class="waves-effect waves-light btn-small"
                               href="#"
                               style={{ margin: "4px" }}
                            >

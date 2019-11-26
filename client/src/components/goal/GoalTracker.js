@@ -133,7 +133,7 @@ class GoalTracker extends Component {
                            <h6 class="light">Percentage: 0.06%</h6>
                            <div class="row"></div>
                            <div class="row">
-                              <div class="col s6 m3">
+                              <div class="col s6">
                                  Reach Outs{" "}
                                  <a class="modal-trigger" href="#reachoutshelp">
                                     <i
@@ -144,7 +144,7 @@ class GoalTracker extends Component {
                                     </i>
                                  </a>
                               </div>
-                              <div class="col s1 push-s8">
+                              <div class="col s6">
                                  <a class="modal-trigger" href="#reachoutshelp">
                                     <i
                                        class="material-icons tooltipped"
@@ -194,7 +194,7 @@ class GoalTracker extends Component {
                            <h6 class="light">Percentage: 0.1%</h6>
                            <div class="row"></div>
                            <div class="row">
-                              <div class="col s6 m3">
+                              <div class="col s6">
                                  Follow Ups{" "}
                                  <a class="modal-trigger" href="#followupshelp">
                                     <i
@@ -205,7 +205,7 @@ class GoalTracker extends Component {
                                     </i>
                                  </a>
                               </div>
-                              <div class="col s1 push-s8">
+                              <div class="col s6">
                                  <a class="modal-trigger" href="#followupshelp">
                                     <i
                                        class="material-icons tooltipped"
@@ -240,7 +240,7 @@ class GoalTracker extends Component {
                            <h6 class="light">Percentage: 0.2%</h6>
                            <div class="row"></div>
                            <div class="row">
-                              <div class="col s6 m4">
+                              <div class="col s6">
                                  Team Reach Outs{" "}
                                  <a
                                     class="modal-trigger"
@@ -254,7 +254,7 @@ class GoalTracker extends Component {
                                     </i>
                                  </a>
                               </div>
-                              <div class="col s1 push-s7">
+                              <div class="col s6">
                                  <a
                                     class="modal-trigger"
                                     href="#teamreachoutshelp"
