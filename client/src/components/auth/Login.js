@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
-import * as Push from "push.js"      
+import * as Push from "./push.js" 
 class Login extends Component {
    constructor() {
       super();
@@ -23,21 +23,23 @@ class Login extends Component {
          window.location.reload(false);
 
 
-         //These scripts are generated on login only.
-         Push.create("Notifications are Currently Enabled.", {
+        Push.create("Notifications are Currently Enabled.", {
             body: "Always remember to check your notification log for upcoming events!",
             icon: '/favicon.ico',
             timeout: 10000,
             onClick: function () {
                 window.focus();
                 this.close();
+
             }
-         });            
+         })
+
       }
    }
 
    componentWillReceiveProps(nextProps) {
       if (nextProps.auth.isAuthenticated) {
+
          this.props.history.push("/goaltracker");
          window.location.reload(false); 
 
@@ -50,7 +52,8 @@ class Login extends Component {
                 this.close();
 
             }
-         });  
+         })
+
       }
 
       if (nextProps.errors) {
