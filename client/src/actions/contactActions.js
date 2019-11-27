@@ -6,7 +6,8 @@ import {
     ADD_CONTACT,
     EDIT_CONTACT,
     UPDATE_CONTACT,
-    DELETE_CONTACT } from "./types";
+    DELETE_CONTACT,
+    SELECTALL_CONTACT } from "./types";
 
 // get all contacts
 export const getContacts = user => dispatch => {
@@ -91,6 +92,14 @@ export const deleteContact = contact => dispatch => {
                 logoutUser(dispatch);
             }
         });
+}
+
+// select all contacts
+export const selectAll = selected => dispatch => {
+    dispatch({
+        type: SELECTALL_CONTACT,
+        payload: selected
+    })
 }
 
 

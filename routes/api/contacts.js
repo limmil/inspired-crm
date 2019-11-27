@@ -167,6 +167,45 @@ router.post(
       });
    }
 );
+//=================================================================
+// @route POST api/contacts/track
+// @desc add/remove contact to goal tracker
+// @access Private
+// @req: email, tokenhash, id, trackertype, goaltracker
+// @res: {contact} OR 401
+router.post(
+   "/track",
+   passport.authenticate("jwt", { session: false }),
+   (req, res) => {
+      const _id = req.body.id;
+      const email = req.body.email;
+      const tokenhash = req.body.tokenhash;
+      const trackertype = req.body.trackertype;
+      const goaltracker = req.body.goaltracker;
+      // update one contact
+      User.findOne({ email }).then(user => {
+         if (user.tokenhash == tokenhash) {
+            Contact.findOne({ _id }).then(contact => {
+               try{
+                  contact.goaltracker = goaltracker;
+                  contact.trackertype = trackertype;
+                  contact
+                     .save()
+                     .then(res.json(contact));
+               }catch(err){
+                  console.log(err);
+                  res.status(500).send('error');
+               }
+            });
+         } else {
+            res.status(401).send("Unauthorized");
+         }
+      }).catch(err => {
+         console.log(err);
+         res.status(500).send('error');
+      });
+   }
+);
 
 // Define edit route, goes to the different page.
 router.route("/edit").get(function(req, res) {

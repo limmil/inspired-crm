@@ -142,6 +142,7 @@ class EditContact extends Component {
          notes: this.state.notes
       };
       this.props.updateContact(contactData);
+      console.log(this.state.lastreachouttime)
    }
 
    render() {
