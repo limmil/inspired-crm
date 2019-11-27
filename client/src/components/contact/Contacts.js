@@ -29,7 +29,6 @@ class Contacts extends Component {
          email: localStorage.getItem("userEmail"),
          tokenhash: localStorage.getItem("tokenHash")
       };
-
       this.props.getContacts(user);
    }
 

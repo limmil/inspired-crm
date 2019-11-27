@@ -29,7 +29,6 @@ const ContactSchema = new Schema({
    lastreachouttime: {
       type: String
    },
-
    notes: {
       type: String
    },
@@ -65,6 +64,16 @@ const ContactSchema = new Schema({
    },
    notrightnow: {
       type: String
+   },
+
+   // Contact for goal tracker
+   goaltracker: {
+      type: Boolean,
+      default: false
+   },
+   trackertype: {
+      type: Number,
+      default: 0
    }
 });
 

@@ -13,6 +13,8 @@ const validateProfileUpdate = require("../../validation/updateprofile")
 
 // Load User model
 const User = require("../../models/User");
+// Load Contact model
+const Contact = require("../../models/Contact");
 
 //=================================================================
 // @route POST api/users/register
@@ -232,6 +234,88 @@ router.post("/updatepassword",
               .json({ passwordincorrect: "Password incorrect" });
           }
         })
+      }else{
+        res.status(401).send("Unauthorized");
+      }
+    }).catch(err => {
+      console.log(err);
+      res.status(500);
+    });
+  }
+);
+//=================================================================
+// @route POST api/users/getgoals
+// @desc gets user goals
+// @access Private
+router.post("/getgoals", 
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const email = req.body.email;
+    const tokenhash = req.body.tokenhash;
+    User.findOne({ email }).then(user => {
+      if (user.tokenhash == tokenhash) {
+        
+        Contact.find({
+          user: user._id,
+          goaltracker: true
+        }).exec((err, contacts) => {
+          const payload = {
+            plan: user.plan,
+            startdate: user.startdate,
+            nrog: user.nrog,
+            nrogdone: user.nrogdone,
+            fug: user.fug,
+            fugdone: user.fugdone,
+            trog: user.trog,
+            trogdone: user.trogdone,
+            trackedcontacts: contacts
+          }
+          return res.status(200).json(payload);
+        });
+        
+      }else{
+        res.status(401).send("Unauthorized");
+      }
+    }).catch(err => {
+        console.log(err);
+        res.status(500);
+    });
+  }
+);
+  //=================================================================
+// @route POST api/users/setgoals
+// @desc sets user goals
+// @access Private
+router.post("/setgoals", 
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const email = req.body.email;
+    const tokenhash = req.body.tokenhash;
+    User.findOne({ email }).then(user => {
+      if (user.tokenhash == tokenhash) {
+        user.plan = req.body.plan
+        user.startdate = req.body.startdate
+        user.nrog = req.body.nrog
+        user.nrogdone = req.body.nrogdone
+        user.fug = req.body.fug
+        user.fugdone = req.body.fugdone
+        user.trog = req.body.trog
+        user.trogdone = req.body.trogdone
+        user
+          .save()
+          .then(user => {
+            const payload = {
+              plan: user.plan,
+              startdate: user.startdate,
+              nrog: user.nrog,
+              nrogdone: user.nrogdone,
+              fug: user.fug,
+              fugdone: user.fugdone,
+              trog: user.trog,
+              trogdone: user.trogdone
+            }
+            return res.status(200).json(payload);
+          });
       }else{
         res.status(401).send("Unauthorized");
       }

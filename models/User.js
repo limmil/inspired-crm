@@ -34,6 +34,9 @@ const UserSchema = new Schema({
     type: Number,
     default: 0
   },
+  startdate: {
+    type: Date,
+  },
   // New Reach Outs Goal
   nrog: {
     type: Number,
