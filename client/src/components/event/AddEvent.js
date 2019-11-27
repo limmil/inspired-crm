@@ -143,14 +143,14 @@ class AddContact extends Component {
       return (
          <header>
             <div class="modal-content">
-               <h5>Add Contact</h5>
+               <h5>Add Event</h5>
                <div class="row"></div>
 
                <div class="row">
                   <form class="col s12" onSubmit={this.onSubmit}>
                      <div class="row">
                         <div class="input-field col s6">
-                           <i class="material-icons prefix">account_circle</i>
+                        <i class="material-icons prefix">note</i>
                            <input
                               id="first_name"
                               type="text"
@@ -158,9 +158,9 @@ class AddContact extends Component {
                               value={this.state.fname}
                               onChange={this.onChangeFirstName}
                            />
-                           <span class="helper-text">First Name</span>
+                           <span class="helper-text">Event Name</span>
                         </div>
-
+{/* 
                         <div class="input-field col s6">
                            <i class="material-icons prefix">account_circle</i>
                            <input
@@ -171,10 +171,10 @@ class AddContact extends Component {
                               onChange={this.onChangeLastName}
                            />
                            <span class="helper-text">Last Name</span>
-                        </div>
+                        </div> */}
                      </div>
 
-                     <div class="row">
+                     {/* <div class="row">
                         <div class="input-field col s6">
                            <i class="material-icons prefix">phone</i>
                            <input
@@ -198,10 +198,10 @@ class AddContact extends Component {
                            />
                            <span class="helper-text">E-mail</span>
                         </div>
-                     </div>
+                     </div> */}
 
                      <div class="row">
-                        <div class="input-field col s6">
+                        {/* <div class="input-field col s6">
                            <i class="material-icons prefix">tonality</i>
                            <select
                               value={this.state.temp}
@@ -214,10 +214,11 @@ class AddContact extends Component {
                               <option value="Hot">Hot</option>
                            </select>
                            <span class="helper-text">Temp</span>
-                        </div>
+                        </div> */}
 
-                        <div class="input-field col s3">
-                           <i class="material-icons prefix">assignment_ind</i>
+                        <div class="input-field col s6">
+                           {/* <i class="material-icons prefix">assignment_ind</i> */}
+                           <i class="material-icons prefix">event</i>
                            <input
                               id="last_reach_out_date"
                               type="date"
@@ -225,11 +226,24 @@ class AddContact extends Component {
                               value={this.state.lastreachout}
                               onChange={this.onChangeLastReachOut}
                            />
-                           <span class="helper-text">Last Reach Out</span>
+                           <span class="helper-text">Event Start Date</span>
                         </div>
 
-                        <div class="input-field col s3">
-                           <i class="material-icons prefix">assignment_ind</i>
+                        <div class="input-field col s6">
+                           {/* <i class="material-icons prefix">assignment_ind</i> */}
+                           <i class="material-icons prefix">event</i>
+                           <input
+                              id="last_reach_out_date"
+                              type="date"
+                              class="validate"
+                              value={this.state.lastreachout}
+                              onChange={this.onChangeLastReachOut}
+                           />
+                           <span class="helper-text">Event End Date</span>
+                        </div>
+
+                        {/* <div class="input-field col s6">
+                           <i class="large material-icons prefix">timer</i>
                            <input
                               id="last_reach_out_time"
                               type="time"
@@ -237,11 +251,11 @@ class AddContact extends Component {
                               value={this.state.lastreachouttime}
                               onChange={this.onChangeLastReachOutTime}
                            />
-                           <span class="helper-text">Last Reach Out Time</span>
-                        </div>
+                           <span class="helper-text">Event End Date</span>
+                        </div> */}
                      </div>
 
-                     <div class="row">
+                     {/* <div class="row">
                         <div class="input-field col s6">
                            <i class="material-icons prefix">perm_identity</i>
                            <select
@@ -311,9 +325,9 @@ class AddContact extends Component {
                            </select>
                            <span class="helper-text">Pipeline Position</span>
                         </div>
-                     </div>
+                     </div> */}
 
-                     <div class="row">
+                     {/* <div class="row">
                         <div class="input-field col s12">
                            <i class="material-icons prefix">note</i>
                            <textarea
@@ -326,15 +340,15 @@ class AddContact extends Component {
                            <label for="textarea2"></label>
                            <span class="helper-text">Notes</span>
                         </div>
-                     </div>
+                     </div> */}
 
                      <div class="modal-footer">
                         <button
                            type="submit"
-                           className="modal-close waves-effect waves-light btn btn-primary"
+                           className="modal-close waves-effect waves-light btn btn-primary disabled"
                            style={{ margin: "4px" }}
                         >
-                           Add Contact
+                           Add Event
                         </button>
                      </div>
                   </form>
