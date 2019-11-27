@@ -17,9 +17,11 @@ import GoalTracker from "./components/goal/GoalTracker";
 // Private Dashboard Component pages.
 import Contacts from "./components/contact/Contacts";
 import AddContact from "./components/contact/AddContact";
+import AddEvent from "./components/event/AddEvent";
 import EditContact from "./components/contact/EditContact";
 import ModificationLog from "./components/log/ModificationLog";
 import Calendar from "./components/calendar/Calendar";
+
 import Pipeline from "./components/pipeline/Pipeline";
 import Account from "./components/account/Profile";
 import EmailScripts from "./components/scripts/EmailScripts";
@@ -74,6 +76,7 @@ class App extends Component {
                      <PrivateRoute path="/edit" component={EditContact} />
                      <PrivateRoute path="/contacts" component={Contacts} />
                      <PrivateRoute path="/calendar" component={Calendar} />
+                     <PrivateRoute exact path="/event" component={AddEvent} />
                      <PrivateRoute path="/account" component={Account} />
                      <PrivateRoute path="/pipeline" component={Pipeline} />
                      <PrivateRoute

@@ -17,6 +17,7 @@ import EmailScripts from "../scripts/EmailScripts.js";
 import NotificationLog from "../log/NotificationLog.js";
 import EditContact from "../contact/EditContact.js";
 import CreateEmail from "../email/CreateEmail.js";
+import AddEvent from "../event/AddEvent.js";
 
 class DashboardNavbar extends Component {
    onLogoutClick = e => {
@@ -72,12 +73,24 @@ class DashboardNavbar extends Component {
                            <a
                               class="modal-trigger tooltipped"
                               data-position="bottom"
+                              data-tooltip="Add Event"
+                              href="#addevent"
+                           >
+                              <i class="material-icons">event</i>
+                           </a>
+                        </li>
+
+                        <li>
+                           <a
+                              class="modal-trigger tooltipped"
+                              data-position="bottom"
                               data-tooltip="Add Contact"
                               href="#addcontact"
                            >
                               <i class="large material-icons">add_circle</i>
                            </a>
                         </li>
+
                         <li>
                            <a
                               class="tooltipped"
@@ -327,6 +340,9 @@ class DashboardNavbar extends Component {
 
             <div id="addcontact" class="modal">
                <AddContact />
+            </div>
+            <div id="addevent" class="modal">
+               <AddEvent />
             </div>
             <div id="editcontact" class="modal">
                <EditContact />
