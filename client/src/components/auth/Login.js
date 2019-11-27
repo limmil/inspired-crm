@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
-
+import * as Push from "push.js"      
 class Login extends Component {
    constructor() {
       super();
@@ -18,9 +18,21 @@ class Login extends Component {
    componentDidMount() {
       // If logged in and user navigates to Login page, should redirect them to dashboard
       if (this.props.auth.isAuthenticated) {
-         this.props.history.push("/goaltracker");
-         window.location.reload(false); 
 
+         this.props.history.push("/goaltracker");
+         window.location.reload(false);
+
+
+         //These scripts are generated on login only.
+         Push.create("Notifications are Currently Enabled.", {
+            body: "Always remember to check your notification log for upcoming events!",
+            icon: '/favicon.ico',
+            timeout: 10000,
+            onClick: function () {
+                window.focus();
+                this.close();
+            }
+         });            
       }
    }
 
@@ -29,6 +41,16 @@ class Login extends Component {
          this.props.history.push("/goaltracker");
          window.location.reload(false); 
 
+         Push.create("Notifications are Currently Enabled.", {
+            body: "Always remember to check your notification log for upcoming events!",
+            icon: '/favicon.ico',
+            timeout: 10000,
+            onClick: function () {
+                window.focus();
+                this.close();
+
+            }
+         });  
       }
 
       if (nextProps.errors) {
