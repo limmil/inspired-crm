@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { updateContact } from "../../actions/contactActions";
 import M from "materialize-css";
+import * as Push from "./push.js" 
 
 class EditContact extends Component {
    constructor(props) {
@@ -143,6 +144,15 @@ class EditContact extends Component {
       };
       this.props.updateContact(contactData);
       console.log(this.state.lastreachouttime)
+      Push.create("Update", {
+         body: this.state.fname+" has been updated.",
+         icon: '/favicon.ico',
+         timeout: 10000,
+         onClick: function () {
+             window.focus();
+             this.close();
+         }
+      });
    }
 
    render() {

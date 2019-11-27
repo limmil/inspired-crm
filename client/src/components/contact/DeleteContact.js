@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { deleteContact } from "../../actions/contactActions";
+import * as Push from "./push.js"
 
 class DeleteContact extends Component {
   constructor(props) {
@@ -16,7 +17,15 @@ class DeleteContact extends Component {
       tokenhash: localStorage.getItem("tokenHash"),
       id: this.props.edit._id
     };
-
+    Push.create("Update", {
+      body: " Contact Removed.",
+      icon: '/favicon.ico',
+      timeout: 10000,
+      onClick: function () {
+          window.focus();
+          this.close();
+      }
+   });
     this.props.deleteContact(selected);
   }
 

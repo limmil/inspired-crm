@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import * as Push from "./push.js" 
 
 // Modals.
 import AddContact from "../contact/AddContact.js";
@@ -24,6 +25,17 @@ class DashboardNavbar extends Component {
       e.preventDefault();
       this.props.logoutUser();
       window.location.reload(false);
+      
+      Push.create("You have signed out.", {
+         body: "All changes have been saved.",
+         icon: '/favicon.ico',
+         timeout: 5000,
+         onClick: function () {
+             window.focus();
+             this.close();
+         }
+      }); 
+
    };
 
    render() {
