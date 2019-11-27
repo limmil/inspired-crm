@@ -22,11 +22,10 @@ import TeamReachOutsHelp from "../help/TeamReachOutsHelp.js";
 // Goal tracker modals.
 import GoalSettingMenu from "./GoalSettingMenu.js";
 
-// Chart.js visualizations.
-import Chart from 'react-apexcharts'
-import ReachOuts from "../chart/ReachOuts.js";
-import FollowUps from "../chart/FollowUps.js";
-import TeamReachOuts from "../chart/TeamReachOuts.js";
+// react-apex-chart visualizations.
+import ApexReachOuts from "../chart/ApexReachOuts.js";
+import ApexFollowUps from "../chart/ApexFollowUps.js";
+import ApexTeamReachOuts from "../chart/ApexTeamReachOuts.js";
 
 //
 import PropTypes from "prop-types";
@@ -164,7 +163,7 @@ class GoalTracker extends Component {
                               record_voice_over
                            </i>{" "}
                            <b>Reach Outs</b> (Weekly % Complete)
-                           <ReachOuts />
+                           <ApexReachOuts />
                            <h6 class="light">Target: {this.state.tracker.nrog}</h6>
                            <h6 class="light">Completed: {this.state.tracker.nrogdone}</h6>
                            <h6 class="light">Percentage: {((this.state.tracker.nrogdone/this.state.tracker.nrog)*100).toFixed(2)}%</h6>
@@ -225,7 +224,7 @@ class GoalTracker extends Component {
                               insert_emoticon
                            </i>
                            <b>Follow Ups</b> (Weekly % Complete)
-                           <FollowUps />
+                           <ApexFollowUps />
                            <h6 class="light">Target: {this.state.tracker.fug}</h6>
                            <h6 class="light">Completed: {this.state.tracker.fugdone}</h6>
                            <h6 class="light">Percentage: {((this.state.tracker.fugdone/this.state.tracker.fug)*100).toFixed(2)}%</h6>
@@ -271,7 +270,7 @@ class GoalTracker extends Component {
                               people
                            </i>
                            <b>Team Reachouts</b> (Weekly % Complete)
-                           <TeamReachOuts />
+                           <ApexTeamReachOuts />
                            <h6 class="light">Target: {this.state.tracker.trog}</h6>
                            <h6 class="light">Completed: {this.state.tracker.trogdone}</h6>
                            <h6 class="light">Percentage: {((this.state.tracker.trogdone/this.state.tracker.trog)*100).toFixed(2)}%</h6>
