@@ -3,13 +3,12 @@
 // --
 // User adds a contact to the contact list.
 // -------------------------------------------------------------------
-
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addContact } from "../../actions/contactActions";
 import M from "materialize-css";
-import * as Push from "push.js"
+import Push from "./push.js"
 
 class AddContact extends Component {
    constructor(props) {
