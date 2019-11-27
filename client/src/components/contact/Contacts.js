@@ -8,19 +8,27 @@ import React, { Component } from "react";
 import TableRow from "./TableRow";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getContacts } from "../../actions/contactActions";
+import { getContacts, selectAll } from "../../actions/contactActions";
 
 // Dashboard components.
 import DashboardNavbar from "../dashboard/DashboardNavbar";
 import DashboardFooter from "../dashboard/DashboardFooter";
 
 class Contacts extends Component {
+   constructor(props) {
+      super(props)
+      this.onChangeSelectAll = this.onChangeSelectAll.bind(this);
+
+      this.state = {
+         selectall: false
+      }
+   }
+
    componentDidMount() {
       const user = {
          email: localStorage.getItem("userEmail"),
          tokenhash: localStorage.getItem("tokenHash")
       };
-
       this.props.getContacts(user);
    }
 
@@ -46,6 +54,18 @@ class Contacts extends Component {
             this.props.contacts.splice(index, 1);
          }
       }
+   }
+
+   componentDidUpdate(prevProps){
+      if(prevProps.selectall !== this.state.selectall){
+         this.props.selectAll(this.state.selectall);
+      }
+   }
+
+   onChangeSelectAll(e) {
+      this.setState({
+         selectall: e.target.checked
+      });
    }
 
    tabRow() {
@@ -263,7 +283,11 @@ class Contacts extends Component {
                                        <tr>
                                           <th>
                                              <label>
-                                                <input type="checkbox" />
+                                                <input 
+                                                   type="checkbox"
+                                                   checked={this.state.selectall}
+                                                   onChange={this.onChangeSelectAll}
+                                                />
                                                 <span></span>
                                              </label>
                                           </th>
@@ -301,17 +325,22 @@ class Contacts extends Component {
 
 Contacts.propTypes = {
    getContacts: PropTypes.func.isRequired,
+   selectAll: PropTypes.func.isRequired,
    contacts: PropTypes.array.isRequired,
    contact: PropTypes.object,
    update: PropTypes.object,
-   delete: PropTypes.object
+   delete: PropTypes.object,
+   selectall: PropTypes.bool,
+   selected: PropTypes.object
 };
 
 const mapStateToProps = state => ({
    contacts: state.contacts.contacts,
    contact: state.contacts.contact,
    update: state.contacts.update,
-   delete: state.contacts.delete
+   delete: state.contacts.delete,
+   selectall: state.contacts.selectall,
+   selected: state.contacts.selected
 });
 
-export default connect(mapStateToProps, { getContacts })(Contacts);
+export default connect(mapStateToProps, { getContacts, selectAll })(Contacts);

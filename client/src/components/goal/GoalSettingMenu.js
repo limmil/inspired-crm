@@ -8,99 +8,109 @@ import React, { Component } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { updateContact } from "../../actions/contactActions";
+import { setGoals } from "../../actions/goalActions";
 
 class GoalSettingMenu extends Component {
    constructor(props) {
       super(props);
-      this.onChangeLastName = this.onChangeLastName.bind(this);
-      this.onChangeFirstName = this.onChangeFirstName.bind(this);
-      this.onChangePhoneNumber = this.onChangePhoneNumber.bind(this);
-      this.onChangeEmailAddr = this.onChangeEmailAddr.bind(this);
-      this.onChangeTemp = this.onChangeTemp.bind(this);
-      this.onChangeLastReachOut = this.onChangeLastReachOut.bind(this);
-      this.onSubmit = this.onSubmit.bind(this);
+      this.onChangeReach = this.onChangeReach.bind(this);
+      this.onSubmitPlan1 = this.onSubmitPlan1.bind(this);
+      this.onSubmitPlan2 = this.onSubmitPlan2.bind(this);
+      this.onSubmitPlan3 = this.onSubmitPlan3.bind(this);
 
       this.state = {
-         id: "",
-         lname: "",
-         fname: "",
-         phone: "",
-         emailaddr: "",
-         temp: "",
-         lastreachout: "",
-         date: ""
+         plan: "",
+         reach: 0,
+         follow: 0,
+         team: 0
       };
    }
 
    componentDidUpdate(prevProps) {
-      if (prevProps.edit !== this.props.edit) {
-         this.setState({
-            id: this.props.edit._id,
-            lname: this.props.edit.lname,
-            fname: this.props.edit.fname,
-            phone: this.props.edit.phone,
-            emailaddr: this.props.edit.emailaddr,
-            temp: this.props.edit.temp,
-            lastreachout: this.props.edit.lastreachout,
-            date: this.props.edit.date
-         });
+      if (prevProps.tracker !== this.props.tracker ||
+          prevProps.signal !== this.props.signal) {
+         if (this.props.tracker.plan === 1){
+            this.setState({
+               plan: "Keep The Lights On"
+            });
+         }else if (this.props.tracker.plan === 2){
+            this.setState({
+               plan: "Positioned For Growth"
+            });
+         }else if (this.props.tracker.plan === 3){
+            this.setState({
+               plan: "Watch Out World"
+            });
+         }else{
+            this.setState({
+               plan: "Custom Plan"
+            })
+         }
       }
    }
 
-   onChangeLastName(e) {
+   onChangeReach(e) {
       this.setState({
-         lname: e.target.value
-      });
-   }
-   onChangeFirstName(e) {
-      this.setState({
-         fname: e.target.value
-      });
-   }
-   onChangePhoneNumber(e) {
-      this.setState({
-         phone: e.target.value
-      });
-   }
-   onChangeEmailAddr(e) {
-      this.setState({
-         emailaddr: e.target.value
-      });
-   }
-   onChangeTemp(e) {
-      this.setState({
-         temp: e.target.value
-      });
-   }
-   onChangeLastReachOut(e) {
-      this.setState({
-         lastreachout: e.target.value
+         reach: e.target.value
       });
    }
 
-   onSubmit(e) {
+   onSubmitPlan1(e) {
       e.preventDefault();
-      const contactData = {
+      const data = {
          email: localStorage.getItem("userEmail"),
          tokenhash: localStorage.getItem("tokenHash"),
-         id: this.state.id,
-         lname: this.state.lname,
-         fname: this.state.fname,
-         phone: this.state.phone,
-         emailaddr: this.state.emailaddr,
-         temp: this.state.temp,
-         lastreachout: this.state.lastreachout,
-         date: this.state.date
+         plan: 1,
+         startdate: Date.now(),
+         nrog: 15,
+         nrogdone: 0,
+         fug: 10,
+         fugdone: 0,
+         trog: 5,
+         trogdone: 0
       };
-      this.props.updateContact(contactData);
+      this.props.setGoals(data);
+   }
+
+   onSubmitPlan2(e) {
+      e.preventDefault();
+      const data = {
+         email: localStorage.getItem("userEmail"),
+         tokenhash: localStorage.getItem("tokenHash"),
+         plan: 2,
+         startdate: Date.now(),
+         nrog: 25,
+         nrogdone: 0,
+         fug: 15,
+         fugdone: 0,
+         trog: 10,
+         trogdone: 0
+      };
+      this.props.setGoals(data);
+   }
+
+   onSubmitPlan3(e) {
+      e.preventDefault();
+      const data = {
+         email: localStorage.getItem("userEmail"),
+         tokenhash: localStorage.getItem("tokenHash"),
+         plan: 3,
+         startdate: Date.now(),
+         nrog: 35,
+         nrogdone: 0,
+         fug: 25,
+         fugdone: 0,
+         trog: 15,
+         trogdone: 0
+      };
+      this.props.setGoals(data);
    }
 
    render() {
       return (
          <header>
             <div class="modal-content">
-               <font class="col s12" onSubmit={this.onSubmit}>
+               <font class="col s12">
                   <h5>Goal Setting Menu</h5>
                   <p>
                      Choose how hard you would like to run. Pick a plan from
@@ -110,7 +120,7 @@ class GoalSettingMenu extends Component {
                   </p>
 
                   <p align="center">
-                     <b>Selected Plan</b>: Keep the Lights On
+                     <b>Selected Plan</b> :: {this.state.plan}
                   </p>
 
                   <div class="row">
@@ -124,7 +134,8 @@ class GoalSettingMenu extends Component {
                               </h6>
                            </div>
 
-                           <div class="card-content white" style={{padding: '10px'}}>
+                           <div  class="card-content white" 
+                                 style={{padding: '10px'}}>
                               
                               <h6 align="left">Weekly Targets</h6>
 
@@ -157,7 +168,10 @@ class GoalSettingMenu extends Component {
                               </h6>
                            </div>
                            <div class="card-action center">
-                              <a class="modal-close waves-effect waves-light btn-small blue" style={{marginTop: '10px'}}>
+                              <a class="modal-close waves-effect waves-light btn-small blue" 
+                                 style={{marginTop: '10px'}}
+                                 onClick={this.onSubmitPlan1}
+                              >
                                  Select
                               </a>
                            </div>
@@ -206,7 +220,10 @@ class GoalSettingMenu extends Component {
                               </h6>
                            </div>
                            <div class="card-action center">
-                              <a class="modal-close waves-effect waves-light btn-small green darken-3" style={{marginTop: '10px'}}>
+                              <a class="modal-close waves-effect waves-light btn-small green darken-3" 
+                                 style={{marginTop: '10px'}}
+                                 onClick={this.onSubmitPlan2}
+                              >
                                  Select
                               </a>
                            </div>
@@ -255,7 +272,10 @@ class GoalSettingMenu extends Component {
                               </h6>
                            </div>
                            <div class="card-action center">
-                              <a class="modal-close waves-effect waves-light btn-small red" style={{marginTop: '10px'}}>
+                              <a class="modal-close waves-effect waves-light btn-small red" 
+                                 style={{marginTop: '10px'}}
+                                 onClick={this.onSubmitPlan3}
+                              >
                                  Select
                               </a>
                            </div>
@@ -378,12 +398,13 @@ class GoalSettingMenu extends Component {
 }
 
 GoalSettingMenu.propTypes = {
-   edit: PropTypes.object,
-   updateContact: PropTypes.func.isRequired
+   getGoals: PropTypes.func.isRequired,
+   tracker: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-   edit: state.contacts.edit
+   tracker: state.goaltracker.tracker,
+   signal: state.goaltracker.signal
 });
 
-export default connect(mapStateToProps, { updateContact })(GoalSettingMenu);
+export default connect(mapStateToProps, { setGoals })(GoalSettingMenu);

@@ -1,18 +1,16 @@
 // -------------------------------------------------------------------
-// EditContact.js
+// AddContact.js
 // --
-// User edits a contact on the contact list page.
+// User adds a contact to the contact list.
 // -------------------------------------------------------------------
 
 import React, { Component } from "react";
-import axios from "axios";
-import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { updateContact } from "../../actions/contactActions";
+import { connect } from "react-redux";
+import { addContact } from "../../actions/contactActions";
 import M from "materialize-css";
-import * as Push from "./push.js" 
 
-class EditContact extends Component {
+class AddContact extends Component {
    constructor(props) {
       super(props);
       this.onChangeLastName = this.onChangeLastName.bind(this);
@@ -20,15 +18,19 @@ class EditContact extends Component {
       this.onChangePhoneNumber = this.onChangePhoneNumber.bind(this);
       this.onChangeEmailAddr = this.onChangeEmailAddr.bind(this);
       this.onChangeTemp = this.onChangeTemp.bind(this);
+
+      //
       this.onChangeContactType = this.onChangeContactType.bind(this);
       this.onChangePipelinePosition = this.onChangePipelinePosition.bind(this);
+
+      //
+
       this.onChangeLastReachOut = this.onChangeLastReachOut.bind(this);
       this.onChangeLastReachOutTime = this.onChangeLastReachOutTime.bind(this);
       this.onChangeNotes = this.onChangeNotes.bind(this);
       this.onSubmit = this.onSubmit.bind(this);
 
       this.state = {
-         id: "",
          lname: "",
          fname: "",
          phone: "",
@@ -38,34 +40,8 @@ class EditContact extends Component {
          pipelineposition: "",
          lastreachout: "",
          lastreachouttime: "",
-         date: "",
          notes: ""
       };
-   }
-
-   componentDidUpdate(prevProps) {
-      if (prevProps.edit !== this.props.edit) {
-         this.setState({
-            id: this.props.edit._id,
-            lname: this.props.edit.lname,
-            fname: this.props.edit.fname,
-            phone: this.props.edit.phone,
-            emailaddr: this.props.edit.emailaddr,
-            temp: this.props.edit.temp,
-            contacttype: this.props.edit.contacttype,
-            pipelineposition: this.props.edit.pipelineposition,
-            lastreachout: this.props.edit.lastreachout,
-            lastreachouttime: this.props.edit.lastreachouttime,
-            date: this.props.edit.date,
-            notes: this.props.edit.notes
-         });
-         var elems = document.querySelectorAll("select");
-         var instances = M.FormSelect.init(elems);
-         instances[3].input.value = this.props.edit.temp;
-         instances[4].input.value = this.props.edit.contacttype;
-         instances[5].input.value = this.props.edit.pipelineposition;
-         // instances[6].input.value = this.props.edit.lastreachouttime;
-      }
    }
 
    onChangeLastName(e) {
@@ -129,7 +105,6 @@ class EditContact extends Component {
       const contactData = {
          email: localStorage.getItem("userEmail"),
          tokenhash: localStorage.getItem("tokenHash"),
-         id: this.state.id,
          lname: this.state.lname,
          fname: this.state.fname,
          phone: this.state.phone,
@@ -139,37 +114,43 @@ class EditContact extends Component {
          pipelineposition: this.state.pipelineposition,
          lastreachout: this.state.lastreachout,
          lastreachouttime: this.state.lastreachouttime,
-         date: this.state.date,
          notes: this.state.notes
       };
-      this.props.updateContact(contactData);
-      console.log(this.state.lastreachouttime)
-      Push.create("Update", {
-         body: this.state.fname+" has been updated.",
-         icon: '/favicon.ico',
-         timeout: 10000,
-         onClick: function () {
-             window.focus();
-             this.close();
-         }
+      this.props.addContact(contactData);
+      this.setState({
+         lname: "",
+         fname: "",
+         phone: "",
+         emailaddr: "",
+         temp: "",
+         contacttype: "",
+         pipelineposition: "",
+         lastreachout: "",
+         lastreachouttime: "",
+         notes: ""
       });
+      var elems = document.querySelectorAll("select");
+      var instances = M.FormSelect.init(elems);
+      // temp select field
+      instances[0].input.value = "";
+      // contact type select field
+      instances[1].input.value = "";
+      // pipline select field
+      instances[2].input.value = "";
    }
 
    render() {
       return (
          <header>
             <div class="modal-content">
-               <h5>
-                  {this.state.fname} {this.state.lname}
-               </h5>
+               <h5>Add Event</h5>
                <div class="row"></div>
-
 
                <div class="row">
                   <form class="col s12" onSubmit={this.onSubmit}>
                      <div class="row">
                         <div class="input-field col s6">
-                           <i class="material-icons prefix">account_circle</i>
+                        <i class="material-icons prefix">note</i>
                            <input
                               id="first_name"
                               type="text"
@@ -177,9 +158,9 @@ class EditContact extends Component {
                               value={this.state.fname}
                               onChange={this.onChangeFirstName}
                            />
-                           <span class="helper-text">First Name</span>
+                           <span class="helper-text">Event Name</span>
                         </div>
-
+{/* 
                         <div class="input-field col s6">
                            <i class="material-icons prefix">account_circle</i>
                            <input
@@ -190,10 +171,10 @@ class EditContact extends Component {
                               onChange={this.onChangeLastName}
                            />
                            <span class="helper-text">Last Name</span>
-                        </div>
+                        </div> */}
                      </div>
 
-                     <div class="row">
+                     {/* <div class="row">
                         <div class="input-field col s6">
                            <i class="material-icons prefix">phone</i>
                            <input
@@ -206,7 +187,7 @@ class EditContact extends Component {
                            <span class="helper-text">Phone Number</span>
                         </div>
 
-                        <div class="input-field col s6 active">
+                        <div class="input-field col s6">
                            <i class="material-icons prefix">email</i>
                            <input
                               id="email_addr"
@@ -217,10 +198,10 @@ class EditContact extends Component {
                            />
                            <span class="helper-text">E-mail</span>
                         </div>
-                     </div>
+                     </div> */}
 
                      <div class="row">
-                        <div class="input-field col s6">
+                        {/* <div class="input-field col s6">
                            <i class="material-icons prefix">tonality</i>
                            <select
                               value={this.state.temp}
@@ -232,12 +213,12 @@ class EditContact extends Component {
                               <option value="Warm">Warm</option>
                               <option value="Hot">Hot</option>
                            </select>
-                           <label style={{ fontSize: "12px" }}></label>
                            <span class="helper-text">Temp</span>
-                        </div>
+                        </div> */}
 
-                        <div class="input-field col s3">
-                           <i class="material-icons prefix">assignment_ind</i>
+                        <div class="input-field col s6">
+                           {/* <i class="material-icons prefix">assignment_ind</i> */}
+                           <i class="material-icons prefix">event</i>
                            <input
                               id="last_reach_out_date"
                               type="date"
@@ -245,11 +226,24 @@ class EditContact extends Component {
                               value={this.state.lastreachout}
                               onChange={this.onChangeLastReachOut}
                            />
-                           <span class="helper-text">Last Reach Out</span>
+                           <span class="helper-text">Event Start Date</span>
                         </div>
 
-                        <div class="input-field col s3">
-                           <i class="material-icons prefix">assignment_ind</i>
+                        <div class="input-field col s6">
+                           {/* <i class="material-icons prefix">assignment_ind</i> */}
+                           <i class="material-icons prefix">event</i>
+                           <input
+                              id="last_reach_out_date"
+                              type="date"
+                              class="validate"
+                              value={this.state.lastreachout}
+                              onChange={this.onChangeLastReachOut}
+                           />
+                           <span class="helper-text">Event End Date</span>
+                        </div>
+
+                        {/* <div class="input-field col s6">
+                           <i class="large material-icons prefix">timer</i>
                            <input
                               id="last_reach_out_time"
                               type="time"
@@ -257,11 +251,11 @@ class EditContact extends Component {
                               value={this.state.lastreachouttime}
                               onChange={this.onChangeLastReachOutTime}
                            />
-                           <span class="helper-text">Last Reach Out Time</span>
-                        </div>
+                           <span class="helper-text">Event End Date</span>
+                        </div> */}
                      </div>
 
-                     <div class="row">
+                     {/* <div class="row">
                         <div class="input-field col s6">
                            <i class="material-icons prefix">perm_identity</i>
                            <select
@@ -289,7 +283,7 @@ class EditContact extends Component {
                               <option value="Sideline Team Member">
                                  Sideline Team Member
                               </option>
-                              <option value="Upline">Upline</option>
+                              <option value="Upline<">Upline</option>
                               <option value="Cancelled Customer">
                                  Cancelled Customer
                               </option>
@@ -300,7 +294,6 @@ class EditContact extends Component {
                                  Referral Source
                               </option>
                            </select>
-                           <label style={{ fontSize: "12px" }}></label>
                            <span class="helper-text">Contact Type</span>
                         </div>
 
@@ -322,7 +315,7 @@ class EditContact extends Component {
                               <option value="All Info Sent">
                                  All Info Sent
                               </option>
-                              <option value="Followed Up">Followed Up</option>
+                              <option value="Follow Up">Followed Up</option>
                               <option value="Closed/Signed">
                                  Closed/Signed
                               </option>
@@ -330,12 +323,11 @@ class EditContact extends Component {
                                  Not Right Now
                               </option>
                            </select>
-                           <label style={{ fontSize: "12px" }}></label>
                            <span class="helper-text">Pipeline Position</span>
                         </div>
-                     </div>
+                     </div> */}
 
-                     <div class="row">
+                     {/* <div class="row">
                         <div class="input-field col s12">
                            <i class="material-icons prefix">note</i>
                            <textarea
@@ -346,18 +338,17 @@ class EditContact extends Component {
                               data-length="120"
                            ></textarea>
                            <label for="textarea2"></label>
-
                            <span class="helper-text">Notes</span>
                         </div>
-                     </div>
+                     </div> */}
 
                      <div class="modal-footer">
                         <button
                            type="submit"
-                           className="modal-close waves-effect waves-light btn btn-primary"
+                           className="modal-close waves-effect waves-light btn btn-primary disabled"
                            style={{ margin: "4px" }}
                         >
-                           Save Contact
+                           Add Event
                         </button>
                      </div>
                   </form>
@@ -368,13 +359,13 @@ class EditContact extends Component {
    }
 }
 
-EditContact.propTypes = {
-   edit: PropTypes.object,
-   updateContact: PropTypes.func.isRequired
+AddContact.propTypes = {
+   addContact: PropTypes.func.isRequired,
+   contact: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-   edit: state.contacts.edit
+   contact: state.contacts.contact
 });
 
-export default connect(mapStateToProps, { updateContact })(EditContact);
+export default connect(mapStateToProps, { addContact })(AddContact);

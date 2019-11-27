@@ -22,18 +22,53 @@ import TeamReachOutsHelp from "../help/TeamReachOutsHelp.js";
 // Goal tracker modals.
 import GoalSettingMenu from "./GoalSettingMenu.js";
 
-// Chart.js visualizations.
-import ReachOuts from "../chart/ReachOuts.js";
-import FollowUps from "../chart/FollowUps.js";
-import TeamReachOuts from "../chart/TeamReachOuts.js";
+// react-apex-chart visualizations.
+import ApexReachOuts from "../chart/ApexReachOuts.js";
+import ApexFollowUps from "../chart/ApexFollowUps.js";
+import ApexTeamReachOuts from "../chart/ApexTeamReachOuts.js";
 
 //
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import ReachOutsRow from "./ReachOutsRow";
 import { getContacts } from "../../actions/contactActions";
+import { getGoals } from "../../actions/goalActions"
 
 class GoalTracker extends Component {
+   constructor(props){
+      super(props);
+      this.state = {
+         tracker: {},
+         plan: ""
+      }
+   }
+
+   componentDidUpdate(prevProps){
+      if (prevProps.tracker !== this.props.tracker || 
+          prevProps.signal !== this.props.signal){
+         if (this.props.tracker.plan === 1){
+            this.setState({
+               plan: "Keep The Lights On"
+            });
+         }else if (this.props.tracker.plan === 2){
+            this.setState({
+               plan: "Positioned For Growth"
+            });
+         }else if (this.props.tracker.plan === 3){
+            this.setState({
+               plan: "Watch Out World"
+            });
+         }else{
+            this.setState({
+               plan: "Custom Plan"
+            })
+         }
+         this.setState({
+            tracker: this.props.tracker
+         })
+      }
+   }
+
    componentDidMount() {
       const user = {
          email: localStorage.getItem("userEmail"),
@@ -41,6 +76,7 @@ class GoalTracker extends Component {
       };
 
       this.props.getContacts(user);
+      this.props.getGoals(user);
    }
 
    // ReachOutsRow
@@ -99,7 +135,7 @@ class GoalTracker extends Component {
                               }}
                            >
                               Current goal plan ::{" "}
-                              <a href="#!">Keep the Lights On</a>{" "}
+                              <a href="#!">{this.state.plan}</a>{" "}
                               <a
                                  class="modal-trigger waves-effect waves-light btn-small"
                                  href="#goalsettingmenu"
@@ -127,10 +163,10 @@ class GoalTracker extends Component {
                               record_voice_over
                            </i>{" "}
                            <b>Reach Outs</b> (Weekly % Complete)
-                           <ReachOuts />
-                           <h6 class="light">Target: 15</h6>
-                           <h6 class="light">Completed: 1</h6>
-                           <h6 class="light">Percentage: 0.06%</h6>
+                           <ApexReachOuts />
+                           <h6 class="light">Target: {this.state.tracker.nrog}</h6>
+                           <h6 class="light">Completed: {this.state.tracker.nrogdone}</h6>
+                           <h6 class="light">Percentage: {((this.state.tracker.nrogdone/this.state.tracker.nrog)*100).toFixed(2)}%</h6>
                            <div class="row"></div>
                            <div class="row">
                               <div class="col s6">
@@ -188,10 +224,10 @@ class GoalTracker extends Component {
                               insert_emoticon
                            </i>
                            <b>Follow Ups</b> (Weekly % Complete)
-                           <FollowUps />
-                           <h6 class="light">Target: 10</h6>
-                           <h6 class="light">Completed: 1</h6>
-                           <h6 class="light">Percentage: 0.1%</h6>
+                           <ApexFollowUps />
+                           <h6 class="light">Target: {this.state.tracker.fug}</h6>
+                           <h6 class="light">Completed: {this.state.tracker.fugdone}</h6>
+                           <h6 class="light">Percentage: {((this.state.tracker.fugdone/this.state.tracker.fug)*100).toFixed(2)}%</h6>
                            <div class="row"></div>
                            <div class="row">
                               <div class="col s6">
@@ -234,10 +270,10 @@ class GoalTracker extends Component {
                               people
                            </i>
                            <b>Team Reachouts</b> (Weekly % Complete)
-                           <TeamReachOuts />
-                           <h6 class="light">Target: 5</h6>
-                           <h6 class="light">Completed: 1</h6>
-                           <h6 class="light">Percentage: 0.2%</h6>
+                           <ApexTeamReachOuts />
+                           <h6 class="light">Target: {this.state.tracker.trog}</h6>
+                           <h6 class="light">Completed: {this.state.tracker.trogdone}</h6>
+                           <h6 class="light">Percentage: {((this.state.tracker.trogdone/this.state.tracker.trog)*100).toFixed(2)}%</h6>
                            <div class="row"></div>
                            <div class="row">
                               <div class="col s6">
@@ -315,17 +351,27 @@ class GoalTracker extends Component {
 }
 GoalTracker.propTypes = {
    getContacts: PropTypes.func.isRequired,
+
+   getGoals: PropTypes.func.isRequired,
+
    contacts: PropTypes.array.isRequired,
    contact: PropTypes.object,
    update: PropTypes.object,
-   delete: PropTypes.object
+   delete: PropTypes.object,
+
+   tracker: PropTypes.object,
+   signal: PropTypes.bool
+
 };
 
 const mapStateToProps = state => ({
    contacts: state.contacts.contacts,
    contact: state.contacts.contact,
    update: state.contacts.update,
-   delete: state.contacts.delete
+   delete: state.contacts.delete,
+
+   tracker: state.goaltracker.tracker,
+   signal: state.goaltracker.signal
 });
 
-export default connect(mapStateToProps, { getContacts })(GoalTracker);
+export default connect(mapStateToProps, { getContacts, getGoals })(GoalTracker);
