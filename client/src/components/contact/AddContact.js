@@ -9,6 +9,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addContact } from "../../actions/contactActions";
 import M from "materialize-css";
+import * as Push from "push.js"
 
 class AddContact extends Component {
    constructor(props) {
@@ -137,6 +138,17 @@ class AddContact extends Component {
       instances[1].input.value = "";
       // pipline select field
       instances[2].input.value = "";
+
+      Push.create("Update", {
+         body: this.state.fname+" has been added to the contact list.",
+         icon: '/favicon.ico',
+         timeout: 10000,
+         onClick: function () {
+             window.focus();
+             this.close();
+         }
+      });
+
    }
 
    render() {
