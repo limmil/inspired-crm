@@ -143,6 +143,7 @@ class EditContact extends Component {
          notes: this.state.notes
       };
       this.props.updateContact(contactData);
+      console.log(this.state.lastreachouttime)
       Push.create("Update", {
          body: this.state.fname+" has been updated.",
          icon: '/favicon.ico',
