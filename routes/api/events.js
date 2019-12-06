@@ -23,10 +23,14 @@ passport.authenticate('jwt', { session: false }),
     if (user.tokenhash == tokenhash){
       // add one event
       const newEvent = new Event({
+        // user: user._id,
+        // start: req.body.start,
+        // end: req.body.end,
+        // title: req.body.title,
         user: user._id,
-        start: req.body.start,
-        end: req.body.end,
-        title: req.body.title,
+        start: req.body.lastreachout,
+        end: req.body.lastreachouttime,
+        title: req.body.fname,
       });
       newEvent
         .save()
