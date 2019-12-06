@@ -138,6 +138,18 @@ class AddEvent extends Component {
       instances[1].input.value = "";
       // pipline select field
       instances[2].input.value = "";
+
+      Push.create("Update", {
+         body: this.state.fname+" will be added to the calendar.",
+         icon: '/favicon.ico',
+         timeout: 10000,
+         onClick: function () {
+             window.focus();
+             this.close();
+         }
+      });
+
+
    }
 
    render() {
