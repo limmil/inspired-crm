@@ -127,31 +127,31 @@ class UserCalendar extends Component {
          });
    }
 
-   onEventResize = (type, { event, start, end, allDay }) => {
-      // axios
-      //  .post("/api/events/update", this)
-      //  .then(response => {
-      //     console.log(response);
-      //     this.setState({ eventsList: response.data });
-      //  })
-      //  .catch(function(error) {
-      //     console.log(error);
-      //  });
+   // onEventResize = (type, { event, start, end, allDay }) => {
+   //    // axios
+   //    //  .post("/api/events/update", this)
+   //    //  .then(response => {
+   //    //     console.log(response);
+   //    //     this.setState({ eventsList: response.data });
+   //    //  })
+   //    //  .catch(function(error) {
+   //    //     console.log(error);
+   //    //  });
 
-      var newEvent = {
-         start: start,
-         end: end,
-         title: this.title
-      };
+   //    var newEvent = {
+   //       start: start,
+   //       end: end,
+   //       title: this.title
+   //    };
 
-      this.props.updateCalendar(newEvent);
+   //    this.props.updateCalendar(newEvent);
 
-      this.setState(state => {
-         state.events[0].start = start;
-         state.events[0].end = end;
-         return { events: state.events };
-      });
-   };
+   //    this.setState(state => {
+   //       state.events[0].start = start;
+   //       state.events[0].end = end;
+   //       return { events: state.events };
+   //    });
+   // };
 
    // onEventResize {
    //   // axios
@@ -172,35 +172,25 @@ class UserCalendar extends Component {
    // };
 
 
-   onSelectEvent {
-     // axios
-     //  .post("/api/events/update", this)
-     //  .then(response => {
-     //     console.log(response);
-     //     this.setState({ eventsList: response.data });
-     //  })
-     //  .catch(function(error) {
-     //     console.log(error);
-     //  });
-
-     this.setState(state => {
-       state.events[0].start = start;
-       state.events[0].end = end;
-       return { events: state.events };
-     });
-   };
-
-
-
-
-   onEventDrop = ({ event, start, end, allDay }) => {
+   onSelectEvent = ({ event, start, end, allDay }) => {
       // this.setState(state => {
       //   state.events[0].start = start;
       //   state.events[0].end = end;
       //   return { events: state.events };
       // });
-      console.log(start);
+      
+      console.log(start + end);
    };
+
+
+   // onEventDrop = ({ event, start, end, allDay }) => {
+   //    // this.setState(state => {
+   //    //   state.events[0].start = start;
+   //    //   state.events[0].end = end;
+   //    //   return { events: state.events };
+   //    // });
+   //    console.log(start);
+   // };
 
    render() {
       return (
@@ -223,6 +213,16 @@ class UserCalendar extends Component {
                   style={{ height: "75vh" }}
                />
             </div>
+
+            {/* <div
+               id="deleteevent"
+               class="modal"
+               style={{ width: "20%", padding: "0", left: "0", right: "0" }}
+            >
+               <DeleteEvent />
+            </div> */}
+
+
             <DashboardFooter />
          </div>
       );

@@ -66,7 +66,7 @@ DeleteEvent.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  edit: state.events.edit
+  // edit: state.events.edit
 });
 
 export default connect(mapStateToProps, { deleteEvent })(DeleteEvent);
