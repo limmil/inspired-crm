@@ -6,6 +6,11 @@
  * Made By MaterializeCSS.com
  */
 
+ /*For temporary broken calendar fix*/
+ .rbc-btn-group > button:not(:first-child):not(:last-child) {
+   display: none;
+}
+
 nav ul a,
 nav .brand-logo {
    color: #fff;

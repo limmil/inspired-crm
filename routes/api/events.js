@@ -23,14 +23,10 @@ passport.authenticate('jwt', { session: false }),
     if (user.tokenhash == tokenhash){
       // add one event
       const newEvent = new Event({
-        // user: user._id,
-        // start: req.body.start,
-        // end: req.body.end,
-        // title: req.body.title,
         user: user._id,
-        start: req.body.lastreachout,
-        end: req.body.lastreachouttime,
-        title: req.body.fname,
+        start: req.body.eventStart,
+        end: req.body.eventEnd,
+        title: req.body.eventName,
       });
       newEvent
         .save()
@@ -116,9 +112,9 @@ passport.authenticate('jwt', { session: false }),
     if (user.tokenhash == tokenhash){
       Event.findOneAndUpdate({'_id': id},{ 
           '$set': {
-          'start': req.body.start,
-          'end': req.body.end,
-          'title': req.body.title
+          'start': req.body.eventStart,
+          'end': req.body.eventEnd,
+          'title': req.body.eventName
           }
       }, {useFindAndModify: false})
       .then(res.status(200).send('UPDATED'))

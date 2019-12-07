@@ -3,7 +3,8 @@ import setAuthToken from "../utils/setAuthToken";
 import { 
     SET_CURRENT_USER, 
     // GET_CONTACTS, 
-    ADD_EVENT
+    ADD_EVENT,
+    DELETE_EVENT
     // EDIT_CONTACT,
     // UPDATE_CONTACT,
     // DELETE_CONTACT,
@@ -74,27 +75,27 @@ export const addEvent = data => dispatch => {
 //         });
 // }
 
-// delete one contact
-// export const deleteContact = contact => dispatch => {
-//     axios
-//         .post("/api/contacts/delete", contact)
-//         .then(res => {
-//             console.log(res)
-//             delete contact.tokenhash
-//             delete contact.email
-//             if (res.data === "DELETED") {
-//                 dispatch({
-//                     type: DELETE_CONTACT,
-//                     payload: contact
-//                 })
-//             }
-//         })
-//         .catch(err => {
-//             if (err.response.status === 401){
-//                 logoutUser(dispatch);
-//             }
-//         });
-// }
+// delete one event
+export const deleteEvent = event => dispatch => {
+    axios
+        .post("/api/events/delete", event)
+        .then(res => {
+            console.log(res)
+            delete event.tokenhash
+            delete event.email
+            if (res.data === "DELETED") {
+                dispatch({
+                    type: DELETE_EVENT,
+                    payload: event
+                })
+            }
+        })
+        .catch(err => {
+            if (err.response.status === 401){
+                logoutUser(dispatch);
+            }
+        });
+}
 
 // select all contacts
 // export const selectAll = selected => dispatch => {
