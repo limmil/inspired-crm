@@ -171,6 +171,28 @@ class UserCalendar extends Component {
    //   });
    // };
 
+
+   onSelectEvent {
+     // axios
+     //  .post("/api/events/update", this)
+     //  .then(response => {
+     //     console.log(response);
+     //     this.setState({ eventsList: response.data });
+     //  })
+     //  .catch(function(error) {
+     //     console.log(error);
+     //  });
+
+     this.setState(state => {
+       state.events[0].start = start;
+       state.events[0].end = end;
+       return { events: state.events };
+     });
+   };
+
+
+
+
    onEventDrop = ({ event, start, end, allDay }) => {
       // this.setState(state => {
       //   state.events[0].start = start;
@@ -193,8 +215,10 @@ class UserCalendar extends Component {
                   defaultDate={new Date()}
                   defaultView="month"
                   events={this.state.eventsList}
-                  onEventDrop={this.onEventDrop}
-                  onEventResize={this.state.onEventResize}
+                  selectable={true}
+                  onSelectEvent={this.onSelectEvent}
+                  // onEventDrop={this.onEventDrop}
+                  // onEventResize={this.state.onEventResize}
                   // resizable
                   style={{ height: "75vh" }}
                />

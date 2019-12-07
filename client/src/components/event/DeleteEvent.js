@@ -33,9 +33,9 @@ class DeleteEvent extends Component {
     return (
       <header>
         <div class="modal-content">
-          <h5>Delete Contact</h5>
+          <h5>Delete Event</h5>
           <div class="row"></div>
-          <p>Are you sure you want to delete this contact?</p>
+          <p>Are you sure you want to delete this event?</p>
         </div>
         <div class="modal-footer">
           <button
