@@ -89,6 +89,7 @@ import { updateContact } from "../../actions/calendarActions";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "./moment";
 import withDragAndDrop from "react-big-calendar/lib/addons/dragAndDrop";
+import DeleteEvent from "../event/DeleteEvent.js";
 
 // Calendar styles.
 import "./Calendar.css";
@@ -194,7 +195,7 @@ class UserCalendar extends Component {
                   events={this.state.eventsList}
                   onEventDrop={this.onEventDrop}
                   onEventResize={this.state.onEventResize}
-                  resizable
+                  // resizable
                   style={{ height: "75vh" }}
                />
             </div>
