@@ -7,128 +7,127 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { addEvent } from "../../actions/eventActions";
+import { addContact } from "../../actions/eventActions";
 import M from "materialize-css";
-import Push from "./push.js"
 
-class AddEvent extends Component {
+class AddContact extends Component {
    constructor(props) {
       super(props);
-      // this.onChangeLastName = this.onChangeLastName.bind(this);
-      this.onChangeEventName = this.onChangeEventName.bind(this);
-      // this.onChangePhoneNumber = this.onChangePhoneNumber.bind(this);
-      // this.onChangeEmailAddr = this.onChangeEmailAddr.bind(this);
-      // this.onChangeTemp = this.onChangeTemp.bind(this);
+      this.onChangeLastName = this.onChangeLastName.bind(this);
+      this.onChangeFirstName = this.onChangeFirstName.bind(this);
+      this.onChangePhoneNumber = this.onChangePhoneNumber.bind(this);
+      this.onChangeEmailAddr = this.onChangeEmailAddr.bind(this);
+      this.onChangeTemp = this.onChangeTemp.bind(this);
 
       //
-      // this.onChangeContactType = this.onChangeContactType.bind(this);
-      // this.onChangePipelinePosition = this.onChangePipelinePosition.bind(this);
+      this.onChangeContactType = this.onChangeContactType.bind(this);
+      this.onChangePipelinePosition = this.onChangePipelinePosition.bind(this);
 
       //
 
-      this.onChangeEventStart = this.onChangeEventStart.bind(this);
-      this.onChangeEventEnd = this.onChangeEventEnd.bind(this);
-      // this.onChangeNotes = this.onChangeNotes.bind(this);
+      this.onChangeLastReachOut = this.onChangeLastReachOut.bind(this);
+      this.onChangeLastReachOutTime = this.onChangeLastReachOutTime.bind(this);
+      this.onChangeNotes = this.onChangeNotes.bind(this);
       this.onSubmit = this.onSubmit.bind(this);
 
       this.state = {
-         // lname: "",
-         eventName: "",
-         // phone: "",
-         // emailaddr: "",
-         // temp: "",
-         // contacttype: "",
-         // pipelineposition: "",
-         eventStart: "",
-         eventEnd: ""
-         // notes: ""
+         lname: "",
+         fname: "",
+         phone: "",
+         emailaddr: "",
+         temp: "",
+         contacttype: "",
+         pipelineposition: "",
+         lastreachout: "",
+         lastreachouttime: "",
+         notes: ""
       };
    }
 
-   // onChangeLastName(e) {
-   //    this.setState({
-   //       lname: e.target.value
-   //    });
-   // }
-   onChangeEventName(e) {
+   onChangeLastName(e) {
       this.setState({
-         eventName: e.target.value
+         lname: e.target.value
       });
    }
-   // onChangePhoneNumber(e) {
-   //    this.setState({
-   //       phone: e.target.value
-   //    });
-   // }
-   // onChangeEmailAddr(e) {
-   //    this.setState({
-   //       emailaddr: e.target.value
-   //    });
-   // }
-   // onChangeTemp(e) {
-   //    this.setState({
-   //       temp: e.target.value
-   //    });
-   // }
-
-   // onChangeContactType(e) {
-   //    this.setState({
-   //       contacttype: e.target.value
-   //    });
-   // }
-
-   // onChangePipelinePosition(e) {
-   //    this.setState({
-   //       pipelineposition: e.target.value
-   //    });
-   // }
-
-   onChangeEventStart(e) {
+   onChangeFirstName(e) {
       this.setState({
-         eventStart: e.target.value
+         fname: e.target.value
+      });
+   }
+   onChangePhoneNumber(e) {
+      this.setState({
+         phone: e.target.value
+      });
+   }
+   onChangeEmailAddr(e) {
+      this.setState({
+         emailaddr: e.target.value
+      });
+   }
+   onChangeTemp(e) {
+      this.setState({
+         temp: e.target.value
       });
    }
 
-   onChangeEventEnd(e) {
+   onChangeContactType(e) {
       this.setState({
-         eventEnd: e.target.value
+         contacttype: e.target.value
       });
    }
 
-   // onChangeNotes(e) {
-   //    this.setState({
-   //       notes: e.target.value
-   //    });
-   // }
+   onChangePipelinePosition(e) {
+      this.setState({
+         pipelineposition: e.target.value
+      });
+   }
+
+   onChangeLastReachOut(e) {
+      this.setState({
+         lastreachout: e.target.value
+      });
+   }
+
+   onChangeLastReachOutTime(e) {
+      this.setState({
+         lastreachouttime: e.target.value
+      });
+   }
+
+   onChangeNotes(e) {
+      this.setState({
+         notes: e.target.value
+      });
+   }
 
    onSubmit(e) {
       e.preventDefault();
-      const eventData = {
+      const contactData = {
          email: localStorage.getItem("userEmail"),
          tokenhash: localStorage.getItem("tokenHash"),
-         // lname: this.state.lname,
-         eventName: this.state.eventName,
-         // phone: this.state.phone,
-         // emailaddr: this.state.emailaddr,
-         // temp: this.state.temp,
-         // contacttype: this.state.contacttype,
-         // pipelineposition: this.state.pipelineposition,
-         eventStart: this.state.eventStart,
-         eventEnd: this.state.eventEnd
-         // notes: this.state.notes
+         lname: this.state.lname,
+         fname: this.state.fname,
+         phone: this.state.phone,
+         emailaddr: this.state.emailaddr,
+         temp: this.state.temp,
+         contacttype: this.state.contacttype,
+         pipelineposition: this.state.pipelineposition,
+         lastreachout: this.state.lastreachout,
+         lastreachouttime: this.state.lastreachouttime,
+         notes: this.state.notes
       };
-      this.props.addEvent(eventData);
+      this.props.addContact(contactData);
       this.setState({
-         // lname: "",
-         eventName: "",
-         // phone: "",
-         // emailaddr: "",
-         // temp: "",
-         // contacttype: "",
-         // pipelineposition: "",
-         eventStart: "",
-         eventEnd: ""
-         // notes: ""
+         lname: "",
+         fname: "",
+         phone: "",
+         emailaddr: "",
+         temp: "",
+         contacttype: "",
+         pipelineposition: "",
+         lastreachout: "",
+         lastreachouttime: "",
+         notes: ""
       });
       var elems = document.querySelectorAll("select");
       var instances = M.FormSelect.init(elems);
@@ -138,18 +137,6 @@ class AddEvent extends Component {
       instances[1].input.value = "";
       // pipline select field
       instances[2].input.value = "";
-
-      Push.create("Update", {
-         body: this.state.eventName+" will be added to the calendar.",
-         icon: '/favicon.ico',
-         timeout: 10000,
-         onClick: function () {
-             window.focus();
-             this.close();
-         }
-      });
-
-
    }
 
    render() {
@@ -168,8 +155,8 @@ class AddEvent extends Component {
                               id="first_name"
                               type="text"
                               class="validate"
-                              value={this.state.eventName}
-                              onChange={this.onChangeEventName}
+                              value={this.state.fname}
+                              onChange={this.onChangeFirstName}
                            />
                            <span class="helper-text">Event Name</span>
                         </div>
@@ -233,11 +220,11 @@ class AddEvent extends Component {
                            {/* <i class="material-icons prefix">assignment_ind</i> */}
                            <i class="material-icons prefix">event</i>
                            <input
-                              id="event_start_date"
+                              id="last_reach_out_date"
                               type="date"
                               class="validate"
-                              value={this.state.eventStart}
-                              onChange={this.onChangeEventStart}
+                              value={this.state.lastreachout}
+                              onChange={this.onChangeLastReachOut}
                            />
                            <span class="helper-text">Event Start Date</span>
                         </div>
@@ -246,11 +233,11 @@ class AddEvent extends Component {
                            {/* <i class="material-icons prefix">assignment_ind</i> */}
                            <i class="material-icons prefix">event</i>
                            <input
-                              id="event_end_date"
+                              id="last_reach_out_date"
                               type="date"
                               class="validate"
-                              value={this.state.eventEnd}
-                              onChange={this.onChangeEventEnd}
+                              value={this.state.lastreachout}
+                              onChange={this.onChangeLastReachOut}
                            />
                            <span class="helper-text">Event End Date</span>
                         </div>
@@ -358,7 +345,7 @@ class AddEvent extends Component {
                      <div class="modal-footer">
                         <button
                            type="submit"
-                           className="modal-close waves-effect waves-light btn btn-primary"
+                           className="modal-close waves-effect waves-light btn btn-primary disabled"
                            style={{ margin: "4px" }}
                         >
                            Add Event
@@ -372,28 +359,13 @@ class AddEvent extends Component {
    }
 }
 
-// AddContact.propTypes = {
-//    addContact: PropTypes.func.isRequired,
-//    contact: PropTypes.object
-// };
-
-// const mapStateToProps = state => ({
-//    contact: state.contacts.contact
-// });
-
-// export default connect(mapStateToProps, { addContact })(AddContact);
-
-
-
-
-
-AddEvent.propTypes = {
-   addEvent: PropTypes.func.isRequired,
-   event: PropTypes.object
+AddContact.propTypes = {
+   addContact: PropTypes.func.isRequired,
+   contact: PropTypes.object
 };
 
 const mapStateToProps = state => ({
-   // event: state.events.event
+   contact: state.contacts.contact
 });
 
-export default connect(mapStateToProps, { addEvent })(AddEvent);
+export default connect(mapStateToProps, { addContact })(AddContact);

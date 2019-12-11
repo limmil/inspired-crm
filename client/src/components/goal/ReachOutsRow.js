@@ -46,7 +46,7 @@ class ReachOutsRow extends Component {
          <tr>
             <ReactTooltip />
             <td>
-               <a class="modal-trigger" href="#editcontact" onClick={this.edit}>
+                <a class="modal-trigger" href="#editcontact" onClick={this.edit}>
                   {this.props.obj.fname} {this.props.obj.lname}
                </a>
             </td>

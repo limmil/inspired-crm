@@ -32,40 +32,42 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import ReachOutsRow from "./ReachOutsRow";
 import { getContacts } from "../../actions/contactActions";
-import { getGoals } from "../../actions/goalActions"
+import { getGoals } from "../../actions/goalActions";
 
 class GoalTracker extends Component {
-   constructor(props){
+   constructor(props) {
       super(props);
       this.state = {
          tracker: {},
          plan: ""
-      }
+      };
    }
 
-   componentDidUpdate(prevProps){
-      if (prevProps.tracker !== this.props.tracker || 
-          prevProps.signal !== this.props.signal){
-         if (this.props.tracker.plan === 1){
+   componentDidUpdate(prevProps) {
+      if (
+         prevProps.tracker !== this.props.tracker ||
+         prevProps.signal !== this.props.signal
+      ) {
+         if (this.props.tracker.plan === 1) {
             this.setState({
                plan: "Keep The Lights On"
             });
-         }else if (this.props.tracker.plan === 2){
+         } else if (this.props.tracker.plan === 2) {
             this.setState({
                plan: "Positioned For Growth"
             });
-         }else if (this.props.tracker.plan === 3){
+         } else if (this.props.tracker.plan === 3) {
             this.setState({
                plan: "Watch Out World"
             });
-         }else{
+         } else {
             this.setState({
                plan: "Custom Plan"
-            })
+            });
          }
          this.setState({
             tracker: this.props.tracker
-         })
+         });
       }
    }
 
@@ -87,6 +89,8 @@ class GoalTracker extends Component {
    }
 
    render() {
+  
+
       return (
          <div>
             <DashboardNavbar />
@@ -105,7 +109,6 @@ class GoalTracker extends Component {
                            <div class="input-field col s12 m3">
                               <select
                                  id="adjust_my_graph"
-                                 
                                  value="Weekly % Complete" // this.state.graph
                                  onChange="" // this.onChangeGraph
                                  class="validate"
@@ -164,9 +167,21 @@ class GoalTracker extends Component {
                            </i>{" "}
                            <b>Reach Outs</b> (Weekly % Complete)
                            <ApexReachOuts />
-                           <h6 class="light">Target: {this.state.tracker.nrog}</h6>
-                           <h6 class="light">Completed: {this.state.tracker.nrogdone}</h6>
-                           <h6 class="light">Percentage: {((this.state.tracker.nrogdone/this.state.tracker.nrog)*100).toFixed(2)}%</h6>
+                           <h6 class="light">
+                              Target: {this.state.tracker.nrog}
+                           </h6>
+                           <h6 class="light">
+                              Completed: {this.state.tracker.nrogdone}
+                           </h6>
+                           <h6 class="light">
+                              Percentage:{" "}
+                              {(
+                                 (this.state.tracker.nrogdone /
+                                    this.state.tracker.nrog) *
+                                 100
+                              ).toFixed(2)}
+                              %
+                           </h6>
                            <div class="row"></div>
                            <div class="row">
                               <div class="col s6">
@@ -225,9 +240,21 @@ class GoalTracker extends Component {
                            </i>
                            <b>Follow Ups</b> (Weekly % Complete)
                            <ApexFollowUps />
-                           <h6 class="light">Target: {this.state.tracker.fug}</h6>
-                           <h6 class="light">Completed: {this.state.tracker.fugdone}</h6>
-                           <h6 class="light">Percentage: {((this.state.tracker.fugdone/this.state.tracker.fug)*100).toFixed(2)}%</h6>
+                           <h6 class="light">
+                              Target: {this.state.tracker.fug}
+                           </h6>
+                           <h6 class="light">
+                              Completed: {this.state.tracker.fugdone}
+                           </h6>
+                           <h6 class="light">
+                              Percentage:{" "}
+                              {(
+                                 (this.state.tracker.fugdone /
+                                    this.state.tracker.fug) *
+                                 100
+                              ).toFixed(2)}
+                              %
+                           </h6>
                            <div class="row"></div>
                            <div class="row">
                               <div class="col s6">
@@ -271,9 +298,21 @@ class GoalTracker extends Component {
                            </i>
                            <b>Team Reachouts</b> (Weekly % Complete)
                            <ApexTeamReachOuts />
-                           <h6 class="light">Target: {this.state.tracker.trog}</h6>
-                           <h6 class="light">Completed: {this.state.tracker.trogdone}</h6>
-                           <h6 class="light">Percentage: {((this.state.tracker.trogdone/this.state.tracker.trog)*100).toFixed(2)}%</h6>
+                           <h6 class="light">
+                              Target: {this.state.tracker.trog}
+                           </h6>
+                           <h6 class="light">
+                              Completed: {this.state.tracker.trogdone}
+                           </h6>
+                           <h6 class="light">
+                              Percentage:{" "}
+                              {(
+                                 (this.state.tracker.trogdone /
+                                    this.state.tracker.trog) *
+                                 100
+                              ).toFixed(2)}
+                              %
+                           </h6>
                            <div class="row"></div>
                            <div class="row">
                               <div class="col s6">
@@ -361,7 +400,6 @@ GoalTracker.propTypes = {
 
    tracker: PropTypes.object,
    signal: PropTypes.bool
-
 };
 
 const mapStateToProps = state => ({

@@ -1,3 +1,10 @@
+ 
+ 
+ /*For temporary broken calendar fix*/
+ .rbc-btn-group > button:not(:first-child):not(:last-child) {
+  display: none;
+}
+
 .UserCalendar {
     text-align: center;
   }
