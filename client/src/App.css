@@ -181,6 +181,10 @@ p {
    width: 500px;
 }
 
+#register-page {
+   width: 500px;
+}
+
 .card {
    position: absolute;
    left: 50%;
