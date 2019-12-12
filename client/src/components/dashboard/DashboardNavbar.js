@@ -291,6 +291,12 @@ class DashboardNavbar extends Component {
                                     <i class="material-icons">event</i>Calendar
                                  </Link>
                               </li>
+                              <li>
+                                 <a class="modal-trigger" href="#addevent">
+                                    <i class="material-icons">add_box</i>Add
+                                    Event
+                                 </a>
+                              </li>
                            </ul>
                         </div>
                      </li>

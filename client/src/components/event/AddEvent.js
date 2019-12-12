@@ -33,14 +33,14 @@ class AddEvent extends Component {
 
       this.state = {
          // lname: "",
-         fname: "",
+         eventName: "",
          // phone: "",
          // emailaddr: "",
          // temp: "",
          // contacttype: "",
          // pipelineposition: "",
-         lastreachout: "",
-         lastreachouttime: ""
+         eventStart: "",
+         eventEnd: ""
          // notes: ""
       };
    }
@@ -52,7 +52,7 @@ class AddEvent extends Component {
    // }
    onChangeEventName(e) {
       this.setState({
-         fname: e.target.value
+         eventName: e.target.value
       });
    }
    // onChangePhoneNumber(e) {
@@ -85,13 +85,13 @@ class AddEvent extends Component {
 
    onChangeEventStart(e) {
       this.setState({
-         lastreachout: e.target.value
+         eventStart: e.target.value
       });
    }
 
    onChangeEventEnd(e) {
       this.setState({
-         lastreachouttime: e.target.value
+         eventEnd: e.target.value
       });
    }
 
@@ -107,27 +107,27 @@ class AddEvent extends Component {
          email: localStorage.getItem("userEmail"),
          tokenhash: localStorage.getItem("tokenHash"),
          // lname: this.state.lname,
-         fname: this.state.fname,
+         eventName: this.state.eventName,
          // phone: this.state.phone,
          // emailaddr: this.state.emailaddr,
          // temp: this.state.temp,
          // contacttype: this.state.contacttype,
          // pipelineposition: this.state.pipelineposition,
-         lastreachout: this.state.lastreachout,
-         lastreachouttime: this.state.lastreachouttime
+         eventStart: this.state.eventStart,
+         eventEnd: this.state.eventEnd
          // notes: this.state.notes
       };
       this.props.addEvent(eventData);
       this.setState({
          // lname: "",
-         fname: "",
+         eventName: "",
          // phone: "",
          // emailaddr: "",
          // temp: "",
          // contacttype: "",
          // pipelineposition: "",
-         lastreachout: "",
-         lastreachouttime: ""
+         eventStart: "",
+         eventEnd: ""
          // notes: ""
       });
       var elems = document.querySelectorAll("select");
@@ -140,7 +140,7 @@ class AddEvent extends Component {
       instances[2].input.value = "";
 
       Push.create("Update", {
-         body: this.state.fname+" will be added to the calendar.",
+         body: this.state.eventName+" will be added to the calendar.",
          icon: '/favicon.ico',
          timeout: 10000,
          onClick: function () {
@@ -168,7 +168,7 @@ class AddEvent extends Component {
                               id="first_name"
                               type="text"
                               class="validate"
-                              value={this.state.fname}
+                              value={this.state.eventName}
                               onChange={this.onChangeEventName}
                            />
                            <span class="helper-text">Event Name</span>
@@ -236,7 +236,7 @@ class AddEvent extends Component {
                               id="event_start_date"
                               type="date"
                               class="validate"
-                              value={this.state.lastreachout}
+                              value={this.state.eventStart}
                               onChange={this.onChangeEventStart}
                            />
                            <span class="helper-text">Event Start Date</span>
@@ -249,7 +249,7 @@ class AddEvent extends Component {
                               id="event_end_date"
                               type="date"
                               class="validate"
-                              value={this.state.lastreachouttime}
+                              value={this.state.eventEnd}
                               onChange={this.onChangeEventEnd}
                            />
                            <span class="helper-text">Event End Date</span>
