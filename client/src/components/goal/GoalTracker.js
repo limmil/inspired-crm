@@ -89,8 +89,6 @@ class GoalTracker extends Component {
    }
 
    render() {
-  
-
       return (
          <div>
             <DashboardNavbar />
@@ -296,7 +294,7 @@ class GoalTracker extends Component {
                            >
                               people
                            </i>
-                           <b>Team Reachouts</b> (Weekly % Complete)
+                           <b>Team Reach Outs</b> (Weekly % Complete)
                            <ApexTeamReachOuts />
                            <h6 class="light">
                               Target: {this.state.tracker.trog}
