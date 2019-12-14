@@ -8,7 +8,7 @@ class DashboardFooter extends Component {
             <div class="footer-copyright">
                <div class="container">
                   <span>
-                     Copyright ©
+                     © Copyright 2019,
                      <script type="text/javascript">
                         document.write(new Date().getFullYear());
                      </script>{" "}
@@ -21,7 +21,6 @@ class DashboardFooter extends Component {
                      </Link>{" "}
                      All rights reserved.
                   </span>
-                 
                </div>
             </div>
          </footer>

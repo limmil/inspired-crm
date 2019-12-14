@@ -11,7 +11,7 @@ class Navbar extends Component {
                   <div class="nav-wrapper container">
                      <a id="logo-container" class="brand-logo">
                         <Link to="/" onClick={this.forceUpdate}>
-                           <font color="#212121">TSG CRM</font>
+                           <font color="#212121">Inspired CRM</font>
                         </Link>
                      </a>
                      <ul class="right hide-on-med-and-down">
@@ -38,14 +38,11 @@ class Navbar extends Component {
                      <div class="background">
                         <img src="./assets/img/gallary/22.png" />
                      </div>
-                 
+
                      <a href="#name">
-                        <span class="white-text name" id="shadow">
-                           
-                        </span>
+                        <span class="white-text name" id="shadow"></span>
                         <br /> <br />
                      </a>
-                   
                   </div>
                </li>
 
