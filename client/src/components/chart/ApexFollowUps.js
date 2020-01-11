@@ -38,10 +38,10 @@ class ApexFollowUps extends Component {
             },
             labels: ["Follow Ups", "Follow Ups Pending"],
 
-            colors: ["#00aaff", "#96dcff"]
+            colors: ["#78FF82", "#007609"]
          },
 
-         series: [1, 9],
+         series: [1, 0],
          labels: ["Progress"]
       };
 
@@ -61,6 +61,20 @@ class ApexFollowUps extends Component {
       */
    }
 
+   componentDidUpdate(prevProps) {
+      if (
+         prevProps.tracker !== this.props.tracker ||
+         prevProps.signal !== this.props.signal
+      ) {
+         this.setState({
+            series: [
+               this.props.tracker.fugdone,
+               this.props.tracker.fug - this.props.tracker.fugdone
+            ]
+         });
+      }
+   }
+
    render() {
       return (
          <div className="donut">
@@ -76,4 +90,14 @@ class ApexFollowUps extends Component {
    }
 }
 
-export default ApexFollowUps;
+ApexFollowUps.propTypes = {
+   tracker: PropTypes.object,
+   signal: PropTypes.bool
+};
+
+const mapStateToProps = state => ({
+   tracker: state.goaltracker.tracker,
+   signal: state.goaltracker.signal
+});
+
+export default connect(mapStateToProps)(ApexFollowUps);

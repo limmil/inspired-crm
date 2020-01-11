@@ -36,10 +36,10 @@ class ApexReachOuts extends Component {
                }
             },
             labels: ["Reach Outs", "Reach Outs Pending"],
-            colors:['#ff1f1f', '#ff8080'],
+            colors:['#FF8282', '#ff1f1f'],
          },
 
-         series: [1, 14],
+         series: [1, 0],
          labels: ["Progress"]
       };
 
@@ -59,6 +59,15 @@ class ApexReachOuts extends Component {
       */
    }
 
+   componentDidUpdate(prevProps){
+      if (prevProps.tracker !== this.props.tracker || 
+          prevProps.signal !== this.props.signal){
+         this.setState({
+            series: [this.props.tracker.nrogdone, this.props.tracker.nrog-this.props.tracker.nrogdone]
+         })
+      }
+   }
+
    render() {
       return (
          <div className="donut">
@@ -74,4 +83,15 @@ class ApexReachOuts extends Component {
    }
 }
 
-export default ApexReachOuts;
+ApexReachOuts.propTypes = {
+   tracker: PropTypes.object,
+   signal: PropTypes.bool
+
+};
+
+const mapStateToProps = state => ({
+   tracker: state.goaltracker.tracker,
+   signal: state.goaltracker.signal
+});
+
+export default connect(mapStateToProps)(ApexReachOuts);
